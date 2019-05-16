@@ -3708,10 +3708,38 @@ public void drawPgBasement3D(){
   pg[3].curve(pg[3].width/2+50,50, pg[3].width/2+20,150, pg[3].width/2-40,180, pg[3].width/2-50,200);
   pg[3].curve(pg[3].width/2+20,150, pg[3].width/2-40,180, pg[3].width/2-50,200, pg[3].width/2-50,200);
   pg[3].line(pg[3].width/2, 150, pg[3].width/2, 400);
-  pg[3].line(pg[3].width/2-25, 200, pg[3].width/2+25, 200);
-  pg[3].line(pg[3].width/2-30, 400, pg[3].width/2+30, 400);
-  pg[3].line(pg[3].width/2-30, 400, pg[3].width/2-40, 700);
-  pg[3].line(pg[3].width/2+30, 400, pg[3].width/2+40, 700);
+  
+  pg[3].line(pg[3].width/2-10, 200, pg[3].width/2-10, 160);
+  pg[3].line(pg[3].width/2+10, 200, pg[3].width/2+10, 160);
+  pg[3].line(pg[3].width/2-10, 200, pg[3].width/2+10, 200); //leher
+  pg[3].line(pg[3].width/2-10, 200, pg[3].width/2-60, 220);
+  pg[3].line(pg[3].width/2+10, 200, pg[3].width/2+60, 220);
+  
+  pg[3].line(pg[3].width/2-60, 220, pg[3].width/2+60, 220);
+  pg[3].line(pg[3].width/2-55, 250, pg[3].width/2+55, 250);
+  pg[3].line(pg[3].width/2-50, 270, pg[3].width/2+50, 270);
+  pg[3].line(pg[3].width/2-35, 340, pg[3].width/2+35, 340); //pinggang atas
+  pg[3].line(pg[3].width/2-60, 220, pg[3].width/2-35, 340);
+  pg[3].line(pg[3].width/2+60, 220, pg[3].width/2+35, 340);
+  
+  pg[3].line(pg[3].width/2-60, 220, pg[3].width/2-80, 380); //lengan
+  pg[3].line(pg[3].width/2-50, 270, pg[3].width/2-65, 380); 
+  pg[3].line(pg[3].width/2+60, 220, pg[3].width/2+80, 380); //lengan
+  pg[3].line(pg[3].width/2+50, 270, pg[3].width/2+65, 380); 
+  
+  pg[3].line(pg[3].width/2-50, 400, pg[3].width/2+50, 400); //pinggang bawah
+  pg[3].line(pg[3].width/2-35, 340, pg[3].width/2-50, 400);
+  pg[3].line(pg[3].width/2+35, 340, pg[3].width/2+50, 400);
+  
+  pg[3].line(pg[3].width/2-25, 400, pg[3].width/2-35, 720); 
+  pg[3].line(pg[3].width/2+25, 400, pg[3].width/2+35, 720);
+  pg[3].line(pg[3].width/2-25, 700, pg[3].width/2-45, 700);
+  pg[3].line(pg[3].width/2+25, 700, pg[3].width/2+45, 700);
+  
+  pg[3].line(pg[3].width/2-50, 400, pg[3].width/2-45, 700);
+  pg[3].line(pg[3].width/2-5, 400, pg[3].width/2-25, 700);
+  pg[3].line(pg[3].width/2+5, 400, pg[3].width/2+25, 700);
+  pg[3].line(pg[3].width/2+50, 400, pg[3].width/2+45, 700);
   pg[3].endDraw();
 }
 
