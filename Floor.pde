@@ -59,21 +59,16 @@ class Floor{
     //pg[3].translate(0,transY,0);
     //pg[3].translate(transX,0,0);
     //pg[3].rotateY(rotY);
-    if(showCenter){
-      pg[3].stroke(135);
-      pg[3].line(0,(-height)*3,0,0,height,0);
-      pg[3].stroke(0);
-    }
-    if(grid3D){
-      int i=-500;
-      pg[3].stroke(135);
-      while(i<=500){
-        pg[3].line(i,0,-500,i,0,500);
-        pg[3].line(-500,0,i,500,0,i);
-        i+=25;
-      }
-      pg[3].stroke(0);
-    }
+    //if(grid3D){
+    //  int i=-500;
+    //  pg[3].stroke(135);
+    //  while(i<=500){
+    //    pg[3].line(i,0,-500,i,0,500);
+    //    pg[3].line(-500,0,i,500,0,i);
+    //    i+=25;
+    //  }
+    //  pg[3].stroke(0);
+    //}
     pg[3].textureWrap(REPEAT);
     for(int i = 0; i < floors.size(); i++){
       if(floors.get(i).isSelected){
