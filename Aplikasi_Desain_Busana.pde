@@ -3988,7 +3988,7 @@ void fileSelectedForSave(File selection) {
       
     output.println("atasan3"+TAB+atasan3.size());
     for (int i=0; i<=atasan3.size()-1; i++)
-      output.println("atasanv"+TAB+atasan3.get(i).x+TAB+atasan1.get(i).z);  
+      output.println("atasanv"+TAB+atasan3.get(i).x+TAB+atasan3.get(i).z);  
       
     output.println("garisAtasan"+TAB+garisAtasan.size());
     for (int i=0; i<=garisAtasan.size()-1; i++)
@@ -4003,12 +4003,12 @@ void fileSelectedForSave(File selection) {
       output.println("leherv"+TAB+leher1.get(i).x+TAB+leher1.get(i).z);
     
     output.println("leher2"+TAB+leher2.size());
-    for (int i=0; i<=atasan2.size()-1; i++)
+    for (int i=0; i<=leher2.size()-1; i++)
       output.println("leherv"+TAB+leher2.get(i).x+TAB+leher2.get(i).z);
       
     output.println("leher3"+TAB+leher3.size());
     for (int i=0; i<=leher3.size()-1; i++)
-      output.println("leherv"+TAB+leher3.get(i).x+TAB+leher1.get(i).z);  
+      output.println("leherv"+TAB+leher3.get(i).x+TAB+leher3.get(i).z);  
       
     output.println("garisLeher"+TAB+garisLeher.size());
     for (int i=0; i<=garisLeher.size()-1; i++)
@@ -4020,16 +4020,16 @@ void fileSelectedForSave(File selection) {
       
     //lengan
     output.println("lengan1"+TAB+lengan1.size());
-    for (int i=0; i<=leher1.size()-1; i++)
+    for (int i=0; i<=lengan1.size()-1; i++)
       output.println("lenganv"+TAB+lengan1.get(i).x+TAB+lengan1.get(i).z);
     
     output.println("lengan2"+TAB+lengan2.size());
-    for (int i=0; i<=atasan2.size()-1; i++)
+    for (int i=0; i<=lengan2.size()-1; i++)
       output.println("lenganv"+TAB+lengan2.get(i).x+TAB+lengan2.get(i).z);
       
     output.println("lengan3"+TAB+lengan3.size());
     for (int i=0; i<=lengan3.size()-1; i++)
-      output.println("lenganv"+TAB+lengan3.get(i).x+TAB+lengan1.get(i).z);  
+      output.println("lenganv"+TAB+lengan3.get(i).x+TAB+lengan3.get(i).z);  
       
     output.println("garisLengan"+TAB+garisLengan.size());
     for (int i=0; i<=garisLengan.size()-1; i++)
@@ -4041,16 +4041,16 @@ void fileSelectedForSave(File selection) {
   
     //gaun
     output.println("gaun1"+TAB+gaun1.size());
-    for (int i=0; i<=leher1.size()-1; i++)
+    for (int i=0; i<=gaun1.size()-1; i++)
       output.println("gaunv"+TAB+gaun1.get(i).x+TAB+gaun1.get(i).z);
     
     output.println("gaun2"+TAB+gaun2.size());
-    for (int i=0; i<=atasan2.size()-1; i++)
+    for (int i=0; i<=gaun2.size()-1; i++)
       output.println("gaunv"+TAB+gaun2.get(i).x+TAB+gaun2.get(i).z);
       
     output.println("gaun3"+TAB+gaun3.size());
     for (int i=0; i<=gaun3.size()-1; i++)
-      output.println("gaunv"+TAB+gaun3.get(i).x+TAB+gaun1.get(i).z);  
+      output.println("gaunv"+TAB+gaun3.get(i).x+TAB+gaun3.get(i).z);  
       
     output.println("garisGaun"+TAB+garisGaun.size());
     for (int i=0; i<=garisGaun.size()-1; i++)
@@ -4062,16 +4062,16 @@ void fileSelectedForSave(File selection) {
   
     //celana
     output.println("celana1"+TAB+celana1.size());
-    for (int i=0; i<=leher1.size()-1; i++)
+    for (int i=0; i<=celana1.size()-1; i++)
       output.println("celanav"+TAB+celana1.get(i).x+TAB+celana1.get(i).z);
     
     output.println("celana2"+TAB+celana2.size());
-    for (int i=0; i<=atasan2.size()-1; i++)
+    for (int i=0; i<=celana2.size()-1; i++)
       output.println("celanav"+TAB+celana2.get(i).x+TAB+celana2.get(i).z);
       
     output.println("celana3"+TAB+celana3.size());
     for (int i=0; i<=celana3.size()-1; i++)
-      output.println("celanav"+TAB+celana3.get(i).x+TAB+celana1.get(i).z);  
+      output.println("celanav"+TAB+celana3.get(i).x+TAB+celana3.get(i).z);  
       
     output.println("garisCelana"+TAB+garisCelana.size());
     for (int i=0; i<=garisCelana.size()-1; i++)
@@ -4083,16 +4083,16 @@ void fileSelectedForSave(File selection) {
      
     //atasanlk
     output.println("atasanlk1"+TAB+atasanlk1.size());
-    for (int i=0; i<=leher1.size()-1; i++)
+    for (int i=0; i<=atasanlk1.size()-1; i++)
       output.println("atasanlkv"+TAB+atasanlk1.get(i).x+TAB+atasanlk1.get(i).z);
     
     output.println("atasanlk2"+TAB+atasanlk2.size());
-    for (int i=0; i<=atasan2.size()-1; i++)
+    for (int i=0; i<=atasanlk2.size()-1; i++)
       output.println("atasanlkv"+TAB+atasanlk2.get(i).x+TAB+atasanlk2.get(i).z);
       
     output.println("atasanlk3"+TAB+atasanlk3.size());
     for (int i=0; i<=atasanlk3.size()-1; i++)
-      output.println("atasanlkv"+TAB+atasanlk3.get(i).x+TAB+atasanlk1.get(i).z);  
+      output.println("atasanlkv"+TAB+atasanlk3.get(i).x+TAB+atasanlk3.get(i).z);  
       
     output.println("garisAtasanlk"+TAB+garisAtasanlk.size());
     for (int i=0; i<=garisAtasanlk.size()-1; i++)
@@ -4113,7 +4113,7 @@ void fileSelectedForSave(File selection) {
       
     output.println("leherlk3"+TAB+leherlk3.size());
     for (int i=0; i<=leherlk3.size()-1; i++)
-      output.println("leherlkv"+TAB+leherlk3.get(i).x+TAB+leherlk1.get(i).z);  
+      output.println("leherlkv"+TAB+leherlk3.get(i).x+TAB+leherlk3.get(i).z);  
       
     output.println("garisLeherlk"+TAB+garisLeherlk.size());
     for (int i=0; i<=garisLeherlk.size()-1; i++)
