@@ -620,11 +620,26 @@ public void base1() {
     for (int i = polaAtasan3.size()-1; i >= 0; i--)
       pg[2].vertex(polaAtasan3.get(i).x, polaAtasan3.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaAtasan4.size()-1; i >= 0; i--)
       pg[2].vertex(polaAtasan4.get(i).x, polaAtasan4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaAtasan5.size()-1; i >= 0; i--)
       pg[2].vertex(polaAtasan5.get(i).x, polaAtasan5.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE);
+    
+    pg[2].beginShape(POLYGON);
+    for (int i = polaAtasan6.size()-1; i >= 0; i--)
+      pg[2].vertex(polaAtasan6.get(i).x, polaAtasan6.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaAtasan7.size()-1; i >= 0; i--)
+      pg[2].vertex(polaAtasan7.get(i).x, polaAtasan7.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaAtasan8.size()-1; i >= 0; i--)
+      pg[2].vertex(polaAtasan8.get(i).x, polaAtasan8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
   
@@ -642,9 +657,11 @@ public void base1() {
     for (int i = polaLeher3.size()-1; i >= 0; i--)
       pg[2].vertex(polaLeher3.get(i).x, polaLeher3.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaLeher4.size()-1; i >= 0; i--)
       pg[2].vertex(polaLeher4.get(i).x, polaLeher4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaLeher5.size()-1; i >= 0; i--)
       pg[2].vertex(polaLeher5.get(i).x, polaLeher5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
@@ -663,9 +680,11 @@ public void base1() {
     for (int i = polaLeherlk3.size()-1; i >= 0; i--)
       pg[2].vertex(polaLeherlk3.get(i).x, polaLeherlk3.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaLeherlk4.size()-1; i >= 0; i--)
       pg[2].vertex(polaLeherlk4.get(i).x, polaLeherlk4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaLeherlk5.size()-1; i >= 0; i--)
       pg[2].vertex(polaLeherlk5.get(i).x, polaLeherlk5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
@@ -684,9 +703,11 @@ public void base1() {
     for (int i = polaLengan3.size()-1; i >= 0; i--)
       pg[2].vertex(polaLengan3.get(i).x, polaLengan3.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaLengan4.size()-1; i >= 0; i--)
       pg[2].vertex(polaLengan4.get(i).x, polaLengan4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaLengan5.size()-1; i >= 0; i--)
       pg[2].vertex(polaLengan5.get(i).x, polaLengan5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
@@ -705,9 +726,11 @@ public void base1() {
     for (int i = polaLenganlk3.size()-1; i >= 0; i--)
       pg[2].vertex(polaLenganlk3.get(i).x, polaLenganlk3.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaLenganlk4.size()-1; i >= 0; i--)
       pg[2].vertex(polaLenganlk4.get(i).x, polaLenganlk4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaLenganlk5.size()-1; i >= 0; i--)
       pg[2].vertex(polaLenganlk5.get(i).x, polaLenganlk5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
@@ -728,11 +751,29 @@ public void base1() {
     for (int i = polaGaun3.size()-1; i >= 0; i--)
       pg[2].vertex(polaGaun3.get(i).x, polaGaun3.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaGaun4.size()-1; i >= 0; i--)
       pg[2].vertex(polaGaun4.get(i).x, polaGaun4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
+    pg[2].beginShape(POLYGON);
     for (int i = polaGaun4.size()-1; i >= 0; i--)
       pg[2].vertex(polaGaun4.get(i).x, polaGaun4.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE);
+    pg[2].beginShape(POLYGON);
+    for (int i = polaGaun5.size()-1; i >= 0; i--)
+      pg[2].vertex(polaGaun5.get(i).x, polaGaun5.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaGaun6.size()-1; i >= 0; i--)
+      pg[2].vertex(polaGaun6.get(i).x, polaGaun6.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE);
+    pg[2].beginShape(POLYGON);
+    for (int i = polaGaun7.size()-1; i >= 0; i--)
+      pg[2].vertex(polaGaun7.get(i).x, polaGaun7.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE);
+     pg[2].beginShape(POLYGON);
+    for (int i = polaGaun8.size()-1; i >= 0; i--)
+      pg[2].vertex(polaGaun8.get(i).x, polaGaun8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
   //else if (pgCelana)
@@ -749,11 +790,25 @@ public void base1() {
     for (int i = polaCelana3.size()-1; i >= 0; i--)
       pg[2].vertex(polaCelana3.get(i).x, polaCelana3.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaCelana4.size()-1; i >= 0; i--)
       pg[2].vertex(polaCelana4.get(i).x, polaCelana4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaCelana5.size()-1; i >= 0; i--)
       pg[2].vertex(polaCelana5.get(i).x, polaCelana5.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE);
+    pg[2].beginShape(POLYGON);
+    for (int i = polaCelana6.size()-1; i >= 0; i--)
+      pg[2].vertex(polaCelana6.get(i).x, polaCelana6.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaCelana7.size()-1; i >= 0; i--)
+      pg[2].vertex(polaCelana7.get(i).x, polaCelana7.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaCelana8.size()-1; i >= 0; i--)
+      pg[2].vertex(polaCelana8.get(i).x, polaCelana8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
 
@@ -775,8 +830,21 @@ public void base1() {
     for (int i = polaAtasanlk4.size()-1; i >= 0; i--)
       pg[2].vertex(polaAtasanlk4.get(i).x, polaAtasanlk4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaAtasanlk5.size()-1; i >= 0; i--)
       pg[2].vertex(polaAtasanlk5.get(i).x, polaAtasanlk5.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE);
+    pg[2].beginShape(POLYGON);
+    for (int i = polaAtasanlk6.size()-1; i >= 0; i--)
+      pg[2].vertex(polaAtasanlk6.get(i).x, polaAtasanlk6.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaAtasanlk7.size()-1; i >= 0; i--)
+      pg[2].vertex(polaAtasanlk7.get(i).x, polaAtasanlk7.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaAtasanlk8.size()-1; i >= 0; i--)
+      pg[2].vertex(polaAtasanlk8.get(i).x, polaAtasanlk8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
 
@@ -794,11 +862,25 @@ public void base1() {
     for (int i = polaCelanalk3.size()-1; i >= 0; i--)
       pg[2].vertex(polaCelanalk3.get(i).x, polaCelanalk3.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
     for (int i = polaCelanalk4.size()-1; i >= 0; i--)
       pg[2].vertex(polaCelanalk4.get(i).x, polaCelanalk4.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE); 
-    for (int i = polaCelanalk4.size()-1; i >= 0; i--)
-      pg[2].vertex(polaCelanalk4.get(i).x, polaCelanalk4.get(i).z-pg[1].height);
+    pg[2].beginShape(POLYGON);
+    for (int i = polaCelanalk5.size()-1; i >= 0; i--)
+      pg[2].vertex(polaCelanalk5.get(i).x, polaCelanalk5.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE);
+    pg[2].beginShape(POLYGON);
+    for (int i = polaCelanalk6.size()-1; i >= 0; i--)
+      pg[2].vertex(polaCelanalk6.get(i).x, polaCelanalk6.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaCelanalk7.size()-1; i >= 0; i--)
+      pg[2].vertex(polaCelanalk7.get(i).x, polaCelanalk7.get(i).z-pg[1].height);
+    pg[2].endShape(CLOSE); 
+    pg[2].beginShape(POLYGON);
+    for (int i = polaCelanalk8.size()-1; i >= 0; i--)
+      pg[2].vertex(polaCelanalk8.get(i).x, polaCelanalk8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
 
@@ -850,6 +932,12 @@ void newProject() {
     polaAtasan4.remove(polaAtasan4.get(i)); 
   for (int i = polaAtasan5.size()-1; i >= 0; i--)
     polaAtasan5.remove(polaAtasan5.get(i));   
+  for (int i = polaAtasan6.size()-1; i >= 0; i--)
+    polaAtasan6.remove(polaAtasan6.get(i)); 
+  for (int i = polaAtasan7.size()-1; i >= 0; i--)
+    polaAtasan7.remove(polaAtasan7.get(i)); 
+  for (int i = polaAtasan8.size()-1; i >= 0; i--)
+    polaAtasan8.remove(polaAtasan8.get(i));    
     
   //leher
   for (int i = leher1.size()-1; i >= 0; i--)
@@ -918,6 +1006,12 @@ void newProject() {
     polaGaun4.remove(polaGaun4.get(i)); 
   for (int i = polaGaun5.size()-1; i >= 0; i--)
     polaGaun5.remove(polaGaun5.get(i)); 
+  for (int i = polaGaun6.size()-1; i >= 0; i--)
+    polaGaun6.remove(polaGaun6.get(i)); 
+  for (int i = polaGaun7.size()-1; i >= 0; i--)
+    polaGaun7.remove(polaGaun7.get(i)); 
+  for (int i = polaGaun8.size()-1; i >= 0; i--)
+    polaGaun8.remove(polaGaun8.get(i));   
     
   //celana
    for (int i = celana1.size()-1; i >= 0; i--)
@@ -940,6 +1034,12 @@ void newProject() {
     polaCelana4.remove(polaCelana4.get(i)); 
   for (int i = polaCelana5.size()-1; i >= 0; i--)
     polaCelana5.remove(polaCelana5.get(i));
+  for (int i = polaCelana6.size()-1; i >= 0; i--)
+    polaCelana6.remove(polaCelana6.get(i)); 
+  for (int i = polaCelana7.size()-1; i >= 0; i--)
+    polaCelana7.remove(polaCelana7.get(i)); 
+  for (int i = polaCelana8.size()-1; i >= 0; i--)
+    polaCelana8.remove(polaCelana8.get(i));  
     
   //atasanlk  
   for (int i = atasanlk1.size()-1; i >= 0; i--)
@@ -962,6 +1062,12 @@ void newProject() {
     polaAtasanlk4.remove(polaAtasanlk4.get(i)); 
   for (int i = polaAtasanlk5.size()-1; i >= 0; i--)
     polaAtasanlk5.remove(polaAtasanlk5.get(i)); 
+  for (int i = polaAtasanlk6.size()-1; i >= 0; i--)
+    polaAtasanlk6.remove(polaAtasanlk6.get(i)); 
+  for (int i = polaAtasanlk7.size()-1; i >= 0; i--)
+    polaAtasanlk7.remove(polaAtasanlk7.get(i)); 
+  for (int i = polaAtasanlk8.size()-1; i >= 0; i--)
+    polaAtasanlk8.remove(polaAtasanlk8.get(i));   
     
    //leherlk
   for (int i = leherlk1.size()-1; i >= 0; i--)
@@ -2172,6 +2278,12 @@ public void selectCelana() {
         polaCelana4.remove(polaCelana4.get(i));
       for (int i = polaCelana5.size()-1; i >= 0; i--)
         polaCelana5.remove(polaCelana5.get(i));
+      for (int i = polaCelana6.size()-1; i >= 0; i--)
+        polaCelana6.remove(polaCelana6.get(i));
+      for (int i = polaCelana7.size()-1; i >= 0; i--)
+        polaCelana7.remove(polaCelana7.get(i));
+      for (int i = polaCelana8.size()-1; i >= 0; i--)
+        polaCelana8.remove(polaCelana8.get(i));  
     }
 
     newProject = true;
