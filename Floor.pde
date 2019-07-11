@@ -1,52 +1,51 @@
 class Floor{
   ArrayList<Node> nodesFLoor;
   boolean isSelected = false;
-  float y1_pos, y2_pos; //posisi alas & posisi atap
-  float h; //tinggi per lantai
+  float x1, y1; //posisi alas & posisi atap
+  //float h; //tinggi per lantai
   float scaleFloor;
   PImage imageTexture;
   String urlTexture;
   
-  Floor(float tempY, float tempH, float tempScale, String tex) {
-    h = tempH;
-    y1_pos = tempY;
-    y2_pos = y1_pos - h;
+  Floor(float tempX2, float tempY2, String tex) {//float tempX2, float tempY2
+    x1 = tempX2;
+    y1 = tempY2;
     imageTexture = loadImage(tex);
     urlTexture = tex;
-    scaleFloor = tempScale;
+    //scaleFloor = tempScale;
   }
   
-  void alas(float y_pos, float scaleFloor){
-    pg[3].shapeMode(CENTER);
-    pg[3].beginShape(POLYGON);
-    for(int i = nodes.size()-1; i>=0; i--)
-      pg[3].vertex((nodes.get(i).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(i).z-zCenterPoint()) *scaleFloor, (nodes.get(i).x/nodes.get(nodes.size()-1).x)*100, 0);
-    pg[3].endShape(CLOSE);
-  }
+  //void alas(float y_pos, float scaleFloor){
+  //  pg[3].shapeMode(CENTER);
+  //  pg[3].beginShape(POLYGON);
+  //  for(int i = nodes.size()-1; i>=0; i--)
+  //    pg[3].vertex((nodes.get(i).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(i).z-zCenterPoint()) *scaleFloor, (nodes.get(i).x/nodes.get(nodes.size()-1).x)*100, 0);
+  //  pg[3].endShape(CLOSE);
+  //}
   
-  void dinding(float y_pos, float tinggi_lantai, float scaleFloor, PImage imageTexture){
-    pg[3].textureMode(IMAGE);
-    pg[3].beginShape(QUADS);
-    pg[3].texture(imageTexture);
-    for(int i=nodes.size()-1; i>=1; i--){
-      pg[3].vertex((nodes.get(i).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(i).z-zCenterPoint()) *scaleFloor, 0, 100);
-      pg[3].vertex((nodes.get(i).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(i).z-zCenterPoint()) *scaleFloor, 0, 0);
-      pg[3].vertex((nodes.get(i-1).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(i-1).z-zCenterPoint()) *scaleFloor, 500, 0);
-      pg[3].vertex((nodes.get(i-1).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(i-1).z-zCenterPoint()) *scaleFloor, 500,100);
-    }
-    pg[3].vertex((nodes.get(0).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(0).z-zCenterPoint()) *scaleFloor, 0, 100); //bug
-    pg[3].vertex((nodes.get(0).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(0).z-zCenterPoint()) *scaleFloor, 0, 0);
-    pg[3].vertex((nodes.get(nodes.size()-1).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(nodes.size()-1).z-zCenterPoint()) *scaleFloor, 500, 0);
-    pg[3].vertex((nodes.get(nodes.size()-1).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(nodes.size()-1).z-zCenterPoint()) *scaleFloor, 500, 100);
-    pg[3].endShape(CLOSE);
-  }
+  //void dinding(float y_pos, float tinggi_lantai, float scaleFloor, PImage imageTexture){
+  //  pg[3].textureMode(IMAGE);
+  //  pg[3].beginShape(QUADS);
+  //  pg[3].texture(imageTexture);
+  //  for(int i=nodes.size()-1; i>=1; i--){
+  //    pg[3].vertex((nodes.get(i).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(i).z-zCenterPoint()) *scaleFloor, 0, 100);
+  //    pg[3].vertex((nodes.get(i).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(i).z-zCenterPoint()) *scaleFloor, 0, 0);
+  //    pg[3].vertex((nodes.get(i-1).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(i-1).z-zCenterPoint()) *scaleFloor, 500, 0);
+  //    pg[3].vertex((nodes.get(i-1).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(i-1).z-zCenterPoint()) *scaleFloor, 500,100);
+  //  }
+  //  pg[3].vertex((nodes.get(0).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(0).z-zCenterPoint()) *scaleFloor, 0, 100); //bug
+  //  pg[3].vertex((nodes.get(0).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(0).z-zCenterPoint()) *scaleFloor, 0, 0);
+  //  pg[3].vertex((nodes.get(nodes.size()-1).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(nodes.size()-1).z-zCenterPoint()) *scaleFloor, 500, 0);
+  //  pg[3].vertex((nodes.get(nodes.size()-1).x-xCenterPoint()) *scaleFloor, y_pos, (nodes.get(nodes.size()-1).z-zCenterPoint()) *scaleFloor, 500, 100);
+  //  pg[3].endShape(CLOSE);
+  //}
   
-  void atap(float y_pos, float tinggi_lantai, float scaleFloor){
-    pg[3].beginShape(POLYGON);
-    for(int i = nodes.size()-1; i>=0; i--)
-       pg[3].vertex((nodes.get(i).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(i).z-zCenterPoint()) *scaleFloor, (nodes.get(i).x/nodes.get(nodes.size()-1).x)*100, 0);
-    pg[3].endShape(CLOSE);
-  }
+  //void atap(float y_pos, float tinggi_lantai, float scaleFloor){
+  //  pg[3].beginShape(POLYGON);
+  //  for(int i = nodes.size()-1; i>=0; i--)
+  //     pg[3].vertex((nodes.get(i).x-xCenterPoint()) *scaleFloor, y_pos - tinggi_lantai, (nodes.get(i).z-zCenterPoint()) *scaleFloor, (nodes.get(i).x/nodes.get(nodes.size()-1).x)*100, 0);
+  //  pg[3].endShape(CLOSE);
+  //}
 
   void display(){
     pg[3].beginDraw();
@@ -77,18 +76,18 @@ class Floor{
       }
       else
         pg[3].stroke(0);
-      dinding(floors.get(i).y1_pos, floors.get(i).h, floors.get(i).scaleFloor, floors.get(i).imageTexture);
-      atap(floors.get(i).y1_pos, floors.get(i).h, floors.get(i).scaleFloor);
+      //dinding(floors.get(i).y1_pos, floors.get(i).h, floors.get(i).scaleFloor, floors.get(i).imageTexture);
+      //atap(floors.get(i).y1_pos, floors.get(i).h, floors.get(i).scaleFloor);
         if((i>0 && floors.get(i-1).isSelected) ||floors.get(i).isSelected){
           pg[3].stroke(#ED0202);
           pg[3].strokeWeight(5);
-          alas(floors.get(i).y1_pos,  floors.get(i).scaleFloor);
+         // alas(floors.get(i).y1_pos,  floors.get(i).scaleFloor);
           pg[3].stroke(0);
           pg[3].strokeWeight(1);
         }
         else{
           pg[3].stroke(0);
-          alas(floors.get(i).y1_pos,  floors.get(i).scaleFloor);
+         // alas(floors.get(i).y1_pos,  floors.get(i).scaleFloor);
         }
     }
     pg[3].popMatrix();
