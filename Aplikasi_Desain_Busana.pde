@@ -188,7 +188,7 @@ void setup() {
   polaLenganlk5 = new ArrayList<Node>();
   urlTexture = "Textures/a/imgtex_default.jpg";
   defineMenus();
-
+ 
   for (int i=1; i<urlTex1.length; i++) {
     urlTex1[i] = "Textures/a/imgtex ("+i+").jpg";
     imgtex1[i] = loadImage(urlTex1[i]);
@@ -893,6 +893,7 @@ public void base1() {
 void newProject() {
   background(255);
   newProject = true;
+  
   for (int i = rok1.size()-1; i >= 0; i--)
     rok1.remove(rok1.get(i));
   for (int i = rok2.size()-1; i >= 0; i--)
@@ -1133,17 +1134,18 @@ void newProject() {
   for (int i = polaCelanalk2.size()-1; i >= 0; i--)
     polaCelanalk2.remove(polaCelanalk2.get(i)); 
   for (int i = polaCelanalk3.size()-1; i >= 0; i--)
-    polaCelana3.remove(polaCelanalk3.get(i)); 
+    polaCelanalk3.remove(polaCelanalk3.get(i)); 
   for (int i = polaCelanalk4.size()-1; i >= 0; i--)
     polaCelanalk4.remove(polaCelanalk4.get(i)); 
   for (int i = polaCelanalk5.size()-1; i >= 0; i--)
     polaCelanalk5.remove(polaCelanalk5.get(i));  
   for (int i = polaCelanalk6.size()-1; i >= 0; i--)
-    polaCelana6.remove(polaCelanalk6.get(i)); 
+    polaCelanalk6.remove(polaCelanalk6.get(i)); 
   for (int i = polaCelanalk7.size()-1; i >= 0; i--)
     polaCelanalk7.remove(polaCelanalk7.get(i)); 
   for (int i = polaCelanalk8.size()-1; i >= 0; i--)
     polaCelanalk8.remove(polaCelanalk8.get(i));
+          
 }
 
 public void selectAtasan() {
@@ -1181,19 +1183,19 @@ public void selectAtasan() {
     if (templateAtasan==1) { //POLA TANPA BUKAAN UKURAN S
       atasan1.add(new Node1(pg[3].width/2-25, 220,0,0));
       atasan1.add(new Node1(pg[3].width/2-20, 230,100,0));
-      atasan1.add(new Node1(pg[3].width/2, 240,100,100));
-      atasan1.add(new Node1(pg[3].width/2+20, 230,0,100));
-      atasan1.add(new Node1(pg[3].width/2+25, 220,0,0)); // leher
-      atasan1.add(new Node1(pg[3].width/2+55, 240,100,0)); //ketiak
-      atasan1.add(new Node1(pg[3].width/2+45, 285,100,100));
-      atasan1.add(new Node1(pg[3].width/2+45, 300,0,100));
+      atasan1.add(new Node1(pg[3].width/2, 240,50,50));
+      atasan1.add(new Node1(pg[3].width/2+20, 230,100,100));
+      atasan1.add(new Node1(pg[3].width/2+25, 220,0,100)); // leher
+      atasan1.add(new Node1(pg[3].width/2+55, 240,0,0)); //ketiak
+      atasan1.add(new Node1(pg[3].width/2+45, 285,100,0));
+      atasan1.add(new Node1(pg[3].width/2+45, 300,100,100));
       atasan1.add(new Node1(pg[3].width/2+55, 320,0,0));//ketiak
       atasan1.add(new Node1(pg[3].width/2+60, 420,100,0));
       atasan1.add(new Node1(pg[3].width/2-60, 420,100,100));
       atasan1.add(new Node1(pg[3].width/2-55, 320,0,100));
-      atasan1.add(new Node1(pg[3].width/2-45, 300,0,0));
-      atasan1.add(new Node1(pg[3].width/2-45, 285,100,0));
-      atasan1.add(new Node1(pg[3].width/2-55, 240,100,100));
+      atasan1.add(new Node1(pg[3].width/2-45, 300,0,50));
+      atasan1.add(new Node1(pg[3].width/2-45, 285,50,50));
+      atasan1.add(new Node1(pg[3].width/2-55, 240,50,50));
 
       //(Pola Depan)
       polaAtasan1.add(new Node(pg[2].width/20+10*2, 50+(float) 3.5*2)); //J
@@ -2502,34 +2504,34 @@ public void selectCelana() {
 
     newProject = true;
     if (templateCelana==1) { //celana pendek s
-      celana1.add(new Node1(pg[3].width/2-40, 360, 0,100));//0,100
+      celana1.add(new Node1(pg[3].width/2-40, 360, 0,0));//0,100
       celana1.add(new Node1(pg[3].width/2+40, 360,100,0));//100,0
       celana1.add(new Node1(pg[3].width/2+40, 370,100,100));//100,100
-      celana1.add(new Node1(pg[3].width/2-40, 370,0,0));//0,0
+      celana1.add(new Node1(pg[3].width/2-40, 370,0,100));//0,0
       
       celana2.add(new Node1(pg[3].width/2-40, 370,0,0));
-      celana2.add(new Node1(pg[3].width/2+40, 370,0,0));
-      celana2.add(new Node1(pg[3].width/2+50, 400,100,0));
-      celana2.add(new Node1(pg[3].width/2+60, 550,100,100));
-      celana2.add(new Node1(pg[3].width/2+5, 550,0,100));
-      celana2.add(new Node1(pg[3].width/2, 450,0,0));
-      celana2.add(new Node1(pg[3].width/2-5, 550,0,100));
-      celana2.add(new Node1(pg[3].width/2-60, 550,100,100));
-      celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
+      celana2.add(new Node1(pg[3].width/2+40, 370,100,0));
+      celana2.add(new Node1(pg[3].width/2+50, 400,100,100));
+      celana2.add(new Node1(pg[3].width/2+60, 550,0,0));
+      celana2.add(new Node1(pg[3].width/2+5, 550,100,0));
+      celana2.add(new Node1(pg[3].width/2, 450,50,50));
+      celana2.add(new Node1(pg[3].width/2-5, 550,100,100));
+      celana2.add(new Node1(pg[3].width/2-60, 550,0,100));
+      celana2.add(new Node1(pg[3].width/2-50, 400,0,0));
       
-      celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+40,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2+40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+40,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
       
-      celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-40,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2-40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-40,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -2554,19 +2556,19 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-60, 700,100,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
-      celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+40,400,100,100));
-      celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2+40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+40,400,100,100));
+      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
       
-      celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-40,400,100,100));
-      celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2-40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-40,400,100,100));
+      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -2591,19 +2593,19 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-60, 550,100,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
-      celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+40,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2+40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+40,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
       
-      celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-40,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2-40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-40,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -2628,19 +2630,19 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-60, 700,100,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
-      celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+40,400,100,100));
-      celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2+40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+40,400,100,100));
+      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
       
-      celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-40,400,100,100));
-      celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2-40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-40,400,100,100));
+      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -2665,19 +2667,19 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-60, 550,100,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
-      celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+40,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2+40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+40,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
       
-      celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-40,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2-40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-40,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -2702,19 +2704,19 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-60, 700,100,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
-      celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2+40,400,100,100));
-      celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2+40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2+40,400,100,100));
+      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
       
-      celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      celana3.add(new Node1(pg[3].width/2-40,400,100,100));
-      celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      celana3.add(new Node1(pg[3].width/2-40,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
+      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
+      //celana3.add(new Node1(pg[3].width/2-40,400,100,100));
+      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
+      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
+      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -3464,7 +3466,7 @@ void selectCelanalk() {
 
     newProject = true;
     if (templateCelanalk==1) {//celana pendek s
-     celanalk1.add(new Node1(pg[3].width/2-40, 360, 0,100));//0,100
+      celanalk1.add(new Node1(pg[3].width/2-40, 360, 0,100));//0,100
       celanalk1.add(new Node1(pg[3].width/2+40, 360,100,0));//100,0
       celanalk1.add(new Node1(pg[3].width/2+40, 370,100,100));//100,100
       celanalk1.add(new Node1(pg[3].width/2-40, 370,0,0));//0,0
@@ -3472,11 +3474,11 @@ void selectCelanalk() {
       celanalk2.add(new Node1(pg[3].width/2-40, 370,0,0));
       celanalk2.add(new Node1(pg[3].width/2+40, 370,0,0));
       celanalk2.add(new Node1(pg[3].width/2+50, 400,100,0));
-      celanalk2.add(new Node1(pg[3].width/2+60, 550,100,100));
+      celanalk2.add(new Node1(pg[3].width/2+52, 550,100,100));
       celanalk2.add(new Node1(pg[3].width/2+5, 550,0,100));
       celanalk2.add(new Node1(pg[3].width/2, 450,0,0));
       celanalk2.add(new Node1(pg[3].width/2-5, 550,0,100));
-      celanalk2.add(new Node1(pg[3].width/2-60, 550,100,100));
+      celanalk2.add(new Node1(pg[3].width/2-52, 550,100,100));
       celanalk2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
       celanalk3.add(new Node1(pg[3].width/2+40,370,0,0));
@@ -3485,7 +3487,6 @@ void selectCelanalk() {
       celanalk3.add(new Node1(pg[3].width/2+30,390,100,100));
       celanalk3.add(new Node1(pg[3].width/2+25,370,0,100));
       celanalk3.add(new Node1(pg[3].width/2+40,370,0,100));
-      
       celanalk3.add(new Node1(pg[3].width/2-40,370,0,0));
       celanalk3.add(new Node1(pg[3].width/2-50,400,100,0));
       celanalk3.add(new Node1(pg[3].width/2-40,400,100,0));
@@ -3587,11 +3588,11 @@ void selectCelanalk() {
       celanalk2.add(new Node1(pg[3].width/2-40, 370,0,0));
       celanalk2.add(new Node1(pg[3].width/2+40, 370,0,0));
       celanalk2.add(new Node1(pg[3].width/2+50, 400,100,0));
-      celanalk2.add(new Node1(pg[3].width/2+60, 700,100,100));
+      celanalk2.add(new Node1(pg[3].width/2+52, 700,100,100));
       celanalk2.add(new Node1(pg[3].width/2+10, 700,0,100));
       celanalk2.add(new Node1(pg[3].width/2, 450,0,0));
       celanalk2.add(new Node1(pg[3].width/2-10, 700,0,100));
-      celanalk2.add(new Node1(pg[3].width/2-60, 700,100,100));
+      celanalk2.add(new Node1(pg[3].width/2-52, 700,100,100));
       celanalk2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
       celanalk3.add(new Node1(pg[3].width/2+40,370,0,0));
@@ -3710,11 +3711,11 @@ void selectCelanalk() {
       celanalk2.add(new Node1(pg[3].width/2-40, 370,0,0));
       celanalk2.add(new Node1(pg[3].width/2+40, 370,0,0));
       celanalk2.add(new Node1(pg[3].width/2+50, 400,100,0));
-      celanalk2.add(new Node1(pg[3].width/2+60, 550,100,100));
+      celanalk2.add(new Node1(pg[3].width/2+52, 550,100,100));
       celanalk2.add(new Node1(pg[3].width/2+5, 550,0,100));
       celanalk2.add(new Node1(pg[3].width/2, 450,0,0));
       celanalk2.add(new Node1(pg[3].width/2-5, 550,0,100));
-      celanalk2.add(new Node1(pg[3].width/2-60, 550,100,100));
+      celanalk2.add(new Node1(pg[3].width/2-52, 550,100,100));
       celanalk2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
       celanalk3.add(new Node1(pg[3].width/2+40,370,0,0));
@@ -3825,11 +3826,11 @@ void selectCelanalk() {
      celanalk2.add(new Node1(pg[3].width/2-40, 370,0,0));
      celanalk2.add(new Node1(pg[3].width/2+40, 370,0,0));
      celanalk2.add(new Node1(pg[3].width/2+50, 400,100,0));
-     celanalk2.add(new Node1(pg[3].width/2+60, 700,100,100));
+     celanalk2.add(new Node1(pg[3].width/2+52, 700,100,100));
      celanalk2.add(new Node1(pg[3].width/2+10, 700,0,100));
      celanalk2.add(new Node1(pg[3].width/2, 450,0,0));
      celanalk2.add(new Node1(pg[3].width/2-10, 700,0,100));
-     celanalk2.add(new Node1(pg[3].width/2-60, 700,100,100));
+     celanalk2.add(new Node1(pg[3].width/2-52, 700,100,100));
      celanalk2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
      celanalk3.add(new Node1(pg[3].width/2+40,370,0,0));
@@ -3948,11 +3949,11 @@ void selectCelanalk() {
      celanalk2.add(new Node1(pg[3].width/2-40, 370,0,0));
      celanalk2.add(new Node1(pg[3].width/2+40, 370,0,0));
      celanalk2.add(new Node1(pg[3].width/2+50, 400,100,0));
-     celanalk2.add(new Node1(pg[3].width/2+60, 550,100,100));
+     celanalk2.add(new Node1(pg[3].width/2+52, 550,100,100));
      celanalk2.add(new Node1(pg[3].width/2+5, 550,0,100));
      celanalk2.add(new Node1(pg[3].width/2, 450,0,0));
      celanalk2.add(new Node1(pg[3].width/2-5, 550,0,100));
-     celanalk2.add(new Node1(pg[3].width/2-60, 550,100,100));
+     celanalk2.add(new Node1(pg[3].width/2-52, 550,100,100));
      celanalk2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
      celanalk3.add(new Node1(pg[3].width/2+40,370,0,0));
@@ -4063,11 +4064,11 @@ void selectCelanalk() {
      celanalk2.add(new Node1(pg[3].width/2-40, 370,0,0));
      celanalk2.add(new Node1(pg[3].width/2+40, 370,0,0));
      celanalk2.add(new Node1(pg[3].width/2+50, 400,100,0));
-     celanalk2.add(new Node1(pg[3].width/2+60, 700,100,100));
+     celanalk2.add(new Node1(pg[3].width/2+52, 700,100,100));
      celanalk2.add(new Node1(pg[3].width/2+10, 700,0,100));
      celanalk2.add(new Node1(pg[3].width/2, 450,0,0));
      celanalk2.add(new Node1(pg[3].width/2-10, 700,0,100));
-     celanalk2.add(new Node1(pg[3].width/2-60, 700,100,100));
+     celanalk2.add(new Node1(pg[3].width/2-52, 700,100,100));
      celanalk2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
      celanalk3.add(new Node1(pg[3].width/2+40,370,0,0));
@@ -4217,22 +4218,6 @@ void selectLeher() {
       leher1.add(new Node1(pg[3].width/2-25, 220,0,0));
       leher1.add(new Node1(pg[3].width/2, 215,0,0));
       leher1.add(new Node1(pg[3].width/2+25, 220,0,0));
-      
-      
-      polaLeher1.add(new Node(pg[2].width/20+ 5    *5, pg[2].height/10+ 4.5  *5)); //C
-      polaLeher1.add(new Node(pg[2].width/20+ 23.5 *5, pg[2].height/10+ 5    *5)); //A
-      polaLeher1.add(new Node(pg[2].width/20+ 42   *5, pg[2].height/10+ 4.5  *5)); //C
-      polaLeher1.add(new Node(pg[2].width/20+ 47   *5, pg[2].height/10+ 3.5  *5)); //G
-      polaLeher1.add(new Node(pg[2].width/20+ 42   *5, pg[2].height/10+ 9    *5)); //E
-      polaLeher1.add(new Node(pg[2].width/20+ 43   *5, pg[2].height/10+ 10   *5)); //I
-      polaLeher1.add(new Node(pg[2].width/20+ 44.5 *5, pg[2].height/10+ 10   *5)); //H
-      polaLeher1.add(new Node(pg[2].width/20+ 38.5 *5, pg[2].height/10+ 10.5 *5)); //L
-      polaLeher1.add(new Node(pg[2].width/20+ 23.5 *5, pg[2].height/10+ 10.5 *5)); //J
-      polaLeher1.add(new Node(pg[2].width/20+ 8.5  *5, pg[2].height/10+ 10.5 *5)); //L
-      polaLeher1.add(new Node(pg[2].width/20+ 2.5  *5, pg[2].height/10+ 10   *5)); //H
-      polaLeher1.add(new Node(pg[2].width/20+ 4    *5, pg[2].height/10+ 10   *5)); //I
-      polaLeher1.add(new Node(pg[2].width/20+ 5    *5, pg[2].height/10+ 9    *5)); //E
-      polaLeher1.add(new Node(pg[2].width/20+ 0    *5, pg[2].height/10+ 3.5  *5)); //G
     
     }
     if (templateLeher==2) {//kerah Sport 
@@ -4797,10 +4782,10 @@ void selectLengan() {
       lengan2.add(new Node1(pg[3].width/2+80, 300,0,100));
       lengan2.add(new Node1(pg[3].width/2+55, 240,0,0));
       
-      garisLengan.add(new Node(pg[3].width/2+65,415));
-      garisLengan.add(new Node(pg[3].width/2+90,415));
-      garisLengan2.add(new Node(pg[3].width/2-65,415));
-      garisLengan2.add(new Node(pg[3].width/2-90,415));
+      garisLengan.add(new Node(pg[3].width/2+53,315));
+      garisLengan.add(new Node(pg[3].width/2+78,295));
+      garisLengan2.add(new Node(pg[3].width/2-53,315));
+      garisLengan2.add(new Node(pg[3].width/2-78,295));
     
     }
     if(templateLengan==12){//lengan gladde panjang m
@@ -4927,10 +4912,10 @@ void selectLengan() {
       lengan2.add(new Node1(pg[3].width/2+80, 300,0,100));
       lengan2.add(new Node1(pg[3].width/2+55, 240,0,0));
       
-      garisLengan.add(new Node(pg[3].width/2+65,415));
-      garisLengan.add(new Node(pg[3].width/2+90,415));
-      garisLengan2.add(new Node(pg[3].width/2-65,415));
-      garisLengan2.add(new Node(pg[3].width/2-90,415));
+      garisLengan.add(new Node(pg[3].width/2+53,315));
+      garisLengan.add(new Node(pg[3].width/2+78,295));
+      garisLengan2.add(new Node(pg[3].width/2-53,315));
+      garisLengan2.add(new Node(pg[3].width/2-78,295));
     
     }
     if(templateLengan==18){//lengan gladde panjang l
@@ -6110,7 +6095,7 @@ void mouseMoved() {
       menuList[i].selectedLineFromMouse();
 }
 
-void mousePressed() {
+public void mousePressed() {
   int menuResult = -1;  
   for (int i=0; i<menuList.length; i++) {
     menuResult = menuList[i].clicked();
@@ -6431,475 +6416,172 @@ void mousePressed() {
   }
 }
 
-void drawPgAction(){
+public void drawPgAction(){
   pg[10].beginDraw();
   pg[10].background(200);
   pg[10].textSize(16);
   pg[10].text("Pola yang Anda Pilih :",15,25);
   pg[10].fill(0);
-  if(templateAtasan==1){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Tanpa Bukaan S",15,50);
+  if(atasanlk1.size()==15 && polaAtasanlk1.size()==18 && polaAtasanlk2.size()==18 && templateAtasanlk==1){
+  pg[10].text("Pria",190,25);
+  pg[10].text("- Pola Baju Tanpa Bukaan S",15,50);
   }
-  else if(templateAtasan==2){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Bukaan Depan S",15,50);
+  else if(atasanlk1.size()==15 && garisAtasanlk.size()==2 && polaAtasanlk1.size()==11 && polaAtasanlk2.size()==11
+  && polaAtasanlk3.size()==18 && templateAtasanlk==2){
+  pg[10].text("Pria",190,25);
+  pg[10].text("- Pola Baju Bukaan Depan S",15,50);
   }
-  else if(templateAtasan==3){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Bukaan Belakang S",15,50);
+  else if(atasanlk1.size()==15 && polaAtasanlk1.size()==18 && polaAtasanlk2.size()==18 && templateAtasanlk!=1 && templateAtasanlk==3){
+  pg[10].text("Pria",190,25);
+  pg[10].text("- Pola Baju Tanpa Bukaan M",15,50);
   }
-  else if(templateAtasan==4){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Tanpa Bukaan M",15,50);
+  else if(atasanlk1.size()==15 && garisAtasanlk.size()==2 && polaAtasanlk1.size()==11 && polaAtasanlk2.size()==11 
+  && polaAtasanlk3.size()==18 && templateAtasanlk!=2 && templateAtasanlk==4){
+  pg[10].text("Pria",190,25);
+  pg[10].text("- Pola Baju Bukaan Depan M",15,50);
   }
-  else if(templateAtasan==5){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Bukaan Depan M",15,50);
+  else if(atasanlk1.size()==15 && polaAtasanlk1.size()==18 && polaAtasanlk2.size()==18 && templateAtasanlk!=1 
+  && templateAtasanlk!=3 && templateAtasanlk==5){
+  pg[10].text("Pria",190,25);
+  pg[10].text("- Pola Baju Tanpa Bukaan L",15,50);
   }
-  else if(templateAtasan==6){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Bukaan Belakang M",15,50);
+  else if(atasanlk1.size()==15 && garisAtasanlk.size()==2 && polaAtasanlk1.size()==11 && polaAtasanlk2.size()==11 
+  && polaAtasanlk3.size()==18 && templateAtasanlk!=2 && templateAtasanlk!=4  && templateAtasanlk==6){
+  pg[10].text("Pria",190,25);
+  pg[10].text("- Pola Baju Bukaan Depan L",15,50);
   }
-  else if(templateAtasan==7){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Tanpa Bukaan L",15,50);
+
+  if(leherlk1.size()==8 && polaLeherlk1.size()==12 && polaLeherlk2.size()==12 && templateLeherlk==1){
+  pg[10].text("- Pola Kerah Kemeja s",15,75);
   }
-  else if(templateAtasan==8){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Bukaan Depan L",15,50);
+  else if(leherlk1.size()==10 && leherlk2.size()==6 && polaLeherlk1.size()==10 && templateLeherlk==2){
+  pg[10].text("- Pola Kerah Sport S",15,75);
   }
-  else if(templateAtasan==9){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Baju Bukaan Belakang L",15,50);
+  else if(leherlk1.size()==13 && leherlk2.size()==8 && polaLeherlk1.size()==12 && templateLeherlk==3){
+  pg[10].text("- Pola Kerah Shanghay S",15,75);
   }
-  
-  if(templateAtasanlk==1){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Pria",190,25);
-    pg[10].text("- Pola Baju Tanpa Bukaan S",15,50);
+  else if(leherlk1.size()==10 && leherlk2.size()==6 && polaLeherlk1.size()==10 && templateLeherlk!=2 && templateLeherlk==4 ){
+  pg[10].text("- Pola Kerah Shiller S",15,75);
   }
-  else if(templateAtasanlk==2){
-     pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Pria",190,25);
-    pg[10].text("- Pola Baju Bukaan Depan S",15,50);
+  else if(leherlk1.size()==15 && leherlk2.size()==6 && polaLeherlk1.size()==14 && templateLeherlk==5 ){
+  pg[10].text("- Pola Kerah Kemeja Boord Terusan S",15,75);
   }
-  else if(templateAtasanlk==3){
-     pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Pria",190,25);
-    pg[10].text("- Pola Baju Tanpa Bukaan M",15,50);
+  else if(leherlk1.size()==8 && polaLeherlk1.size()==12 && polaLeherlk2.size()==12 && templateLeherlk!=1 && templateLeherlk==7){
+  pg[10].text("- Pola Kerah Kemeja M",15,75);
   }
-  else if(templateAtasanlk==4){
-     pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Pria",190,25);
-    pg[10].text("- Pola Baju Bukaan Depan M",15,50);
+  else if(leherlk1.size()==10 && leherlk2.size()==6 && polaLeherlk1.size()==10 && templateLeherlk!=2 && 
+  templateLeherlk!=4 && templateLeherlk==8){
+  pg[10].text("- Pola Kerah Sport M",15,75);
   }
-  else if(templateAtasanlk==5){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Pria",190,25);
-    pg[10].text("- Pola Baju Tanpa Bukaan L",15,50);
+  else if(leherlk1.size()==13 && leherlk2.size()==8 && polaLeherlk1.size()==12 && templateLeherlk!=3 && templateLeherlk==9){
+  pg[10].text("- Pola Kerah Shanghay M",15,75);
   }
-  else if(templateAtasanlk==6){
-    pg[10].beginDraw();
-    pg[10].background(200);
-    pg[10].textSize(16);
-    pg[10].text("Pola yang Anda Pilih :",15,25);
-    pg[10].text("Pria",190,25);
-    pg[10].text("- Pola Baju Bukaan Depan L",15,50);
+  else if(leherlk1.size()==10 && leherlk2.size()==6 && polaLeherlk1.size()==10 && templateLeherlk!=2 && templateLeherlk!=4 
+  && templateLeherlk!=8 && templateLeherlk==10){
+  pg[10].text("- Pola Kerah Shiller M",15,75);
+  }
+  else if(leherlk1.size()==15 && leherlk2.size()==6 && polaLeherlk1.size()==14 && templateLeherlk!=5 && templateLeherlk==11 ){
+  pg[10].text("- Pola Kerah Kemeja Boord Terusan M",15,75);
+  }
+  else if(leherlk1.size()==8 && polaLeherlk1.size()==12 && polaLeherlk2.size()==12 && templateLeherlk!=1 && templateLeherlk!=7 && templateLeherlk==13){
+  pg[10].text("- Pola Kerah Kemeja L",15,75);
+  }
+  else if(leherlk1.size()==10 && leherlk2.size()==6 && polaLeherlk1.size()==10 && templateLeherlk!=2 && 
+  templateLeherlk!=4 && templateLeherlk!=8 && templateLeherlk==14){
+  pg[10].text("- Pola Kerah Sport L",15,75);
+  }
+  else if(leherlk1.size()==13 && leherlk2.size()==8 && polaLeherlk1.size()==12 && templateLeherlk!=3 && templateLeherlk!=9 && templateLeherlk==15){
+  pg[10].text("- Pola Kerah Shanghay L",15,75);
+  }
+  else if(leherlk1.size()==10 && leherlk2.size()==6 && polaLeherlk1.size()==10 && templateLeherlk!=2 && templateLeherlk!=4 
+  && templateLeherlk!=8 && templateLeherlk!=10 && templateLeherlk==16){
+  pg[10].text("- Pola Kerah Shiller M",15,75);
+  }
+  else if(leherlk1.size()==15 && leherlk2.size()==6 && polaLeherlk1.size()==14 && templateLeherlk!=5 && templateLeherlk!=11 && templateLeherlk==17){
+  pg[10].text("- Pola Kerah Kemeja Boord Terusan L",15,75);
   }
   
-  if(templateLeher==1){
-    pg[10].text("- Kerah Kemeja S",15,75);
+  if(lenganlk1.size()==6 && lenganlk2.size()==6 && polaLenganlk1.size()==11 && polaLenganlk2.size()==11 && templateLenganlk==1){
+  pg[10].text("- Pola Lengan Licin Pendek S",15,100);
   }
-  else if(templateLeher==2){
-    pg[10].text("- Kerah Sport S",15,75);
+  else if(lenganlk1.size()==8 && lenganlk2.size()==8 && polaLenganlk1.size()==11 && polaLenganlk2.size()==11 && templateLenganlk==2){
+  pg[10].text("- Pola Lengan Licin Panjang S",15,100);
   }
-  else if(templateLeher==3){
-    pg[10].text("- Kerah Sanghay S",15,75);
+  else if(lenganlk1.size()==6 && lenganlk2.size()==6  && garisLenganlk.size()==2  && garisLenganlk2.size()==2 
+  && polaLenganlk1.size()==13 && polaLenganlk2.size()==13 && templateLenganlk==3){
+  pg[10].text("- Pola Lengan Gladde Pendek S",15,100);
   }
-  else if(templateLeher==4){
-    pg[10].text("- Kerah Shiller S",15,75);
+  else if(lenganlk1.size()==8 && lenganlk2.size()==8  && garisLenganlk.size()==2  && garisLenganlk2.size()==2 
+  && polaLenganlk1.size()==13 && polaLenganlk2.size()==13 && templateLenganlk==4){
+  pg[10].text("- Pola Lengan Gladde Panjang S",15,100);
   }
-  else if(templateLeher==5){
-    pg[10].text("- Kerah Kemeja Boord Terusan S",15,75);
+  else if(lenganlk1.size()==6 && lenganlk2.size()==6 && polaLenganlk1.size()==11 && polaLenganlk2.size()==11 && templateLenganlk!=1 && templateLenganlk==5){
+  pg[10].text("- Pola Lengan Licin Pendek M",15,100);
   }
-  else if(templateLeher==7){
-    pg[10].text("- Kerah Kemeja M",15,75);
+  else if(lenganlk1.size()==8 && lenganlk2.size()==8 && polaLenganlk1.size()==11 && polaLenganlk2.size()==11 && templateLenganlk!=2 && templateLenganlk==6){
+  pg[10].text("- Pola Lengan Licin Panjang M",15,100);
   }
-  else if(templateLeher==8){
-    pg[10].text("- Kerah Sport M",15,75);
+  else if(lenganlk1.size()==6 && lenganlk2.size()==6  && garisLenganlk.size()==2  && garisLenganlk2.size()==2 
+  && polaLenganlk1.size()==13 && polaLenganlk2.size()==13 && templateLenganlk!=3 && templateLenganlk==7){
+  pg[10].text("- Pola Lengan Gladde Pendek M",15,100);
   }
-  else if(templateLeher==9){
-    pg[10].text("- Kerah Sanghay M",15,75);
+  else if(lenganlk1.size()==8 && lenganlk2.size()==8  && garisLenganlk.size()==2  && garisLenganlk2.size()==2 
+  && polaLenganlk1.size()==13 && polaLenganlk2.size()==13 && templateLenganlk!=4 && templateLenganlk==8){
+  pg[10].text("- Pola Lengan Gladde Panjang M",15,100);
   }
-  else if(templateLeher==10){
-    pg[10].text("- Kerah Shiller M",15,75);
+  else if(lenganlk1.size()==6 && lenganlk2.size()==6 && polaLenganlk1.size()==11 && polaLenganlk2.size()==11 
+  && templateLenganlk!=1 && templateLenganlk!=5 && templateLenganlk==9){
+  pg[10].text("- Pola Lengan Licin Pendek L",15,100);
   }
-  else if(templateLeher==11){
-    pg[10].text("- Kerah Kemeja Boord Terusan M",15,75);
+  else if(lenganlk1.size()==8 && lenganlk2.size()==8 && polaLenganlk1.size()==11 && polaLenganlk2.size()==11 
+  && templateLenganlk!=2 && templateLenganlk!=6 && templateLenganlk==10){
+  pg[10].text("- Pola Lengan Licin Panjang L",15,100);
   }
-  else if(templateLeher==13){
-    pg[10].text("- Kerah Kemeja L",15,75);
+  else if(lenganlk1.size()==6 && lenganlk2.size()==6  && garisLenganlk.size()==2  && garisLenganlk2.size()==2 
+  && polaLenganlk1.size()==13 && polaLenganlk2.size()==13 && templateLenganlk!=3 && templateLenganlk!=7 && templateLenganlk==11){
+  pg[10].text("- Pola Lengan Gladde Pendek L",15,100);
   }
-  else if(templateLeher==14){
-    pg[10].text("- Kerah Sport L",15,75);
-  }
-  else if(templateLeher==15){
-    pg[10].text("- Kerah Sanghay L",15,75);
-  }
-  else if(templateLeher==16){
-    pg[10].text("- Kerah Shiller L",15,75);
-  }
-  else if(templateLeher==17){
-    pg[10].text("- Kerah Kemeja Boord Terusan L",15,75);
-  }
-  
-  if(templateLeherlk==1){
-    pg[10].text("- Kerah Kemeja S",15,75);
+  else if(lenganlk1.size()==8 && lenganlk2.size()==8  && garisLenganlk.size()==2  && garisLenganlk2.size()==2 
+  && polaLenganlk1.size()==13 && polaLenganlk2.size()==13 && templateLenganlk!=4 && templateLenganlk!=8 && templateLenganlk==12){
+  pg[10].text("- Pola Lengan Gladde Panjang L",15,100);
   }
   
-  else if(templateLeherlk==2){ 
-    pg[10].text("- Kerah Sport S",15,75);
-  }
-  else if(templateLeherlk==3){
-    pg[10].text("- Kerah Sanghay S",15,75);
-  }
-  else if(templateLeherlk==4){
-    pg[10].text("- Kerah Shiller S",15,75);
-  }
-  else if(templateLeherlk==5){
-    pg[10].text("- Kerah Kemeja Boord Terusan S",15,75);
-  }
-  else if(templateLeherlk==7){
-    pg[10].text("- Kerah Kemeja M",15,75);
-  }
-  else if(templateLeherlk==8){
-    pg[10].text("- Kerah Sport M",15,75);
-  }
-  else if(templateLeherlk==9){
-    pg[10].text("- Kerah Sanghay M",15,75);
-  }
-  else if(templateLeherlk==10){
-    pg[10].text("- Kerah Shiller M",15,75);
-  }
-  else if(templateLeherlk==11){
-    pg[10].text("- Kerah Kemeja Boord Terusan M",15,75);
-  }
-  else if(templateLeherlk==13){
-    pg[10].text("- Kerah Kemeja L",15,75);
-  }
-  else if(templateLeherlk==14){
-    pg[10].text("- Kerah Sport L",15,75);
-  }
-  else if(templateLeherlk==15){
-    pg[10].text("- Kerah Sanghay L",15,75);
-  }
-  else if(templateLeherlk==16){
-    pg[10].text("- Kerah Shiller L",15,75);
-  }
-  else if(templateLeherlk==17){
-    pg[10].text("- Kerah Kemeja Boord Terusan L",15,75);
-  }
-  
-  if(templateLengan==1){
-    pg[10].text("- Pola Lengan Gelembung pendek S",15,100);
-  }
-  else if(templateLengan==2){
-    pg[10].text("- Pola Lengan Gelembung atas Panjang S",15,100);
-  }
-  else if(templateLengan==3){
-    pg[10].text("- Pola Lengan Licin pendek S",15,100);
-  }
-  else if(templateLengan==4){
-    pg[10].text("- Pola Lengan Licin Panjang S",15,100);
-  }
-  else if(templateLengan==5){
-    pg[10].text("- Pola Lengan Gladde pendek S",15,100);
-  }
-  else if(templateLengan==6){
-    pg[10].text("- Pola Lengan Gladde panjang S",15,100);
-  }
-  else if(templateLengan==7){
-    pg[10].text("- Pola Lengan Gelembung pendek M",15,100);
-  }
-  else if(templateLengan==8){
-    pg[10].text("- Pola Lengan Gelembung atas Panjang M",15,100);
-  }
-  else if(templateLengan==9){
-    pg[10].text("- Pola Lengan Licin pendek M",15,100);
-  }
-  else if(templateLengan==10){
-    pg[10].text("- Pola Lengan Licin Panjang M",15,100);
-  }
-  else if(templateLengan==11){
-    pg[10].text("- Pola Lengan Gladde pendek M",15,100);
-  }
-  else if(templateLengan==12){
-    pg[10].text("- Pola Lengan Gladde panjang M",15,100);
-  }
-  else if(templateLengan==13){
-    pg[10].text("- Pola Lengan Gelembung pendek L",15,100);
-  }
-  else if(templateLengan==14){
-    pg[10].text("- Pola Lengan Gelembung atas Panjang L",15,100);
-  }
-  else if(templateLengan==15){
-    pg[10].text("- Pola Lengan Licin pendek L",15,100);
-  }
-  else if(templateLengan==16){
-    pg[10].text("- Pola Lengan Licin Panjang L",15,100);
-  }
-  else if(templateLengan==17){
-    pg[10].text("- Pola Lengan Gladde pendek L",15,100);
-  }
-  else if(templateLengan==18){
-    pg[10].text("- Pola Lengan Gladde panjang L",15,100);
-  }
-  
-  if(templateLenganlk==1){
-    pg[10].text("- Pola Lengan Licin pendek S",15,100);
-  }
-  else if(templateLenganlk==2){
-    pg[10].text("- Pola Lengan Licin Panjang S",15,100);
-  }
-  else if(templateLenganlk==3){
-    pg[10].text("- Pola Lengan Gladde pendek S",15,100);
-  }
-  else if(templateLenganlk==4){
-    pg[10].text("- Pola Lengan Gladde panjang S",15,100);
-  }
-  else if(templateLenganlk==5){
-    pg[10].text("- Pola Lengan Licin pendek M",15,100);
-  }
-  else if(templateLenganlk==6){
-    pg[10].text("- Pola Lengan Licin Panjang M",15,100);
-  }
-  else if(templateLenganlk==7){
-    pg[10].text("- Pola Lengan Gladde pendek M",15,100);
-  }
-  else if(templateLenganlk==8){
-    pg[10].text("- Pola Lengan Gladde panjang M",15,100);
-  }
-  else if(templateLenganlk==9){
-    pg[10].text("- Pola Lengan Licin pendek L",15,100);
-  }
-  else if(templateLenganlk==10){
-    pg[10].text("- Pola Lengan Licin Panjang L",15,100);
-  }
-  else if(templateLenganlk==11){
-    pg[10].text("- Pola Lengan Gladde pendek L",15,100);
-  }
-  else if(templateLenganlk==12){
-    pg[10].text("- Pola Lengan Gladde panjang L",15,100);
-  }
-  
-  if(templateRok==1){
-    pg[10].text("- Pola Rok Standar pendek S",15,125);
-  }
-  else if(templateRok==2){
-    pg[10].text("- Pola Rok Standar Panjang S",15,125);
-  }
-  else if(templateRok==3){
-    pg[10].text("- Pola Rok Span S",15,125);
-  }
-  else if(templateRok==4){
-    pg[10].text("- Pola Rok Span 2 Kumpat S",15,125);
-  }
-  else if(templateRok==5){
-    pg[10].text("- Pola Rok Lipit Hadap I S",15,125);
-  }
-  else if(templateRok==6){
-    pg[10].text("- Pola Rok Lipit Hadap II S",15,125);
-  }
-  else if(templateRok==7){
-    pg[10].text("- Pola Rok Lipit Hadap III S",15,125);
-  }
-  else if(templateRok==9){
-    pg[10].text("- Pola Rok Standar pendek M",15,125);
-  }
-  else if(templateRok==10){
-    pg[10].text("- Pola Rok Standar Panjang M",15,125);
-  }
-  else if(templateRok==11){
-    pg[10].text("- Pola Rok Span M",15,125);
-  }
-  else if(templateRok==12){
-    pg[10].text("- Pola Rok Span 2 Kumpat M",15,125);
-  }
-  else if(templateRok==13){
-    pg[10].text("- Pola Rok Lipit Hadap I M",15,125);
-  }
-  else if(templateRok==14){
-    pg[10].text("- Pola Rok Lipit Hadap II M",15,125);
-  }
-  else if(templateRok==15){
-    pg[10].text("- Pola Rok Lipit Hadap III M",15,125);
-  }
-  else if(templateRok==17){
-    pg[10].text("- Pola Rok Standar pendek L",15,125);
-  }
-  else if(templateRok==18){
-    pg[10].text("- Pola Rok Standar Panjang L",15,125);
-  }
-  else if(templateRok==19){
-    pg[10].text("- Pola Rok Span L",15,125);
-  }
-  else if(templateRok==20){
-    pg[10].text("- Pola Rok Span 2 Kumpat L",15,125);
-  }
-  else if(templateRok==21){
-    pg[10].text("- Pola Rok Lipit Hadap I L",15,125);
-  }
-  else if(templateRok==22){
-    pg[10].text("- Pola Rok Lipit Hadap II L",15,125);
-  }
-  else if(templateRok==23){
-    pg[10].text("- Pola Rok Lipit Hadap III L",15,125);
-  }
-  
-  if(templateGaun==1){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Depan Pendek S",15,150);
-  }
-  else if(templateGaun==2){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Depan Panjang S",15,150);
-  }
-  else if(templateGaun==3){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan belakang Pendek",15,150);
-  }
-  else if(templateGaun==4){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Belakang Panjang S",15,150);
-  }
-  else if(templateGaun==5){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Depan Pendek M",15,150);
-  }
-  else if(templateGaun==6){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Depan Panjang M",15,150);
-  }
-  else if(templateGaun==7){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Belakang Pendek M",15,150);
-  }
-  else if(templateGaun==8){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Belakang Panjang M",15,150);
-  }
-  else if(templateGaun==9){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Depan Pendek L",15,150);
-  }
-  else if(templateGaun==10){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Depan Panjang L",15,150);
-  }
-  else if(templateGaun==11){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Belakang Pendek L",15,150);
-  }
-  else if(templateGaun==12){
-    pg[10].text("Wanita",190,25);
-    pg[10].text("- Pola Gaun Bukaan Belakang Panjang L",15,150);
-  }
-  
-  else if(templateCelana==1){
-    pg[10].text("- Pola Celana Pendek S",15,175);
-  }
-  else if(templateCelana==2){
-    pg[10].text("- Pola Celana Panjang S",15,175);
-  }
-  else if(templateCelana==3){
-    pg[10].text("- Pola Celana Pendek M",15,175);
-  }
-  else if(templateCelana==4){
-    pg[10].text("- Pola Celana Panjang M",15,175);
-  }
-  else if(templateCelana==5){
-    pg[10].text("- Pola Celana Pendek L",15,175);
-  }
-  else if(templateCelana==6){
-    pg[10].text("- Pola Celana Panjang L",15,175);
-  }
-  
-  if(templateCelanalk==1){
-    pg[10].text("- Pola Celana Pendek S",15,125);
-  }
-  else if(templateCelanalk==2){
-    pg[10].text("- Pola Celana Panjang S",15,125);
-  }
-  else if(templateCelanalk==3){
-    pg[10].text("- Pola Celana Pendek M",15,125);
-  }
-  else if(templateCelanalk==4){
-    pg[10].text("- Pola Celana Panjang M",15,125);
-  }
-  else if(templateCelanalk==5){
-    pg[10].text("- Pola Celana Pendek L",15,125);
-  }
-  else if(templateCelanalk==6){
-    pg[10].text("- Pola Celana Panjang L",15,125);
+  if(celanalk1.size()==4 && celanalk2.size()==9 && celanalk3.size()==12 && garisCelanalk.size()==6 && polaCelanalk1.size()==16 && 
+  polaCelanalk2.size()==5 && polaCelanalk3.size()==16 && polaCelanalk4.size()==5 && polaCelanalk5.size()==11 && polaCelanalk6.size()==11 &&
+  templateCelanalk==1){
+  pg[10].text("- Pola Celana Pendek S",15,125);
+  }
+  else if(celanalk1.size()==4 && celanalk2.size()==9 && celanalk3.size()==12 && garisCelanalk.size()==6 && polaCelanalk1.size()==18 && 
+  polaCelanalk2.size()==5 && polaCelanalk3.size()==18 && polaCelanalk4.size()==5 && polaCelanalk5.size()==13 && polaCelanalk6.size()==13 &&
+  templateCelanalk==2){
+  pg[10].text("- Pola Celana Panjang S",15,125);
+  }
+  else if(celanalk1.size()==4 && celanalk2.size()==9 && celanalk3.size()==12 && garisCelanalk.size()==6 && polaCelanalk1.size()==16 && 
+  polaCelanalk2.size()==5 && polaCelanalk3.size()==16 && polaCelanalk4.size()==5 && polaCelanalk5.size()==11 && polaCelanalk6.size()==11 &&
+  templateCelanalk!=1 && templateCelanalk==3){
+  pg[10].text("- Pola Celana Pendek M",15,125);
+  }
+  else if(celanalk1.size()==4 && celanalk2.size()==9 && celanalk3.size()==12 && garisCelanalk.size()==6 && polaCelanalk1.size()==18 && 
+  polaCelanalk2.size()==5 && polaCelanalk3.size()==18 && polaCelanalk4.size()==5 && polaCelanalk5.size()==13 && polaCelanalk6.size()==13 &&
+  templateCelanalk!=2 && templateCelanalk==4){
+  pg[10].text("- Pola Celana Panjang M",15,125);
+  }
+  else if(celanalk1.size()==4 && celanalk2.size()==9 && celanalk3.size()==12 && garisCelanalk.size()==6 && polaCelanalk1.size()==16 && 
+  polaCelanalk2.size()==5 && polaCelanalk3.size()==16 && polaCelanalk4.size()==5 && polaCelanalk5.size()==11 && polaCelanalk6.size()==11 &&
+  templateCelanalk!=1 && templateCelanalk!=3 && templateCelanalk==5){
+  pg[10].text("- Pola Celana Pendek L",15,125);
+  }
+  else if(celanalk1.size()==4 && celanalk2.size()==9 && celanalk3.size()==12 && garisCelanalk.size()==6 && polaCelanalk1.size()==18 && 
+  polaCelanalk2.size()==5 && polaCelanalk3.size()==18 && polaCelanalk4.size()==5 && polaCelanalk5.size()==13 && polaCelanalk6.size()==13 &&
+  templateCelanalk!=2 && templateCelana!=4 && templateCelanalk==6){
+  pg[10].text("- Pola Celana Panjang L",15,125);
   }
   
   pg[10].stroke(0);
   pg[10].endDraw();
 }
 
-void keyPressed() {
+public void keyPressed() {
   if (key == CODED) {
     if (keyCode == CONTROL) 
       controlDown = true;
@@ -6908,16 +6590,25 @@ void keyPressed() {
     return;
   }
 
-  if (key=='g')      showGrid();
+  if (key=='g')                  showGrid();
+  //if (key=='B' || key=='b')      drawPgTemplateAtasanLk();
+  //if (key=='K' || key=='k')      drawPgTemplateLeherLk();
+  //if (key=='L' || key=='l')      drawPgTemplateLenganLk();
+  //if (key=='C' || key=='c')      drawPgTemplateCelanaLk();
+  //if (key=='A' || key=='a')      drawPgTemplateAtasan();
+  //if (key=='L' || key=='e')      drawPgTemplateLeher();
+  //if (key=='F' || key=='f')      drawPgTemplateLengan();
+  //if (key=='D' || key=='d')      drawPgTemplateGaun();
+  //if (key=='R' || key=='r')      drawPgTemplateRok();
+  //if (key=='H' || key=='h')      drawPgTemplateCelana();
   if (key=='s' || key=='S')      saveProject();
   if (key=='n' || key=='N')      newProject();
   if (key=='o' || key=='O')      openProject();
   if (key=='q' || key=='Q')      exit();
-  if (key=='w' || key=='W')      pg[3].save("/SS/SS3D.jpg");
-  if (key=='v' || key=='V')      pg[2].save("/SS/SS2D.jpg");
+  if (key=='w' || key=='W')      pg[4].save("/SS/Output.jpg");
 }
 
-void keyReleased() {
+public void keyReleased() {
   if (key == CODED) {
     if (keyCode == CONTROL)
       controlDown = false;
@@ -6926,7 +6617,7 @@ void keyReleased() {
   }
 }
 
-void evalMenu(int menuResult1) {
+public void evalMenu(int menuResult1) {
   switch(menuResult1) {
   case 0: 
     print("\nNew Project");
@@ -7003,7 +6694,7 @@ void evalMenu(int menuResult1) {
     break;
 
   case 200: 
-    print("\nBadan");
+    print("\nBaju");
     pgTex1 = false;
     pgTex2 = false;
     pgTutor = false;
@@ -7022,7 +6713,7 @@ void evalMenu(int menuResult1) {
     break;
     
    case 201: 
-    print("\nLeher");
+    print("\nKerah");
     pgTex1 = false;
     pgTex2 = false;
     pgUkuranW = false;
@@ -7117,7 +6808,7 @@ void evalMenu(int menuResult1) {
     break;
 
   case 300: 
-    print("\nBadan");
+    print("\nBaju");
     pgTex1 = false;
     pgTex2 = false;
     pgTutor = false;
@@ -7136,7 +6827,7 @@ void evalMenu(int menuResult1) {
     break;
     
   case 301: 
-    print("\nLeher");
+    print("\nKerah");
     pgTex1 = false;
     pgTex2 = false;
     pgTutor = false;
@@ -7241,17 +6932,17 @@ void evalMenu(int menuResult1) {
   }
 }
 
-void showGrid() {
+public void showGrid() {
   if (!grid2D) grid2D = true;
   else grid2D = false;
 }
 
-void saveProject() {
+public void saveProject() {
   File defaultFileName = new File(sketchPath("")+"/Saved Projects"+"/Project.txt");
   selectOutput("Save Project as: ", "fileSelectedForSave", defaultFileName);
 }
 
-void drawPgMenuBar() {
+public void drawPgMenuBar() {
   pg[1].beginDraw();
   pg[1].background(25);
   pg[1].fill(0xffD30F0F);
@@ -7262,7 +6953,7 @@ void drawPgMenuBar() {
   pg[1].endDraw();
 }
 
-void drawPgVisualisasiPola() {
+public void drawPgVisualisasiPola() {
   pg[2].beginDraw();
   pg[2].background(200);
   if (grid2D) {
@@ -7343,7 +7034,7 @@ public void drawPgVisualisasiBusana() {
   pg[3].endDraw();
 }
 
-void setPgTexture(PImage imgtex[]) {
+public void setPgTexture(PImage imgtex[]) {
   for (int i=1; i<=5; i++) {
     pg[i+3].beginDraw();
     pg[i+3].background(255);
@@ -7374,7 +7065,7 @@ void setPgTexture(PImage imgtex[]) {
   }
 }
 
-void drawPgTutorial() {
+public void drawPgTutorial() {
   pg[11].beginDraw();
   pg[11].background(0xff525252);
   pg[11].fill(255);
@@ -7386,8 +7077,8 @@ void drawPgTutorial() {
   pg[11].textSize(15);
   pg[11].text("1. Pilihlah Desain Busana wanita ataupun Pria yang berada di", 7, 117);
   pg[11].text("    Menu Wanita dan menu Pria. pada menu Wanita terdapat ", 7, 135);
-  pg[11].text("    pola Baju, Leher, Lengan, Rok ,Gaun dan Celana. Sedangkan", 7, 152);
-  pg[11].text("    pada menu pria terdapat Pola Baju, Leher, Lengan, dan ", 7, 169);
+  pg[11].text("    pola Baju, Kerah, Lengan, Rok ,Gaun dan Celana. Sedangkan", 7, 152);
+  pg[11].text("    pada menu pria terdapat Pola Baju, Kerah, Lengan, dan ", 7, 169);
   pg[11].text("    Celana. setelah memilih maka template pola akan ditampil ", 7, 186);
   pg[11].text("    kan pada sebelah kanan layar aplikasi.", 7, 203);
   pg[11].text("2. Anda dapat memilih Template pola yang telah tersedia. pilih", 7, 220);
@@ -7409,7 +7100,7 @@ void drawPgTutorial() {
 }
 
 
-void drawPgTemplateAtasan() {
+public void drawPgTemplateAtasan() {
   pg[12].beginDraw();
   pg[12].background(252);
   pg[12].fill(0);
@@ -7441,7 +7132,7 @@ void drawPgTemplateAtasan() {
   pg[12].endDraw();
 }
 
-void drawPgTemplateUkuranW() {
+public void drawPgTemplateUkuranW() {
   pg[22].beginDraw();
   pg[22].background(252);
   pg[22].fill(0);
@@ -7473,7 +7164,7 @@ void drawPgTemplateUkuranW() {
   pg[22].endDraw();
 }
 
-void drawPgTemplateUkuranP() {
+public void drawPgTemplateUkuranP() {
   pg[23].beginDraw();
   pg[23].background(252);
   pg[23].fill(0);
@@ -7505,7 +7196,7 @@ void drawPgTemplateUkuranP() {
   pg[23].endDraw();
 }
 
-void drawPgTemplateLeher() {
+public void drawPgTemplateLeher() {
   pg[18].beginDraw();
   pg[18].background(252);
   pg[18].fill(0);
@@ -7537,7 +7228,7 @@ void drawPgTemplateLeher() {
   pg[18].endDraw();
 }
 
-void drawPgTemplateLengan() {
+public void drawPgTemplateLengan() {
   pg[19].beginDraw();
   pg[19].background(252);
   pg[19].fill(0);
@@ -7569,7 +7260,7 @@ void drawPgTemplateLengan() {
   pg[19].endDraw();
 }
 
-void drawPgTemplateRok() {
+public void drawPgTemplateRok() {
   pg[13].beginDraw();
   pg[13].background(252);
   pg[13].fill(0);
@@ -7601,7 +7292,7 @@ void drawPgTemplateRok() {
   pg[13].endDraw();
 }
 
-void drawPgTemplateGaun() {
+public void drawPgTemplateGaun() {
   pg[14].beginDraw();
   pg[14].background(252);
   pg[14].fill(0);
@@ -7633,7 +7324,7 @@ void drawPgTemplateGaun() {
   pg[14].endDraw();
 }
 
-void drawPgTemplateCelana() {
+public void drawPgTemplateCelana() {
   pg[15].beginDraw();
   pg[15].background(252);
   pg[15].fill(0);
@@ -7665,7 +7356,7 @@ void drawPgTemplateCelana() {
   pg[15].endDraw();
 }
 
-void drawPgTemplateAtasanLk() {
+public void drawPgTemplateAtasanLk() {
   pg[16].beginDraw();
   pg[16].background(252);
   pg[16].fill(0);
@@ -7697,7 +7388,7 @@ void drawPgTemplateAtasanLk() {
   pg[16].endDraw();
 }
 
-void drawPgTemplateCelanaLk() {
+public void drawPgTemplateCelanaLk() {
   pg[17].beginDraw();
   pg[17].background(252);
   pg[17].fill(0);
@@ -7729,7 +7420,7 @@ void drawPgTemplateCelanaLk() {
   pg[17].endDraw();
 }
 
-void drawPgTemplateLeherLk() {
+public void drawPgTemplateLeherLk() {
   pg[20].beginDraw();
   pg[20].background(252);
   pg[20].fill(0);
@@ -7761,7 +7452,7 @@ void drawPgTemplateLeherLk() {
   pg[20].endDraw();
 }
 
-void drawPgTemplateLenganLk() {
+public void drawPgTemplateLenganLk() {
   pg[21].beginDraw();
   pg[21].background(252);
   pg[21].fill(0);
@@ -7794,7 +7485,7 @@ void drawPgTemplateLenganLk() {
 }
 
 
-void imagePgs() {
+public void imagePgs() {
   image(pg[1], 0, 0);
   image(pg[2], 0, pg[1].height);
   image(pg[3], width/3, pg[1].height);
@@ -7834,7 +7525,7 @@ void imagePgs() {
     image(pg[11], 2*width/3, pg[1].height);
 }
 
-void defineMenus() {
+public void defineMenus() {
   menuList[0] = new ClassOneDropDownMenu("File", 0); // 23 = x pos
   menuList[0].addNewLine("New", 0); // 0 = index
   menuList[0].addNewLine("Open", 1);
@@ -7849,7 +7540,7 @@ void defineMenus() {
 
   menuList[2] = new ClassOneDropDownMenu("Wanita", 2*100);// x pos
   menuList[2].addNewLine("Baju", 200);// index
-  menuList[2].addNewLine("Leher", 201);
+  menuList[2].addNewLine("Kerah", 201);
   menuList[2].addNewLine("Lengan", 202);
   menuList[2].addNewLine("Rok", 203);
   menuList[2].addNewLine("Gaun", 204);
@@ -7857,7 +7548,7 @@ void defineMenus() {
 
   menuList[3] = new ClassOneDropDownMenu("Pria", 3*100);// x pos
   menuList[3].addNewLine("Baju", 300);// index
-  menuList[3].addNewLine("Leher", 301);
+  menuList[3].addNewLine("Kerah", 301);
   menuList[3].addNewLine("Lengan", 302);
   menuList[3].addNewLine("Celana", 303);
 
@@ -7867,13 +7558,13 @@ void defineMenus() {
   //menuList[4].addNewLine("Tekstur 3", 402);// kain
 }
 
-void drawLines() {
+public void drawLines() {
   line(0, pg[1].height, width, pg[1].height);
   line(width/3, pg[1].height, width/3, height);
   line(2*width/3, pg[1].height, 2*width/3, height);
 }
 
-void drawBasement() {
+public void drawBasement() {
   if (!newProject) {
     base();
     base1();
@@ -7894,12 +7585,12 @@ void drawBasement() {
   }
 }
 
-void drawMenuBar() {
+public void drawMenuBar() {
   for (int i=0; i<menuList.length; i++)
     menuList[i].display();
 }
 
-void fileSelectedForSave(File selection) {
+public void fileSelectedForSave(File selection) {
   if (selection == null)
     println("\nWindow was closed or the user hit cancel.");
   else {
@@ -7913,205 +7604,254 @@ void fileSelectedForSave(File selection) {
     output.println("polaRok1"+TAB+polaRok1.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok1.size()-1; i++)
-      output.println("Rok1"+TAB+polaRok1.get(i).x+TAB+polaRok1.get(i).z);  
+      output.println("prok1"+TAB+polaRok1.get(i).x+TAB+polaRok1.get(i).z);  
       
     output.println("polaRok2"+TAB+polaRok2.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok2.size()-1; i++)
-      output.println("Rok2"+TAB+polaRok2.get(i).x+TAB+polaRok2.get(i).z);
+      output.println("prok2"+TAB+polaRok2.get(i).x+TAB+polaRok2.get(i).z);
       
     output.println("polaRok3"+TAB+polaRok3.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok3.size()-1; i++)
-      output.println("Rok3"+TAB+polaRok3.get(i).x+TAB+polaRok3.get(i).z);   
+      output.println("prok3"+TAB+polaRok3.get(i).x+TAB+polaRok3.get(i).z);   
     
     output.println("polaRok4"+TAB+polaRok4.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok4.size()-1; i++)
-      output.println("Rok4"+TAB+polaRok4.get(i).x+TAB+polaRok4.get(i).z);  
+      output.println("prok4"+TAB+polaRok4.get(i).x+TAB+polaRok4.get(i).z);  
     
     output.println("polaRok5"+TAB+polaRok5.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok5.size()-1; i++)
-      output.println("Rok5"+TAB+polaRok5.get(i).x+TAB+polaRok5.get(i).z);   
+      output.println("prok5"+TAB+polaRok5.get(i).x+TAB+polaRok5.get(i).z);   
       
     output.println("polaAtasan1"+TAB+polaAtasan1.size());
     for (int i=0; i<=polaAtasan1.size()-1; i++)
-      output.println("Atasan1"+TAB+polaAtasan1.get(i).x+TAB+polaAtasan1.get(i).z);
+      output.println("patasan1"+TAB+polaAtasan1.get(i).x+TAB+polaAtasan1.get(i).z);
       
     output.println("polaAtasan2"+TAB+polaAtasan2.size());
     for (int i=0; i<=polaAtasan2.size()-1; i++)
-      output.println("Atasan2"+TAB+polaAtasan2.get(i).x+TAB+polaAtasan2.get(i).z);
+      output.println("patasan2"+TAB+polaAtasan2.get(i).x+TAB+polaAtasan2.get(i).z);
      
     output.println("polaAtasan3"+TAB+polaAtasan3.size());
     for (int i=0; i<=polaAtasan3.size()-1; i++)
-      output.println("Atasan3"+TAB+polaAtasan3.get(i).x+TAB+polaAtasan3.get(i).z);  
+      output.println("patasan3"+TAB+polaAtasan3.get(i).x+TAB+polaAtasan3.get(i).z);  
     
     output.println("polaAtasan4"+TAB+polaAtasan4.size());
     for (int i=0; i<=polaAtasan4.size()-1; i++)
-      output.println("Atasan4"+TAB+polaAtasan4.get(i).x+TAB+polaAtasan4.get(i).z);
+      output.println("patasan4"+TAB+polaAtasan4.get(i).x+TAB+polaAtasan4.get(i).z);
      
     output.println("polaAtasan5"+TAB+polaAtasan5.size());
     for (int i=0; i<=polaAtasan5.size()-1; i++)
-      output.println("Atasan5"+TAB+polaAtasan5.get(i).x+TAB+polaAtasan5.get(i).z);   
+      output.println("patasan5"+TAB+polaAtasan5.get(i).x+TAB+polaAtasan5.get(i).z);   
+    output.println("polaAtasan6"+TAB+polaAtasan6.size());
+    for (int i=0; i<=polaAtasan6.size()-1; i++)
+      output.println("patasan6"+TAB+polaAtasan6.get(i).x+TAB+polaAtasan6.get(i).z);   
+    output.println("polaAtasan7"+TAB+polaAtasan7.size());
+    for (int i=0; i<=polaAtasan7.size()-1; i++)
+      output.println("patasan7"+TAB+polaAtasan7.get(i).x+TAB+polaAtasan7.get(i).z); 
+    output.println("polaAtasan8"+TAB+polaAtasan8.size());
+    for (int i=0; i<=polaAtasan8.size()-1; i++)
+      output.println("patasan8"+TAB+polaAtasan8.get(i).x+TAB+polaAtasan8.get(i).z);   
+      
       
     output.println("polaLeher1"+TAB+polaLeher1.size());
     for (int i=0; i<=polaLeher1.size()-1; i++)
-      output.println("Leher1"+TAB+polaLeher1.get(i).x+TAB+polaLeher1.get(i).z);   
+      output.println("pleher1"+TAB+polaLeher1.get(i).x+TAB+polaLeher1.get(i).z);   
       
     output.println("polaLeher2"+TAB+polaLeher2.size());
     for (int i=0; i<=polaLeher2.size()-1; i++)
-      output.println("Leher2"+TAB+polaLeher2.get(i).x+TAB+polaLeher2.get(i).z);
+      output.println("pleher2"+TAB+polaLeher2.get(i).x+TAB+polaLeher2.get(i).z);
       
     output.println("polaLeher3"+TAB+polaLeher3.size());
     for (int i=0; i<=polaLeher3.size()-1; i++)
-      output.println("Leher3"+TAB+polaLeher3.get(i).x+TAB+polaLeher3.get(i).z);  
+      output.println("pleher3"+TAB+polaLeher3.get(i).x+TAB+polaLeher3.get(i).z);  
     
     output.println("polaLeher4"+TAB+polaLeher4.size());
     for (int i=0; i<=polaLeher4.size()-1; i++)
-      output.println("Leher4"+TAB+polaLeher4.get(i).x+TAB+polaLeher4.get(i).z); 
+      output.println("pleher4"+TAB+polaLeher4.get(i).x+TAB+polaLeher4.get(i).z); 
      
     output.println("polaLeher5"+TAB+polaLeher5.size());
     for (int i=0; i<=polaLeher5.size()-1; i++)
-      output.println("Leher5"+TAB+polaLeher5.get(i).x+TAB+polaLeher5.get(i).z);
+      output.println("pleher5"+TAB+polaLeher5.get(i).x+TAB+polaLeher5.get(i).z);
      
     output.println("polaLengan1"+TAB+polaLengan1.size());
     for (int i=0; i<=polaLengan1.size()-1; i++)
-      output.println("Lengan1"+TAB+polaLengan1.get(i).x+TAB+polaLengan1.get(i).z);
+      output.println("plengan1"+TAB+polaLengan1.get(i).x+TAB+polaLengan1.get(i).z);
       
     output.println("polaLengan2"+TAB+polaLengan2.size());
     for (int i=0; i<=polaLengan2.size()-1; i++)
-      output.println("Lengan2"+TAB+polaLengan2.get(i).x+TAB+polaLengan2.get(i).z);    
+      output.println("plengan2"+TAB+polaLengan2.get(i).x+TAB+polaLengan2.get(i).z);    
       
     output.println("polaLengan3"+TAB+polaLengan3.size());
     for (int i=0; i<=polaLengan3.size()-1; i++)
-      output.println("Lengan3"+TAB+polaLengan3.get(i).x+TAB+polaLengan3.get(i).z);
+      output.println("plengan3"+TAB+polaLengan3.get(i).x+TAB+polaLengan3.get(i).z);
     
     output.println("polaLengan4"+TAB+polaLengan4.size());
     for (int i=0; i<=polaLengan4.size()-1; i++)
-      output.println("Lengan4"+TAB+polaLengan4.get(i).x+TAB+polaLengan4.get(i).z);
+      output.println("plengan4"+TAB+polaLengan4.get(i).x+TAB+polaLengan4.get(i).z);
     
     output.println("polaLengan5"+TAB+polaLengan5.size());
     for (int i=0; i<=polaLengan5.size()-1; i++)
-      output.println("Lengan5"+TAB+polaLengan5.get(i).x+TAB+polaLengan5.get(i).z);
+      output.println("plengan5"+TAB+polaLengan5.get(i).x+TAB+polaLengan5.get(i).z);
     
     output.println("polaGaun1"+TAB+polaGaun1.size());
     for (int i=0; i<=polaGaun1.size()-1; i++)
-      output.println("Gaun1"+TAB+polaGaun1.get(i).x+TAB+polaGaun1.get(i).z); 
+      output.println("pgaun1"+TAB+polaGaun1.get(i).x+TAB+polaGaun1.get(i).z); 
       
     output.println("polaGaun2"+TAB+polaGaun2.size());
     for (int i=0; i<=polaGaun2.size()-1; i++)
-      output.println("Gaun2"+TAB+polaGaun2.get(i).x+TAB+polaGaun2.get(i).z);  
+      output.println("pgaun2"+TAB+polaGaun2.get(i).x+TAB+polaGaun2.get(i).z);  
       
     output.println("polaGaun3"+TAB+polaGaun3.size());
     for (int i=0; i<=polaGaun3.size()-1; i++)
-      output.println("Gaun3"+TAB+polaGaun3.get(i).x+TAB+polaGaun3.get(i).z);  
+      output.println("pgaun3"+TAB+polaGaun3.get(i).x+TAB+polaGaun3.get(i).z);  
    
     output.println("polaGaun4"+TAB+polaGaun4.size());
     for (int i=0; i<=polaGaun4.size()-1; i++)
-      output.println("Gaun4"+TAB+polaGaun4.get(i).x+TAB+polaGaun4.get(i).z);  
+      output.println("pgaun4"+TAB+polaGaun4.get(i).x+TAB+polaGaun4.get(i).z);  
     
     output.println("polaGaun5"+TAB+polaGaun5.size());
     for (int i=0; i<=polaGaun5.size()-1; i++)
-      output.println("Gaun5"+TAB+polaGaun5.get(i).x+TAB+polaGaun5.get(i).z);  
+      output.println("pgaun5"+TAB+polaGaun5.get(i).x+TAB+polaGaun5.get(i).z); 
+    output.println("polaGaun6"+TAB+polaGaun6.size());
+    for (int i=0; i<=polaGaun6.size()-1; i++)
+      output.println("pgaun6"+TAB+polaGaun6.get(i).x+TAB+polaGaun6.get(i).z); 
+    
+    output.println("polaGaun7"+TAB+polaGaun7.size());
+    for (int i=0; i<=polaGaun7.size()-1; i++)
+      output.println("pgaun7"+TAB+polaGaun7.get(i).x+TAB+polaGaun7.get(i).z); 
+    output.println("polaGaun8"+TAB+polaGaun8.size());
+    for (int i=0; i<=polaGaun8.size()-1; i++)
+      output.println("pgaun8"+TAB+polaGaun8.get(i).x+TAB+polaGaun8.get(i).z);  
      
     output.println("polaCelana1"+TAB+polaCelana1.size());
     for (int i=0; i<=polaCelana1.size()-1; i++)
-      output.println("Celana1"+TAB+polaCelana1.get(i).x+TAB+polaCelana1.get(i).z);   
+      output.println("pcelana1"+TAB+polaCelana1.get(i).x+TAB+polaCelana1.get(i).z);   
     
     output.println("polaCelana2"+TAB+polaCelana2.size());
     for (int i=0; i<=polaCelana2.size()-1; i++)
-      output.println("Celana2"+TAB+polaCelana2.get(i).x+TAB+polaCelana2.get(i).z);
+      output.println("pcelana2"+TAB+polaCelana2.get(i).x+TAB+polaCelana2.get(i).z);
       
     output.println("polaCelana3"+TAB+polaCelana3.size());
     for (int i=0; i<=polaCelana3.size()-1; i++)
-      output.println("Celana3"+TAB+polaCelana3.get(i).x+TAB+polaCelana3.get(i).z);
+      output.println("pcelana3"+TAB+polaCelana3.get(i).x+TAB+polaCelana3.get(i).z);
     
     output.println("polaCelana4"+TAB+polaCelana4.size());
     for (int i=0; i<=polaCelana4.size()-1; i++)
-      output.println("Celana4"+TAB+polaCelana4.get(i).x+TAB+polaCelana4.get(i).z);
+      output.println("pcelana4"+TAB+polaCelana4.get(i).x+TAB+polaCelana4.get(i).z);
     
     output.println("polaCelana5"+TAB+polaCelana5.size());
     for (int i=0; i<=polaCelana5.size()-1; i++)
-      output.println("Celana5"+TAB+polaCelana5.get(i).x+TAB+polaCelana5.get(i).z);
+      output.println("pcelana5"+TAB+polaCelana5.get(i).x+TAB+polaCelana5.get(i).z);
+    
+    output.println("polaCelana6"+TAB+polaCelana6.size());
+    for (int i=0; i<=polaCelana6.size()-1; i++)
+      output.println("pcelana6"+TAB+polaCelana6.get(i).x+TAB+polaCelana6.get(i).z);  
+    
+    output.println("polaCelana7"+TAB+polaCelana7.size());
+    for (int i=0; i<=polaCelana7.size()-1; i++)
+      output.println("pcelana7"+TAB+polaCelana7.get(i).x+TAB+polaCelana7.get(i).z);  
+    output.println("polaCelana8"+TAB+polaCelana8.size());
+    for (int i=0; i<=polaCelana8.size()-1; i++)
+      output.println("pcelana8"+TAB+polaCelana8.get(i).x+TAB+polaCelana8.get(i).z);
     
     output.println("polaAtasanlk1"+TAB+polaAtasanlk1.size());
     for (int i=0; i<=polaAtasanlk1.size()-1; i++)
-      output.println("AtasanLK1"+TAB+polaAtasanlk1.get(i).x+TAB+polaAtasanlk1.get(i).z); 
+      output.println("patasanlk1"+TAB+polaAtasanlk1.get(i).x+TAB+polaAtasanlk1.get(i).z); 
     
     output.println("polaAtasanlk2"+TAB+polaAtasanlk2.size());
     for (int i=0; i<=polaAtasanlk2.size()-1; i++)
-      output.println("AtasanLK2"+TAB+polaAtasanlk2.get(i).x+TAB+polaAtasanlk2.get(i).z);  
+      output.println("patasanlk2"+TAB+polaAtasanlk2.get(i).x+TAB+polaAtasanlk2.get(i).z);  
       
     output.println("polaAtasanlk3"+TAB+polaAtasanlk3.size());
     for (int i=0; i<=polaAtasanlk3.size()-1; i++)
-      output.println("AtasanLK3"+TAB+polaAtasanlk3.get(i).x+TAB+polaAtasanlk3.get(i).z);    
+      output.println("patasanlk3"+TAB+polaAtasanlk3.get(i).x+TAB+polaAtasanlk3.get(i).z);    
     
     output.println("polaAtasanlk4"+TAB+polaAtasanlk4.size());
     for (int i=0; i<=polaAtasanlk4.size()-1; i++)
-      output.println("AtasanLK4"+TAB+polaAtasanlk4.get(i).x+TAB+polaAtasanlk4.get(i).z); 
+      output.println("patasanlk4"+TAB+polaAtasanlk4.get(i).x+TAB+polaAtasanlk4.get(i).z); 
     
     output.println("polaAtasanlk5"+TAB+polaAtasanlk5.size());
     for (int i=0; i<=polaAtasanlk5.size()-1; i++)
-      output.println("AtasanLK5"+TAB+polaAtasanlk5.get(i).x+TAB+polaAtasanlk5.get(i).z); 
+      output.println("patasanlk5"+TAB+polaAtasanlk5.get(i).x+TAB+polaAtasanlk5.get(i).z); 
+    output.println("polaAtasanlk6"+TAB+polaAtasanlk6.size());
+    for (int i=0; i<=polaAtasanlk6.size()-1; i++)
+      output.println("patasanlk6"+TAB+polaAtasanlk6.get(i).x+TAB+polaAtasanlk6.get(i).z); 
+    output.println("polaAtasanlk7"+TAB+polaAtasanlk7.size());
+    for (int i=0; i<=polaAtasanlk7.size()-1; i++)
+      output.println("patasanlk7"+TAB+polaAtasanlk7.get(i).x+TAB+polaAtasanlk7.get(i).z);   
+    output.println("polaAtasanlk8"+TAB+polaAtasanlk8.size());
+    for (int i=0; i<=polaAtasanlk8.size()-1; i++)
+      output.println("patasanlk8"+TAB+polaAtasanlk8.get(i).x+TAB+polaAtasanlk8.get(i).z);   
     
     output.println("polaLeherlk1"+TAB+polaLeherlk1.size());
     for (int i=0; i<=polaLeherlk1.size()-1; i++)
-      output.println("LeherLK1"+TAB+polaLeherlk1.get(i).x+TAB+polaLeherlk1.get(i).z);  
+      output.println("pleherlk1"+TAB+polaLeherlk1.get(i).x+TAB+polaLeherlk1.get(i).z);  
       
     output.println("polaLeherlk2"+TAB+polaLeherlk2.size());
     for (int i=0; i<=polaLeherlk2.size()-1; i++)
-      output.println("LeherLK2"+TAB+polaLeherlk2.get(i).x+TAB+polaLeherlk2.get(i).z);  
+      output.println("pleherlk2"+TAB+polaLeherlk2.get(i).x+TAB+polaLeherlk2.get(i).z);  
       
     output.println("polaLeherlk3"+TAB+polaLeherlk3.size());
     for (int i=0; i<=polaLeherlk3.size()-1; i++)
-      output.println("LeherLK3"+TAB+polaLeherlk3.get(i).x+TAB+polaLeherlk3.get(i).z);  
+      output.println("pleherlk3"+TAB+polaLeherlk3.get(i).x+TAB+polaLeherlk3.get(i).z);  
     
     output.println("polaLeherlk4"+TAB+polaLeherlk4.size());
     for (int i=0; i<=polaLeherlk4.size()-1; i++)
-      output.println("LeherLK4"+TAB+polaLeherlk4.get(i).x+TAB+polaLeherlk4.get(i).z);  
+      output.println("pleherlk4"+TAB+polaLeherlk4.get(i).x+TAB+polaLeherlk4.get(i).z);  
    
     output.println("polaLeherlk5"+TAB+polaLeherlk5.size());
     for (int i=0; i<=polaLeherlk5.size()-1; i++)
-      output.println("LeherLK5"+TAB+polaLeherlk5.get(i).x+TAB+polaLeherlk5.get(i).z);  
+      output.println("pleherlk5"+TAB+polaLeherlk5.get(i).x+TAB+polaLeherlk5.get(i).z);  
      
     output.println("polaLenganlk1"+TAB+polaLenganlk1.size());
     for (int i=0; i<=polaLenganlk1.size()-1; i++)
-      output.println("LenganLK1"+TAB+polaLenganlk1.get(i).x+TAB+polaLenganlk1.get(i).z);  
+      output.println("plenganlk1"+TAB+polaLenganlk1.get(i).x+TAB+polaLenganlk1.get(i).z);  
       
     output.println("polaLenganlk2"+TAB+polaLenganlk2.size());
     for (int i=0; i<=polaLenganlk2.size()-1; i++)
-      output.println("LenganLK2"+TAB+polaLenganlk2.get(i).x+TAB+polaLenganlk2.get(i).z); 
+      output.println("plenganlk2"+TAB+polaLenganlk2.get(i).x+TAB+polaLenganlk2.get(i).z); 
     
     output.println("polaLenganlk3"+TAB+polaLenganlk3.size());
     for (int i=0; i<=polaLenganlk3.size()-1; i++)
-      output.println("LenganLK3"+TAB+polaLenganlk3.get(i).x+TAB+polaLenganlk3.get(i).z);  
+      output.println("plenganlk3"+TAB+polaLenganlk3.get(i).x+TAB+polaLenganlk3.get(i).z);  
     
     output.println("polaLenganlk4"+TAB+polaLenganlk4.size());
     for (int i=0; i<=polaLenganlk4.size()-1; i++)
-      output.println("LenganLK4"+TAB+polaLenganlk4.get(i).x+TAB+polaLenganlk4.get(i).z);  
+      output.println("plenganlk4"+TAB+polaLenganlk4.get(i).x+TAB+polaLenganlk4.get(i).z);  
       
     output.println("polaLenganlk5"+TAB+polaLenganlk5.size());
     for (int i=0; i<=polaLenganlk5.size()-1; i++)
-      output.println("LenganLK5"+TAB+polaLenganlk5.get(i).x+TAB+polaLenganlk5.get(i).z);    
+      output.println("plenganlk5"+TAB+polaLenganlk5.get(i).x+TAB+polaLenganlk5.get(i).z);    
       
     output.println("polaCelanalk1"+TAB+polaCelanalk1.size());
     for (int i=0; i<=polaCelanalk1.size()-1; i++)
-      output.println("CelanaLK1"+TAB+polaCelanalk1.get(i).x+TAB+polaCelanalk1.get(i).z);
+      output.println("pcelanalk1"+TAB+polaCelanalk1.get(i).x+TAB+polaCelanalk1.get(i).z);
       
     output.println("polaCelanalk2"+TAB+polaCelanalk2.size());
     for (int i=0; i<=polaCelanalk2.size()-1; i++)
-      output.println("CelanaLK2"+TAB+polaCelanalk2.get(i).x+TAB+polaCelanalk2.get(i).z);
+      output.println("pcelanalk2"+TAB+polaCelanalk2.get(i).x+TAB+polaCelanalk2.get(i).z);
     
     output.println("polaCelanalk3"+TAB+polaCelanalk3.size());
     for (int i=0; i<=polaCelanalk3.size()-1; i++)
-      output.println("CelanaLK3"+TAB+polaCelanalk3.get(i).x+TAB+polaCelanalk3.get(i).z);
+      output.println("pcelanalk3"+TAB+polaCelanalk3.get(i).x+TAB+polaCelanalk3.get(i).z);
     output.println("polaCelanalk4"+TAB+polaCelanalk4.size());
     for (int i=0; i<=polaCelanalk4.size()-1; i++)
-      output.println("CelanaLK4"+TAB+polaCelanalk4.get(i).x+TAB+polaCelanalk4.get(i).z);
+      output.println("pcelanalk4"+TAB+polaCelanalk4.get(i).x+TAB+polaCelanalk4.get(i).z);
     output.println("polaCelanalk5"+TAB+polaCelanalk5.size());
     for (int i=0; i<=polaCelanalk5.size()-1; i++)
-      output.println("CelanaLK5"+TAB+polaCelanalk5.get(i).x+TAB+polaCelanalk5.get(i).z);  
+      output.println("pcelanalk5"+TAB+polaCelanalk5.get(i).x+TAB+polaCelanalk5.get(i).z);  
+     output.println("polaCelanalk6"+TAB+polaCelanalk6.size());
+    for (int i=0; i<=polaCelanalk6.size()-1; i++)
+      output.println("pcelanalk6"+TAB+polaCelanalk6.get(i).x+TAB+polaCelanalk6.get(i).z);   
+    output.println("polaCelanalk7"+TAB+polaCelanalk7.size());
+    for (int i=0; i<=polaCelanalk7.size()-1; i++)
+      output.println("pcelanalk7"+TAB+polaCelanalk7.get(i).x+TAB+polaCelanalk7.get(i).z);  
+    output.println("polaCelanalk8"+TAB+polaCelanalk8.size());
+    for (int i=0; i<=polaCelanalk8.size()-1; i++)
+      output.println("pcelanalk8"+TAB+polaCelanalk8.get(i).x+TAB+polaCelanalk8.get(i).z);   
     //output.println("floors"+TAB+floors.size());
     //for (int i=0; i<=floors.size()-1; i++)
       //output.println("f"+TAB+floors.get(i).y1_pos+TAB+floors.get(i).h+TAB+floors.get(i).scaleFloor+TAB+floors.get(i).urlTexture);
@@ -8119,222 +7859,222 @@ void fileSelectedForSave(File selection) {
     //rok  
     output.println("rok1"+TAB+rok1.size());
     for (int i=0; i<=rok1.size()-1; i++)
-      output.println("rokv1"+TAB+rok1.get(i).x1+TAB+rok1.get(i).z1+TAB+rok1.get(i).x2+TAB+rok1.get(i).y2); 
+      output.println("vrok1"+TAB+rok1.get(i).x1+TAB+rok1.get(i).z1+TAB+rok1.get(i).x2+TAB+rok1.get(i).y2); 
      
     output.println("rok2"+TAB+rok2.size());
     for (int i=0; i<=rok2.size()-1; i++)
-      output.println("rokv2"+TAB+rok2.get(i).x1+TAB+rok2.get(i).z1+TAB+rok2.get(i).x2+TAB+rok2.get(i).y2);  
+      output.println("vrok2"+TAB+rok2.get(i).x1+TAB+rok2.get(i).z1+TAB+rok2.get(i).x2+TAB+rok2.get(i).y2);  
      
     output.println("rok3"+TAB+rok3.size());
     for (int i=0; i<=rok3.size()-1; i++)
-      output.println("rokv3"+TAB+rok3.get(i).x1+TAB+rok3.get(i).z1+TAB+rok3.get(i).x2+TAB+rok3.get(i).y2);
+      output.println("vrok3"+TAB+rok3.get(i).x1+TAB+rok3.get(i).z1+TAB+rok3.get(i).x2+TAB+rok3.get(i).y2);
       
     output.println("garisRok"+TAB+garisRok.size());
     for (int i=0; i<=garisRok.size()-1; i++)
-      output.println("rokv4"+TAB+garisRok.get(i).x+TAB+garisRok.get(i).z);  
+      output.println("vgarisrok"+TAB+garisRok.get(i).x+TAB+garisRok.get(i).z);  
       
     output.println("garisRok2"+TAB+garisRok2.size());
     for (int i=0; i<=garisRok2.size()-1; i++)
-      output.println("rokv5"+TAB+garisRok2.get(i).x+TAB+garisRok2.get(i).z);  
+      output.println("vgarisrok2"+TAB+garisRok2.get(i).x+TAB+garisRok2.get(i).z);  
     //atasan  
     output.println("atasan1"+TAB+atasan1.size());
     for (int i=0; i<=atasan1.size()-1; i++)
-      output.println("atasanv1"+TAB+atasan1.get(i).x1+TAB+atasan1.get(i).z1+TAB+atasan1.get(i).x2+TAB+atasan1.get(i).y2);
+      output.println("vatasan1"+TAB+atasan1.get(i).x1+TAB+atasan1.get(i).z1+TAB+atasan1.get(i).x2+TAB+atasan1.get(i).y2);
     
     output.println("atasan2"+TAB+atasan2.size());
     for (int i=0; i<=atasan2.size()-1; i++)
-      output.println("atasanv2"+TAB+atasan2.get(i).x1+TAB+atasan2.get(i).z1+TAB+atasan2.get(i).x2+TAB+atasan2.get(i).y2);
+      output.println("vatasan2"+TAB+atasan2.get(i).x1+TAB+atasan2.get(i).z1+TAB+atasan2.get(i).x2+TAB+atasan2.get(i).y2);
       
     output.println("atasan3"+TAB+atasan3.size());
     for (int i=0; i<=atasan3.size()-1; i++)
-      output.println("atasanv3"+TAB+atasan3.get(i).x1+TAB+atasan3.get(i).z1+TAB+atasan3.get(i).x2+TAB+atasan3.get(i).y2);  
+      output.println("vatasan3"+TAB+atasan3.get(i).x1+TAB+atasan3.get(i).z1+TAB+atasan3.get(i).x2+TAB+atasan3.get(i).y2);  
       
     output.println("garisAtasan"+TAB+garisAtasan.size());
     for (int i=0; i<=garisAtasan.size()-1; i++)
-      output.println("atasanv4"+TAB+garisAtasan.get(i).x+TAB+garisAtasan.get(i).z);
+      output.println("vgarisatasan"+TAB+garisAtasan.get(i).x+TAB+garisAtasan.get(i).z);
       
     output.println("garisAtasan2"+TAB+garisAtasan2.size());
     for (int i=0; i<=garisAtasan2.size()-1; i++)
-      output.println("atasanv5"+TAB+garisAtasan2.get(i).x+TAB+garisAtasan2.get(i).z);  
+      output.println("vgarisatasan2"+TAB+garisAtasan2.get(i).x+TAB+garisAtasan2.get(i).z);  
      //leher 
     output.println("leher1"+TAB+leher1.size());
     for (int i=0; i<=leher1.size()-1; i++)
-      output.println("leherv1"+TAB+leher1.get(i).x1+TAB+leher1.get(i).z1+TAB+leher1.get(i).x2+TAB+leher1.get(i).y2);
+      output.println("vleher1"+TAB+leher1.get(i).x1+TAB+leher1.get(i).z1+TAB+leher1.get(i).x2+TAB+leher1.get(i).y2);
     
     output.println("leher2"+TAB+leher2.size());
     for (int i=0; i<=leher2.size()-1; i++)
-      output.println("leherv2"+TAB+leher2.get(i).x1+TAB+leher2.get(i).z1+TAB+leher2.get(i).x2+TAB+leher2.get(i).y2);
+      output.println("vleher2"+TAB+leher2.get(i).x1+TAB+leher2.get(i).z1+TAB+leher2.get(i).x2+TAB+leher2.get(i).y2);
       
     output.println("leher3"+TAB+leher3.size());
     for (int i=0; i<=leher3.size()-1; i++)
-      output.println("leherv3"+TAB+leher3.get(i).x1+TAB+leher3.get(i).z1+TAB+leher3.get(i).x2+TAB+leher3.get(i).y2);  
+      output.println("vleher3"+TAB+leher3.get(i).x1+TAB+leher3.get(i).z1+TAB+leher3.get(i).x2+TAB+leher3.get(i).y2);  
       
     output.println("garisLeher"+TAB+garisLeher.size());
     for (int i=0; i<=garisLeher.size()-1; i++)
-      output.println("leherv4"+TAB+garisLeher.get(i).x+TAB+garisLeher.get(i).z);
+      output.println("vgarisleher"+TAB+garisLeher.get(i).x+TAB+garisLeher.get(i).z);
       
     output.println("garisLeher2"+TAB+garisLeher2.size());
     for (int i=0; i<=garisLeher2.size()-1; i++)
-      output.println("leherv5"+TAB+garisLeher2.get(i).x+TAB+garisLeher2.get(i).z);   
+      output.println("vgarisleher2"+TAB+garisLeher2.get(i).x+TAB+garisLeher2.get(i).z);   
       
     //lengan
     output.println("lengan1"+TAB+lengan1.size());
     for (int i=0; i<=lengan1.size()-1; i++)
-      output.println("lenganv1"+TAB+lengan1.get(i).x1+TAB+lengan1.get(i).z1+TAB+lengan1.get(i).x2+TAB+lengan1.get(i).y2);
+      output.println("vlengan1"+TAB+lengan1.get(i).x1+TAB+lengan1.get(i).z1+TAB+lengan1.get(i).x2+TAB+lengan1.get(i).y2);
     
     output.println("lengan2"+TAB+lengan2.size());
     for (int i=0; i<=lengan2.size()-1; i++)
-      output.println("lenganv2"+TAB+lengan2.get(i).x1+TAB+lengan2.get(i).z1+TAB+lengan2.get(i).x2+TAB+lengan2.get(i).y2);
+      output.println("vlengan2"+TAB+lengan2.get(i).x1+TAB+lengan2.get(i).z1+TAB+lengan2.get(i).x2+TAB+lengan2.get(i).y2);
       
     output.println("lengan3"+TAB+lengan3.size());
     for (int i=0; i<=lengan3.size()-1; i++)
-      output.println("lenganv3"+TAB+lengan3.get(i).x1+TAB+lengan3.get(i).z1+TAB+lengan3.get(i).x2+TAB+lengan3.get(i).y2);  
+      output.println("vlengan3"+TAB+lengan3.get(i).x1+TAB+lengan3.get(i).z1+TAB+lengan3.get(i).x2+TAB+lengan3.get(i).y2);  
       
     output.println("garisLengan"+TAB+garisLengan.size());
     for (int i=0; i<=garisLengan.size()-1; i++)
-      output.println("lenganv4"+TAB+garisLengan.get(i).x+TAB+garisLengan.get(i).z);
+      output.println("vgarislengan"+TAB+garisLengan.get(i).x+TAB+garisLengan.get(i).z);
       
     output.println("garisLengan2"+TAB+garisLengan2.size());
     for (int i=0; i<=garisLengan2.size()-1; i++)
-      output.println("lenganv5"+TAB+garisLengan2.get(i).x+TAB+garisLengan2.get(i).z); 
+      output.println("vgarislengan2"+TAB+garisLengan2.get(i).x+TAB+garisLengan2.get(i).z); 
   
     //gaun
     output.println("gaun1"+TAB+gaun1.size());
     for (int i=0; i<=gaun1.size()-1; i++)
-      output.println("gaunv1"+TAB+gaun1.get(i).x1+TAB+gaun1.get(i).z1+TAB+gaun1.get(i).x2+TAB+gaun1.get(i).y2);
+      output.println("vgaun1"+TAB+gaun1.get(i).x1+TAB+gaun1.get(i).z1+TAB+gaun1.get(i).x2+TAB+gaun1.get(i).y2);
     
     output.println("gaun2"+TAB+gaun2.size());
     for (int i=0; i<=gaun2.size()-1; i++)
-      output.println("gaunv2"+TAB+gaun2.get(i).x1+TAB+gaun2.get(i).z1+TAB+gaun2.get(i).x2+TAB+gaun2.get(i).y2);
+      output.println("vgaun2"+TAB+gaun2.get(i).x1+TAB+gaun2.get(i).z1+TAB+gaun2.get(i).x2+TAB+gaun2.get(i).y2);
       
     output.println("gaun3"+TAB+gaun3.size());
     for (int i=0; i<=gaun3.size()-1; i++)
-      output.println("gaunv3"+TAB+gaun3.get(i).x1+TAB+gaun3.get(i).z1+TAB+gaun3.get(i).x2+TAB+gaun3.get(i).y2);  
+      output.println("vgaun3"+TAB+gaun3.get(i).x1+TAB+gaun3.get(i).z1+TAB+gaun3.get(i).x2+TAB+gaun3.get(i).y2);  
       
     output.println("garisGaun"+TAB+garisGaun.size());
     for (int i=0; i<=garisGaun.size()-1; i++)
-      output.println("gaunv4"+TAB+garisGaun.get(i).x+TAB+garisGaun.get(i).z);
+      output.println("vgarisgaun"+TAB+garisGaun.get(i).x+TAB+garisGaun.get(i).z);
       
     output.println("garisGaun2"+TAB+garisGaun2.size());
     for (int i=0; i<=garisGaun2.size()-1; i++)
-      output.println("gaunv5"+TAB+garisGaun2.get(i).x+TAB+garisGaun2.get(i).z); 
+      output.println("vgarisgaun"+TAB+garisGaun2.get(i).x+TAB+garisGaun2.get(i).z); 
   
     //celana
     output.println("celana1"+TAB+celana1.size());
     for (int i=0; i<=celana1.size()-1; i++)
-      output.println("celanav1"+TAB+celana1.get(i).x1+TAB+celana1.get(i).z1+TAB+celana1.get(i).x2+TAB+celana1.get(i).y2);
+      output.println("vcelana1"+TAB+celana1.get(i).x1+TAB+celana1.get(i).z1+TAB+celana1.get(i).x2+TAB+celana1.get(i).y2);
     
     output.println("celana2"+TAB+celana2.size());
     for (int i=0; i<=celana2.size()-1; i++)
-      output.println("celanav2"+TAB+celana2.get(i).x1+TAB+celana2.get(i).z1+TAB+celana2.get(i).x2+TAB+celana2.get(i).y2);
+      output.println("vcelana2"+TAB+celana2.get(i).x1+TAB+celana2.get(i).z1+TAB+celana2.get(i).x2+TAB+celana2.get(i).y2);
       
     output.println("celana3"+TAB+celana3.size());
     for (int i=0; i<=celana3.size()-1; i++)
-      output.println("celanav3"+TAB+celana3.get(i).x1+TAB+celana3.get(i).z1+TAB+celana3.get(i).x2+TAB+celana3.get(i).y2);  
+      output.println("vcelana3"+TAB+celana3.get(i).x1+TAB+celana3.get(i).z1+TAB+celana3.get(i).x2+TAB+celana3.get(i).y2);  
       
     output.println("garisCelana"+TAB+garisCelana.size());
     for (int i=0; i<=garisCelana.size()-1; i++)
-      output.println("celanav4"+TAB+garisCelana.get(i).x+TAB+garisCelana.get(i).z);
+      output.println("vgariscelana"+TAB+garisCelana.get(i).x+TAB+garisCelana.get(i).z);
       
     output.println("garisCelana2"+TAB+garisCelana2.size());
     for (int i=0; i<=garisCelana2.size()-1; i++)
-      output.println("celanav5"+TAB+garisCelana2.get(i).x+TAB+garisCelana2.get(i).z); 
+      output.println("vgariscelana2"+TAB+garisCelana2.get(i).x+TAB+garisCelana2.get(i).z); 
      
     //atasanlk
     output.println("atasanlk1"+TAB+atasanlk1.size());
     for (int i=0; i<=atasanlk1.size()-1; i++)
-      output.println("atasanlkv1"+TAB+atasanlk1.get(i).x1+TAB+atasanlk1.get(i).z1+TAB+atasanlk1.get(i).x2+TAB+atasanlk1.get(i).y2);
+      output.println("vatasanlk1"+TAB+atasanlk1.get(i).x1+TAB+atasanlk1.get(i).z1+TAB+atasanlk1.get(i).x2+TAB+atasanlk1.get(i).y2);
     
     output.println("atasanlk2"+TAB+atasanlk2.size());
     for (int i=0; i<=atasanlk2.size()-1; i++)
-      output.println("atasanlkv2"+TAB+atasanlk2.get(i).x1+TAB+atasanlk2.get(i).z1+TAB+atasanlk2.get(i).x2+TAB+atasanlk2.get(i).y2);
+      output.println("vatasanlk2"+TAB+atasanlk2.get(i).x1+TAB+atasanlk2.get(i).z1+TAB+atasanlk2.get(i).x2+TAB+atasanlk2.get(i).y2);
       
     output.println("atasanlk3"+TAB+atasanlk3.size());
     for (int i=0; i<=atasanlk3.size()-1; i++)
-      output.println("atasanlkv3"+TAB+atasanlk3.get(i).x1+TAB+atasanlk3.get(i).z1+TAB+atasanlk3.get(i).x2+TAB+atasanlk3.get(i).y2);  
+      output.println("vatasanlk3"+TAB+atasanlk3.get(i).x1+TAB+atasanlk3.get(i).z1+TAB+atasanlk3.get(i).x2+TAB+atasanlk3.get(i).y2);  
       
     output.println("garisAtasanlk"+TAB+garisAtasanlk.size());
     for (int i=0; i<=garisAtasanlk.size()-1; i++)
-      output.println("atasanlkv4"+TAB+garisAtasanlk.get(i).x+TAB+garisAtasanlk.get(i).z);
+      output.println("vgarisatasanlk"+TAB+garisAtasanlk.get(i).x+TAB+garisAtasanlk.get(i).z);
       
     output.println("garisAtasanlk2"+TAB+garisAtasanlk2.size());
     for (int i=0; i<=garisAtasanlk2.size()-1; i++)
-      output.println("atasanlkv5"+TAB+garisAtasanlk2.get(i).x+TAB+garisAtasanlk2.get(i).z);
+      output.println("vgarisatasanlk2"+TAB+garisAtasanlk2.get(i).x+TAB+garisAtasanlk2.get(i).z);
     
     //leherlk
-    output.println("leherlk"+TAB+leherlk1.size());
+    output.println("leherlk1"+TAB+leherlk1.size());
     for (int i=0; i<=leherlk1.size()-1; i++)
-      output.println("leherlkv1"+TAB+leherlk1.get(i).x1+TAB+leherlk1.get(i).z1+TAB+leherlk1.get(i).x2+TAB+leherlk1.get(i).y2);
+      output.println("vleherlk1"+TAB+leherlk1.get(i).x1+TAB+leherlk1.get(i).z1+TAB+leherlk1.get(i).x2+TAB+leherlk1.get(i).y2);
     
     output.println("leherlk2"+TAB+leherlk2.size());
     for (int i=0; i<=leherlk2.size()-1; i++)
-      output.println("leherlkv2"+TAB+leherlk2.get(i).x1+TAB+leherlk2.get(i).z1+TAB+leherlk2.get(i).x2+TAB+leherlk2.get(i).y2);
+      output.println("vleherlk2"+TAB+leherlk2.get(i).x1+TAB+leherlk2.get(i).z1+TAB+leherlk2.get(i).x2+TAB+leherlk2.get(i).y2);
       
     output.println("leherlk3"+TAB+leherlk3.size());
     for (int i=0; i<=leherlk3.size()-1; i++)
-      output.println("leherlkv3"+TAB+leherlk3.get(i).x1+TAB+leherlk3.get(i).z1+TAB+leherlk3.get(i).x2+TAB+leherlk3.get(i).y2);  
+      output.println("vleherlk3"+TAB+leherlk3.get(i).x1+TAB+leherlk3.get(i).z1+TAB+leherlk3.get(i).x2+TAB+leherlk3.get(i).y2);  
       
     output.println("garisLeherlk"+TAB+garisLeherlk.size());
     for (int i=0; i<=garisLeherlk.size()-1; i++)
-      output.println("leherlkv4"+TAB+garisLeherlk.get(i).x+TAB+garisLeherlk.get(i).z);
+      output.println("vgarisleherlk"+TAB+garisLeherlk.get(i).x+TAB+garisLeherlk.get(i).z);
       
     output.println("garisLeherlk2"+TAB+garisLeherlk2.size());
     for (int i=0; i<=garisLeherlk2.size()-1; i++)
-      output.println("leherlkv5"+TAB+garisLeherlk2.get(i).x+TAB+garisLeherlk2.get(i).z);  
+      output.println("vgarisleherlk2"+TAB+garisLeherlk2.get(i).x+TAB+garisLeherlk2.get(i).z);  
       
     //lenganlk
     output.println("lenganlk1"+TAB+lenganlk1.size());
     for (int i=0; i<=lenganlk1.size()-1; i++)
-      output.println("lenganlkv1"+TAB+lenganlk1.get(i).x1+TAB+lenganlk1.get(i).z1+TAB+lenganlk1.get(i).x2+TAB+lenganlk1.get(i).y2);
+      output.println("vlenganlk1"+TAB+lenganlk1.get(i).x1+TAB+lenganlk1.get(i).z1+TAB+lenganlk1.get(i).x2+TAB+lenganlk1.get(i).y2);
     
     output.println("lenganlk2"+TAB+lenganlk2.size());
     for (int i=0; i<=lenganlk2.size()-1; i++)
-      output.println("lenganlkv2"+TAB+lenganlk2.get(i).x1+TAB+lenganlk2.get(i).z1+TAB+lenganlk2.get(i).x2+TAB+lenganlk2.get(i).y2);
+      output.println("vlenganlk2"+TAB+lenganlk2.get(i).x1+TAB+lenganlk2.get(i).z1+TAB+lenganlk2.get(i).x2+TAB+lenganlk2.get(i).y2);
       
     output.println("lenganlk3"+TAB+lenganlk3.size());
     for (int i=0; i<=lenganlk3.size()-1; i++)
-      output.println("lenganlkv3"+TAB+lenganlk3.get(i).x1+TAB+lenganlk3.get(i).z1+TAB+lenganlk3.get(i).x2+TAB+lenganlk3.get(i).y2);  
+      output.println("vlenganlk3"+TAB+lenganlk3.get(i).x1+TAB+lenganlk3.get(i).z1+TAB+lenganlk3.get(i).x2+TAB+lenganlk3.get(i).y2);  
       
     output.println("garisLenganlk"+TAB+garisLenganlk.size());
     for (int i=0; i<=garisLenganlk.size()-1; i++)
-      output.println("lenganlkv4"+TAB+garisLenganlk.get(i).x+TAB+garisLenganlk.get(i).z);
+      output.println("vgarislenganlk"+TAB+garisLenganlk.get(i).x+TAB+garisLenganlk.get(i).z);
       
     output.println("garisLenganlk2"+TAB+garisLenganlk2.size());
     for (int i=0; i<=garisLenganlk2.size()-1; i++)
-      output.println("lenganlkv5"+TAB+garisLenganlk2.get(i).x+TAB+garisLenganlk2.get(i).z); 
+      output.println("vgarislenganlk2"+TAB+garisLenganlk2.get(i).x+TAB+garisLenganlk2.get(i).z); 
       
     //celanalk
-    output.println("celanalk"+TAB+celanalk1.size());
+    output.println("celanalk1"+TAB+celanalk1.size());
     for (int i=0; i<=celanalk1.size()-1; i++)
-      output.println("celanalkv1"+TAB+celanalk1.get(i).x1+TAB+celanalk1.get(i).z1+TAB+celanalk1.get(i).x2+TAB+celanalk1.get(i).y2);
+      output.println("vcelanalk1"+TAB+celanalk1.get(i).x1+TAB+celanalk1.get(i).z1+TAB+celanalk1.get(i).x2+TAB+celanalk1.get(i).y2);
     
     output.println("celanalk2"+TAB+celanalk2.size());
     for (int i=0; i<=celanalk2.size()-1; i++)
-      output.println("celanalkv2"+TAB+celanalk2.get(i).x1+TAB+celanalk2.get(i).z1+TAB+celanalk2.get(i).x2+TAB+celanalk2.get(i).y2);
+      output.println("vcelanalk2"+TAB+celanalk2.get(i).x1+TAB+celanalk2.get(i).z1+TAB+celanalk2.get(i).x2+TAB+celanalk2.get(i).y2);
       
     output.println("celanalk3"+TAB+celanalk3.size());
     for (int i=0; i<=celanalk3.size()-1; i++)
-      output.println("celanalkv3"+TAB+celanalk3.get(i).x1+TAB+celanalk3.get(i).z1+TAB+celanalk3.get(i).x1+TAB+celanalk3.get(i).y2);  
+      output.println("vcelanalk3"+TAB+celanalk3.get(i).x1+TAB+celanalk3.get(i).z1+TAB+celanalk3.get(i).x1+TAB+celanalk3.get(i).y2);  
       
     output.println("garisCelanalk"+TAB+garisCelanalk.size());
     for (int i=0; i<=garisCelanalk.size()-1; i++)
-      output.println("celanalkv4"+TAB+garisCelanalk.get(i).x+TAB+garisCelanalk.get(i).z);
+      output.println("vgariscelanalk"+TAB+garisCelanalk.get(i).x+TAB+garisCelanalk.get(i).z);
       
     output.println("garisCelanalk2"+TAB+garisCelanalk2.size());
     for (int i=0; i<=garisCelanalk2.size()-1; i++)
-      output.println("celanalkv5"+TAB+garisCelanalk2.get(i).x+TAB+garisCelanalk2.get(i).z); 
+      output.println("vgariscelanalk2"+TAB+garisCelanalk2.get(i).x+TAB+garisCelanalk2.get(i).z); 
       
     output.flush();
     output.close();
   }
 }
 
-void openProject() {
+public void openProject() {
   File start = new File(sketchPath("")+"/Saved Projects"+"/*.txt");
   selectInput("Select a file to load:", "fileSelectedForLoad", start);
 }
 
-void fileSelectedForLoad(File selection) {
+public void fileSelectedForLoad(File selection) {
   if (selection == null)
     println("\nWindow was closed or the user hit cancel.");
   else {
@@ -8345,230 +8085,260 @@ void fileSelectedForLoad(File selection) {
   }
 }
 
-void parseFile(File selection) {
+public void parseFile(File selection) {
   BufferedReader reader = createReader(selection.getAbsolutePath());
   String line = null;
   try {
     while ((line = reader.readLine()) != null) {
       String[] pieces = split(line, TAB);
-      if (pieces[0].equals("Rok1"))
+      if (pieces[0].equals("prok1"))
           polaRok1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));//, PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])
-      if (pieces[0].equals("Rok2"))
+      if (pieces[0].equals("prok2"))
           polaRok2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Rok3"))
+      if (pieces[0].equals("prok3"))
           polaRok3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("Rok4"))
+      if (pieces[0].equals("prok4"))
           polaRok4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("Rok5"))
+      if (pieces[0].equals("prok5"))
           polaRok5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
         
-      if (pieces[0].equals("Atasan1"))
+      if (pieces[0].equals("patasan1"))
           polaAtasan1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Atasan2"))
+      if (pieces[0].equals("patasan2"))
           polaAtasan2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Atasan3"))
+      if (pieces[0].equals("patasan3"))
           polaAtasan3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Atasan4"))
+      if (pieces[0].equals("patasan4"))
           polaAtasan4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("Atasan5"))
+      if (pieces[0].equals("patasan5"))
           polaAtasan5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+      if (pieces[0].equals("patasan6"))
+          polaAtasan6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+      if (pieces[0].equals("patasan7"))
+          polaAtasan7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+      if (pieces[0].equals("patasan8"))
+          polaAtasan8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
         
-      if (pieces[0].equals("Leher1"))
+      if (pieces[0].equals("pleher1"))
           polaLeher1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("Leher2"))
+      if (pieces[0].equals("pleher2"))
           polaLeher2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
-      if (pieces[0].equals("Leher3"))
+      if (pieces[0].equals("pleher3"))
           polaLeher3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("Leher4"))
+      if (pieces[0].equals("pleher4"))
           polaLeher4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Leher5"))
+      if (pieces[0].equals("pleher5"))
           polaLeher5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
       
-      if (pieces[0].equals("Lengan1"))
+      if (pieces[0].equals("plengan1"))
           polaLengan1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("Lengan2"))
+      if (pieces[0].equals("plengan2"))
           polaLengan2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Lengan3"))
+      if (pieces[0].equals("plengan3"))
           polaLengan3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Lengan4"))
-          polaLengan5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Lengan5"))
+      if (pieces[0].equals("plengan4"))
+          polaLengan4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+      if (pieces[0].equals("plengan5"))
           polaLengan5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
       
-      if (pieces[0].equals("Gaun1"))
+      if (pieces[0].equals("pgaun1"))
           polaGaun1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("Gaun2"))
+      if (pieces[0].equals("pgaun2"))
           polaGaun2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("Gaun3"))
+      if (pieces[0].equals("pgaun3"))
           polaGaun3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("Gaun4"))
+      if (pieces[0].equals("pgaun4"))
           polaGaun4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("Gaun5"))
+      if (pieces[0].equals("pgaun5"))
           polaGaun5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      
-      if (pieces[0].equals("Celana1"))
+      if (pieces[0].equals("pgaun6"))
+          polaGaun6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+      if (pieces[0].equals("pgaun7"))
+          polaGaun7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+      if (pieces[0].equals("pgaun8"))
+          polaGaun8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          
+      if (pieces[0].equals("pcelana1"))
           polaCelana1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("Celana2"))
+      if (pieces[0].equals("pcelana2"))
           polaCelana2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
-      if (pieces[0].equals("Celana3"))
+      if (pieces[0].equals("pcelana3"))
           polaCelana3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("Celana4"))
+      if (pieces[0].equals("pcelana4"))
           polaCelana4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
-      if (pieces[0].equals("Celana5"))
+      if (pieces[0].equals("pcelana5"))
           polaCelana5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
-        
-      if (pieces[0].equals("AtasanLk1"))
+      if (pieces[0].equals("pcelana6"))
+          polaCelana6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+      if (pieces[0].equals("pcelana7"))
+          polaCelana7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+      if (pieces[0].equals("pcelana8"))
+          polaCelana8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          
+      if (pieces[0].equals("patasanlk1"))
           polaAtasanlk1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("AtasanLk2"))
+      if (pieces[0].equals("patasanlk2"))
           polaAtasanlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("AtasanLk3"))
+      if (pieces[0].equals("patasanlk3"))
           polaAtasanlk3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("AtasanLk4"))
+      if (pieces[0].equals("patasanlk4"))
           polaAtasanlk4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("AtasanLk5"))
+      if (pieces[0].equals("patasanlk5"))
           polaAtasanlk5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      
-      if (pieces[0].equals("LeherLk1"))
+      if (pieces[0].equals("patasanlk6"))
+          polaAtasanlk6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+      if (pieces[0].equals("patasanlk7"))
+          polaAtasanlk7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+      if (pieces[0].equals("patasanlk8"))
+          polaAtasanlk8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+     
+      if (pieces[0].equals("pleherlk1"))
           polaLeherlk1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("LeherLk2"))
+      if (pieces[0].equals("pleherlk2"))
           polaLeherlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
-      if (pieces[0].equals("LeherLk3"))
+      if (pieces[0].equals("pleherlk3"))
           polaLeherlk3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("LeherLk4"))
+      if (pieces[0].equals("pleherlk4"))
           polaLeherlk4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
-      if (pieces[0].equals("LeherLk5"))
+      if (pieces[0].equals("pleherlk5"))
           polaLeherlk5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
         
-      if (pieces[0].equals("LenganLk1"))
+      if (pieces[0].equals("plenganlk1"))
           polaLenganlk1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));     
-      if (pieces[0].equals("LenganLk2"))
+      if (pieces[0].equals("plenganlk2"))
           polaLenganlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));     
-      if (pieces[0].equals("LenganLk3"))
+      if (pieces[0].equals("plenganlk3"))
           polaLenganlk3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));     
-      if (pieces[0].equals("LenganLk4"))
+      if (pieces[0].equals("plenganlk4"))
           polaLenganlk4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));     
-      if (pieces[0].equals("LenganLk5"))
+      if (pieces[0].equals("plenganlk5"))
           polaLenganlk5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
         
-      if (pieces[0].equals("Celanalk1"))
+      if (pieces[0].equals("pcelanalk1"))
           polaCelanalk1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
-      if (pieces[0].equals("Celanalk2"))
+      if (pieces[0].equals("pcelanalk2"))
           polaCelanalk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
-      if (pieces[0].equals("Celanalk3"))
+      if (pieces[0].equals("pcelanalk3"))
           polaCelanalk3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
-      if (pieces[0].equals("Celanalk4"))
+      if (pieces[0].equals("pcelanalk4"))
           polaCelanalk4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
-      if (pieces[0].equals("Celanalk5"))
+      if (pieces[0].equals("pcelanalk5"))
           polaCelanalk5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+      if (pieces[0].equals("pcelanalk6"))
+          polaCelanalk6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+      if (pieces[0].equals("pcelanalk7"))
+          polaCelanalk7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+      if (pieces[0].equals("pcelanalk8"))
+          polaCelanalk8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
       
-      if (pieces[0].equals("rokv1"))
+      if (pieces[0].equals("vrok1"))
           rok1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]))); 
-      if (pieces[0].equals("rokv2"))
+      if (pieces[0].equals("vrok2"))
           rok2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));
-      if (pieces[0].equals("rokv3"))
+      if (pieces[0].equals("vrok3"))
           rok3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]))); 
-      if (pieces[0].equals("rokv4"))
+      if (pieces[0].equals("vgarisrok"))
           garisRok.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("rokv5"))
+      if (pieces[0].equals("vgarisrok2"))
           garisRok2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
      
-      if (pieces[0].equals("atasanv1"))
+      if (pieces[0].equals("vatasan1"))
           atasan1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));  
-      if (pieces[0].equals("atasanv2"))
+      if (pieces[0].equals("vatasan2"))
           atasan2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]))); 
-      if (pieces[0].equals("atasanv3"))
-          atasan3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));  
-      if (pieces[0].equals("atasanv4"))
+      if (pieces[0].equals("vatasan3"))
+          atasan3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));    
+      if (pieces[0].equals("vgarisatasan"))
           garisAtasan.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("atasanv5"))
+      if (pieces[0].equals("vgarisatasan2"))
           garisAtasan2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
      
-      if (pieces[0].equals("leherv1"))
+      if (pieces[0].equals("vleher1"))
           leher1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));  
-      if (pieces[0].equals("leherv2"))
+      if (pieces[0].equals("vleher2"))
           leher2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]))); 
-      if (pieces[0].equals("leherv3"))
+      if (pieces[0].equals("vleher3"))
           leher3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));          
-      if (pieces[0].equals("leherv4"))
+      if (pieces[0].equals("vgarisleher"))
           garisLeher.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));         
-      if (pieces[0].equals("leherv5"))
+      if (pieces[0].equals("vgarisleher2"))
           garisLeher2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
         
-      if (pieces[0].equals("lenganv1"))
+      if (pieces[0].equals("vlengan1"))
           lengan1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
-      if (pieces[0].equals("lenganv2"))
+      if (pieces[0].equals("vlengan2"))
           lengan2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));         
-      if (pieces[0].equals("lenganv3"))
+      if (pieces[0].equals("vlengan3"))
           lengan3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));       
-      if (pieces[0].equals("lenganv4"))
+      if (pieces[0].equals("vgarislengan"))
           garisLengan.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));         
-      if (pieces[0].equals("lenganv5"))
+      if (pieces[0].equals("vgarislengan2"))
           garisLengan2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
         
-      if (pieces[0].equals("gaunv1"))
+      if (pieces[0].equals("vgaun1"))
           gaun1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
-      if (pieces[0].equals("gaunv2"))
+      if (pieces[0].equals("vgaun2"))
           gaun2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) , PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));         
-      if (pieces[0].equals("gaunv3"))
+      if (pieces[0].equals("vgaun3"))
           gaun3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
-      if (pieces[0].equals("gaunv4"))
+      if (pieces[0].equals("vgarisgaun"))
           garisGaun.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));         
-      if (pieces[0].equals("gaunv5"))
+      if (pieces[0].equals("vgarisgaun2"))
           garisGaun2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
         
-      if (pieces[0].equals("celanav1"))
+      if (pieces[0].equals("vcelana1"))
           celana1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]) ));          
-      if (pieces[0].equals("celanav2"))
+      if (pieces[0].equals("vcelana2"))
           celana2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) , PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));         
-      if (pieces[0].equals("celanav3"))
+      if (pieces[0].equals("vcelana3"))
           celana3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
-      if (pieces[0].equals("celanav4"))
+      if (pieces[0].equals("vgariscelana"))
           garisCelana.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("celanav5"))
+      if (pieces[0].equals("vgariscelana"))
           garisCelana2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2])));            
   
-      if (pieces[0].equals("atasanlkv1"))
+      if (pieces[0].equals("vatasanlk1"))
           atasanlk1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));          
-      if (pieces[0].equals("atasanlkv2"))
+      if (pieces[0].equals("vatasanlk2"))
           atasanlk2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));         
-      if (pieces[0].equals("atasanlkv3"))
+      if (pieces[0].equals("vatasanlk3"))
           atasanlk3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));          
-      if (pieces[0].equals("atasanlkv4"))
+      if (pieces[0].equals("vgarisatasanlk"))
           garisAtasanlk.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2])));         
-      if (pieces[0].equals("atasanlkv5"))
+      if (pieces[0].equals("vgarisatasanlk2"))
           garisAtasanlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2])));    
         
-      if (pieces[0].equals("leherlkv1"))
+      if (pieces[0].equals("vleherlk1"))
           leherlk1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));          
-      if (pieces[0].equals("leherlkv2"))
+      if (pieces[0].equals("vleherlk2"))
           leherlk2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));         
-      if (pieces[0].equals("leherlkv3"))
+      if (pieces[0].equals("vleherlk3"))
           leherlk3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
-      if (pieces[0].equals("leherlkv4"))
+      if (pieces[0].equals("vgarisleherlk"))
           garisLeherlk.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("leherlkv5"))
+      if (pieces[0].equals("vgarisleherlk2"))
           garisLeherlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
       
-      if (pieces[0].equals("lenganlkv1"))
+      if (pieces[0].equals("vlenganlk1"))
           lenganlk1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));  
-      if (pieces[0].equals("lenganlkv2"))
+      if (pieces[0].equals("vlenganlk2"))
           lenganlk2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));   
-      if (pieces[0].equals("lenganlkv3"))
+      if (pieces[0].equals("vlenganlk3"))
           lenganlk3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
-      if (pieces[0].equals("lenganlkv4"))
+      if (pieces[0].equals("vgarislenganlk"))
           garisLenganlk.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));         
-      if (pieces[0].equals("lenganlkv5"))
+      if (pieces[0].equals("vgarislenganlk2"))
           garisLenganlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
         
-      if (pieces[0].equals("celanalkv1"))
+      if (pieces[0].equals("vcelanalk1"))
           celanalk1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));  
-      if (pieces[0].equals("celanalkv2"))
+      if (pieces[0].equals("vcelanalk2"))
           celanalk2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));        
-      if (pieces[0].equals("celanalkv3"))
+      if (pieces[0].equals("vcelanalk3"))
           celanalk3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
-      if (pieces[0].equals("celanalkv4"))
+      if (pieces[0].equals("vgariscelanalk"))
           garisCelanalk.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("celanalkv5"))
+      if (pieces[0].equals("vgariscelanalk2"))
           garisCelanalk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
           
       //if (pieces[0].equals("f"))
