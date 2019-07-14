@@ -2,6 +2,8 @@
 
 ClassOneDropDownMenu[] menuList = new ClassOneDropDownMenu[5];
 PGraphics[] pg = new PGraphics[24];
+BufferedReader reader;
+String line;
 PrintWriter output;
 ArrayList<Node> nodes, garisRok, garisRok2, polaRok1, polaRok2, polaRok3, polaRok4, polaRok5;
 ArrayList<Node> garisAtasan, garisAtasan2, polaAtasan1, polaAtasan2, polaAtasan3, polaAtasan4, polaAtasan5, polaAtasan6, polaAtasan7,polaAtasan8;
@@ -28,7 +30,7 @@ PImage imageTexture;
 boolean pgTutor = true, pgAction = true, pgTex1 = false, pgTex2 = false, pgUkuranW = false, pgUkuranP= false, 
         pgRok = false, pgAtasan = false, pgLeher = false,pgLengan = false, pgGaun = false, pgCelana = false, 
         pgAtasanLk = false,pgLeherLk = false, pgLenganLk, pgCelanaLk = false, pgUkuranS = false, pgUkuranM = false, pgUkuranL = false;
-boolean grid2D = true, threeDimension = false, controlDown = false, shiftDown = false, newProject = true;
+boolean grid2D = true, controlDown = false,threeDimension = false, shiftDown = false, newProject = true;//threeDimension = false
 boolean citraKain = false;
 boolean rok = false, atasan = false, leher= false, lengan = false, gaun = false, celana = false, 
         atasanlk = false, leherlk = false, lenganlk = false, celanalk = false;
@@ -269,21 +271,13 @@ public void base() {
       pg[3].texture(imageTexture);
     for (int i = rok1.size()-1; i >= 0; i--)
       pg[3].vertex(rok1.get(i).x1, rok1.get(i).z1-pg[1].height,rok1.get(i).x2, rok1.get(i).y2-pg[1].height);// rok1.get(i).x1, rok1.get(i).y1);
-    //pg[3].vertex(rok1.get(3).x, rok1.get(3).z-pg[1].height, 0, 0);
-    //pg[3].vertex(rok1.get(2).x, rok1.get(2).z-pg[1].height, 100, 0);
-    //pg[3].vertex(rok1.get(1).x, rok1.get(1).z-pg[1].height, 100, 100);
-    //pg[3].vertex(rok1.get(0).x, rok1.get(0).z-pg[1].height, 0, 100);
     pg[3].endShape(CLOSE); 
-
+    
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = rok2.size()-1; i >= 0; i--)
       pg[3].vertex(rok2.get(i).x1, rok2.get(i).z1-pg[1].height, rok2.get(i).x2, rok2.get(i).y2-pg[1].height);//,rok2.get(i).x1, rok2.get(i).y1);
-    //pg[3].vertex(rok2.get(3).x, rok2.get(3).z-pg[1].height, 0, 0);
-    //pg[3].vertex(rok2.get(2).x, rok2.get(2).z-pg[1].height, 100, 0);
-    //pg[3].vertex(rok2.get(1).x, rok2.get(1).z-pg[1].height, 100, 100);
-    //pg[3].vertex(rok2.get(0).x, rok2.get(0).z-pg[1].height, 0, 100);
     pg[3].endShape(CLOSE);
 
     pg[3].beginShape(POLYGON);
@@ -893,6 +887,7 @@ public void base1() {
 void newProject() {
   background(255);
   newProject = true;
+ 
   
   for (int i = rok1.size()-1; i >= 0; i--)
     rok1.remove(rok1.get(i));
@@ -7096,11 +7091,14 @@ public void evalMenu(int menuResult1) {
   case 0: 
     print("\nNew Project");
     newProject();
+    pgTex1 = false;
+    pgTex2 = false;
     break; 
   case 1:
     print("\nOpen");
     openProject();
     base();
+    base1();
    
     break; 
   case 2:
@@ -7145,6 +7143,8 @@ public void evalMenu(int menuResult1) {
     pgLenganLk = false;
     pgGaun = false;
     pgCelana = false;
+    pgCelanaLk = false;
+    pgAtasanLk = false;
     break;
   case 101: 
     print("\nPria");
@@ -7155,12 +7155,14 @@ public void evalMenu(int menuResult1) {
     pgRok = false;
     pgTutor = false;
     pgAtasan = false;
+    pgAtasanLk = false;
     pgLeher = false;
     pgLengan = false;
     pgLeherLk = false;
     pgLenganLk = false;
     pgGaun = false;
     pgCelana = false;
+    pgCelanaLk = false;
     break;
   case 102: 
     print("\nShow Grid");
@@ -7610,31 +7612,141 @@ public void drawPgTemplateUkuranW() {
   pg[22].beginDraw();
   pg[22].background(252);
   pg[22].fill(0);
-  pg[22].textSize(28);
-  pg[22].text("Standar Ukuran Wanita", 25, 50);
-  //pg[12].textSize(20);
-  //pg[12].text("Ukuran S : ",27,110);
-  //pg[12].text("Ukuran M : ",27,180);
-  //pg[12].text("Ukuran L : ",27,250);
-  c = 1;
-  for (int i=1; i<=2; i++) {
-    if (c>=imgWanita.length-1) {
-      c=1;
-      break;
-    }
-    for (int j=1; j<=1; j++) {
-      if (c>imgWanita.length-1)
-        break;
-      pg[22].beginShape();
-      pg[22].texture(imgAtasan[c]);
-      pg[22].vertex(pg[4].width-(j*75)+10, i*75, 0, 0);
-      pg[22].vertex(pg[4].width-(j*75-50)+10, i*75, 100, 0);
-      pg[22].vertex(pg[4].width-(j*75-50)+10, i*75+50, 100, 100);
-      pg[22].vertex(pg[4].width-(j*75)+10, i*75+50, 0, 100);
-      pg[22].endShape();
-      c++;
-    }
-  }
+  pg[22].textSize(20);
+  pg[22].line(0,35,500,35);
+  pg[22].line(215,35,215,430);
+  pg[22].line(215,180,500,180);
+  pg[22].line(215,330,500,330);
+  pg[22].line(0,430,500,430);
+  pg[22].text("Standar Ukuran Wanita", 125, 25);
+  pg[22].textSize(10);
+  pg[22].text("Jenis",15,50);
+  pg[22].text("Ukuran",150,50);
+  pg[22].text("S",130,75);
+  pg[22].text("M",160,75);
+  pg[22].text("L",190,75);
+  pg[22].text("Atasan",15,75);
+  pg[22].text("Lingkar Badan",15,100);
+  pg[22].text("Lingkar Pinggang",15,125);
+  pg[22].text("Lingkar Leher",15,150);
+  pg[22].text("Lingkar Dada",15,175);
+  pg[22].text("Lebar Dada ",15,200);
+  pg[22].text("Panjang Punggung",15,225);
+  pg[22].text("Lebar Punggung",15,250);
+  pg[22].text("Lebar Bahu",15,275);
+  pg[22].text("Panjang Sisi",15,300);
+  pg[22].text("Tinggi Puncak",15,325);
+  pg[22].text("Jarak Payudara",15,350);
+  pg[22].text("Panjang Baju",15,375);
+  //Atasan S
+  pg[22].text("88",130,100);
+  pg[22].text("66",130,125);
+  pg[22].text("34",130,150);
+  pg[22].text("31",130,175);
+  pg[22].text("31",130,200);
+  pg[22].text("35",130,225);
+  pg[22].text("33",130,250);
+  pg[22].text("11",130,275);
+  pg[22].text("16",130,300);
+  pg[22].text("12,5",130,325);
+  pg[22].text("17,5",130,350);
+  pg[22].text("55",130,375);
+  
+   //Atasan M
+  pg[22].text("90",160,100);
+  pg[22].text("72",160,125);
+  pg[22].text("39",160,150);
+  pg[22].text("33",160,175);
+  pg[22].text("33",160,200);
+  pg[22].text("37",160,225);
+  pg[22].text("35",160,250);
+  pg[22].text("12",160,275);
+  pg[22].text("17",160,300);
+  pg[22].text("13",160,325);
+  pg[22].text("18",160,350);
+  pg[22].text("65",160,375);
+  
+  //Atasan L
+  pg[22].text("94",190,100);
+  pg[22].text("78",190,125);
+  pg[22].text("38",190,150);
+  pg[22].text("34",190,175);
+  pg[22].text("35",190,200);
+  pg[22].text("39",190,225);
+  pg[22].text("36",190,250);
+  pg[22].text("13",190,275);
+  pg[22].text("18",190,300);
+  pg[22].text("13,5",190,325);
+  pg[22].text("19",190,350);
+  pg[22].text("75",190,375);
+  
+  pg[22].text("Jenis",230,50);
+  pg[22].text("Ukuran",370,50);
+  pg[22].text("S",360,75);
+  pg[22].text("M",390,75);
+  pg[22].text("L",420,75);
+  pg[22].text("Lengan",230,75);
+  pg[22].text("Lingkar Kerung Lengan",230,100);
+  pg[22].text("Lingkar Lengan",230,125); 
+  pg[22].text("Panjang Lengan",230,150);
+  pg[22].text("Lingkar Pergelangan",230,175); 
+  
+  //Lengan S
+  pg[22].text("42",360,100);
+  pg[22].text("33",360,125);
+  pg[22].text("21",360,150);
+  pg[22].text("17",360,175);
+  
+  //Lengan M
+  pg[22].text("44",390,100);
+  pg[22].text("34",390,125);
+  pg[22].text("23",390,150);
+  pg[22].text("19",390,175);
+  
+  //Lengan L
+  pg[22].text("48",420,100);
+  pg[22].text("35",420,125);
+  pg[22].text("24",420,150);
+  pg[22].text("21",420,175);
+  
+  pg[22].text("Jenis",230,200);
+  pg[22].text("Ukuran",370,200);
+  pg[22].text("S",360,225);
+  pg[22].text("M",390,225);
+  pg[22].text("L",420,225);
+  pg[22].text("Celana/Rok",230,225);
+  pg[22].text("Lingkar Pinggang",230,250);
+  pg[22].text("Lingkar Pinggul",230,275);
+  pg[22].text("Panjang Celana",230,300);
+  pg[22].text("Tinggi Pinggul",230,325);
+  //Celana S
+  pg[22].text("66",360,250);
+  pg[22].text("88",360,275);
+  pg[22].text("55",360,300);
+  pg[22].text("17",360,325);
+  
+  //Celana M
+  pg[22].text("72",390,250);
+  pg[22].text("96",390,275);
+  pg[22].text("65",390,300);
+  pg[22].text("18",390,325);
+  
+  //Celana L
+  pg[22].text("78",420,250);
+  pg[22].text("102",420,275);
+  pg[22].text("70",420,300);
+  pg[22].text("20",420,325);
+  
+  pg[22].text("Jenis",230,350);
+  pg[22].text("Ukuran",370,350);
+  pg[22].text("S",360,375);
+  pg[22].text("M",390,375);
+  pg[22].text("L",420,375);
+  pg[22].text("Kerah",230,375);
+  pg[22].text("Lingkar Leher",230,400);
+  pg[22].text("34",360,400);
+  pg[22].text("36",390,400);
+  pg[22].text("38",420,400);
   pg[22].endDraw();
 }
 
@@ -7642,31 +7754,141 @@ public void drawPgTemplateUkuranP() {
   pg[23].beginDraw();
   pg[23].background(252);
   pg[23].fill(0);
-  pg[23].textSize(28);
-  pg[23].text("Standar Ukuran Pria", 25, 50);
-  //pg[12].textSize(20);
-  //pg[12].text("Ukuran S : ",27,110);
-  //pg[12].text("Ukuran M : ",27,180);
-  //pg[12].text("Ukuran L : ",27,250);
-  c = 1;
-  for (int i=1; i<=2; i++) {
-    if (c>=imgPria.length-1) {
-      c=1;
-      break;
-    }
-    for (int j=1; j<=1; j++) {
-      if (c>imgPria.length-1)
-        break;
-      pg[23].beginShape();
-      pg[23].texture(imgAtasan[c]);
-      pg[23].vertex(pg[4].width-(j*240), i*240, 0, 0);
-      pg[23].vertex(pg[4].width-(j*240-300), i*240, 100, 0);
-      pg[23].vertex(pg[4].width-(j*240-300), i*240+300, 100, 100);
-      pg[23].vertex(pg[4].width-(j*240), i*240+300, 0, 100);
-      pg[23].endShape();
-      c++;
-    }
-  }
+  pg[23].textSize(20);
+  pg[23].text("Standar Ukuran Pria", 125, 25);
+  pg[23].line(0,35,500,35);
+  pg[23].line(215,35,215,430);
+  pg[23].line(215,180,500,180);
+  pg[23].line(215,330,500,330);
+  pg[23].line(0,430,500,430);
+  pg[23].textSize(10);
+  pg[23].text("Jenis",15,50);
+  pg[23].text("Ukuran",150,50);
+  pg[23].text("S",130,75);
+  pg[23].text("M",160,75);
+  pg[23].text("L",190,75);
+  pg[23].text("Atasan",15,75);
+  pg[23].text("Lingkar Badan",15,100);
+  pg[23].text("Lingkar Pinggang",15,125);
+  pg[23].text("Lingkar Leher",15,150);
+  pg[23].text("Lingkar Dada",15,175);
+  pg[23].text("Lebar Dada ",15,200);
+  pg[23].text("Panjang Punggung",15,225);
+  pg[23].text("Lebar Punggung",15,250);
+  pg[23].text("Lebar Bahu",15,275);
+  pg[23].text("Panjang Sisi",15,300);
+  pg[23].text("Tinggi Puncak",15,325);
+  pg[23].text("Jarak Payudara",15,350);
+  pg[23].text("Panjang Baju",15,375);
+  //Atasan S
+  pg[23].text("88",130,100);
+  pg[23].text("74",130,125);
+  pg[23].text("37",130,150);
+  pg[23].text("31",130,175);
+  pg[23].text("31",130,200);
+  pg[23].text("35",130,225);
+  pg[23].text("43",130,250);
+  pg[23].text("11",130,275);
+  pg[23].text("16",130,300);
+  pg[23].text("12,5",130,325);
+  pg[23].text("17,5",130,350);
+  pg[23].text("70",130,375);
+  
+   //Atasan M
+  pg[23].text("96",160,100);
+  pg[23].text("78",160,125);
+  pg[23].text("39",160,150);
+  pg[23].text("33",160,175);
+  pg[23].text("33",160,200);
+  pg[23].text("37",160,225);
+  pg[23].text("45",160,250);
+  pg[23].text("12",160,275);
+  pg[23].text("17",160,300);
+  pg[23].text("13",160,325);
+  pg[23].text("18",160,350);
+  pg[23].text("75",160,375);
+  
+  //Atasan L
+  pg[23].text("100",190,100);
+  pg[23].text("82",190,125);
+  pg[23].text("41",190,150);
+  pg[23].text("34",190,175);
+  pg[23].text("35",190,200);
+  pg[23].text("39",190,225);
+  pg[23].text("47",190,250);
+  pg[23].text("13",190,275);
+  pg[23].text("18",190,300);
+  pg[23].text("13,5",190,325);
+  pg[23].text("19",190,350);
+  pg[23].text("80",190,375);
+  
+  pg[23].text("Jenis",230,50);
+  pg[23].text("Ukuran",370,50);
+  pg[23].text("S",360,75);
+  pg[23].text("M",390,75);
+  pg[23].text("L",420,75);
+  pg[23].text("Lengan",230,75);
+  pg[23].text("Lingkar Kerung Lengan",230,100);
+  pg[23].text("Lingkar Lengan",230,125); 
+  pg[23].text("Panjang Lengan",230,150);
+  pg[23].text("Lingkar Pergelangan",230,175); 
+  
+  //Lengan S
+  pg[23].text("42",360,100);
+  pg[23].text("33",360,125);
+  pg[23].text("25",360,150);
+  pg[23].text("18",360,175);
+  
+  //Lengan M
+  pg[23].text("44",390,100);
+  pg[23].text("35",390,125);
+  pg[23].text("26",390,150);
+  pg[23].text("20",390,175);
+  
+  //Lengan L
+  pg[23].text("48",420,100);
+  pg[23].text("37",420,125);
+  pg[23].text("27",420,150);
+  pg[23].text("22",420,175);
+  
+  pg[23].text("Jenis",230,200);
+  pg[23].text("Ukuran",370,200);
+  pg[23].text("S",360,225);
+  pg[23].text("M",390,225);
+  pg[23].text("L",420,225);
+  pg[23].text("Celana",230,225);
+  pg[23].text("Lingkar Pinggang",230,250);
+  pg[23].text("Lingkar Pinggul",230,275);
+  pg[23].text("Panjang Celana",230,300);
+  pg[23].text("Tinggi Pinggul",230,325);
+  //Celana S
+  pg[23].text("74",360,250);
+  pg[23].text("90",360,275);
+  pg[23].text("55",360,300);
+  pg[23].text("17",360,325);
+  
+  //Celana M
+  pg[23].text("78",390,250);
+  pg[23].text("94",390,275);
+  pg[23].text("65",390,300);
+  pg[23].text("18",390,325);
+  
+  //Celana L
+  pg[23].text("82",420,250);
+  pg[23].text("98",420,275);
+  pg[23].text("70",420,300);
+  pg[23].text("20",420,325);
+  
+  pg[23].text("Jenis",230,350);
+  pg[23].text("Ukuran",370,350);
+  pg[23].text("S",360,375);
+  pg[23].text("M",390,375);
+  pg[23].text("L",420,375);
+  pg[23].text("Kerah",230,375);
+  pg[23].text("Lingkar Leher",230,400);
+  pg[23].text("37",360,400);
+  pg[23].text("39",390,400);
+  pg[23].text("41",420,400);
   pg[23].endDraw();
 }
 
@@ -8051,14 +8273,14 @@ public void drawBasement() {
         } else if (j==floors.size()-1)
           floors.get(j).isSelected=true;
       }
-      for (int i=0; i<floors.size(); i++) {
+      for(int i=0; i<floors.size(); i++){
         urlTexture = floors.get(temp).urlTexture;
         floors.get(i).display();
       }
     }
-  }
-}
-
+   
+  } 
+}    
 public void drawMenuBar() {
   for (int i=0; i<menuList.length; i++)
     menuList[i].display();
@@ -8074,470 +8296,1054 @@ public void fileSelectedForSave(File selection) {
     ////output.println(nodes.size());
     //for (int i=0; i<=nodes.size()-1; i++)
     //  output.println("n"+TAB+nodes.get(i).x+TAB+nodes.get(i).z);
-   
-    output.println("polaRok1"+TAB+polaRok1.size());
-    //output.println(nodes.size());
-    for (int i=0; i<=polaRok1.size()-1; i++)
-      output.println("prok1"+TAB+polaRok1.get(i).x+TAB+polaRok1.get(i).z);  
+    if(polaRok1.size()==0){
+      println("kosong");
+    }
+    else{
+      output.println("polaRok1"+TAB+polaRok1.size());
+      //output.println(nodes.size());
+      for (int i=0; i<=polaRok1.size()-1; i++)
+      output.println("prok1"+TAB+TAB+polaRok1.get(i).x+TAB+polaRok1.get(i).z);  
+      } 
       
+    if(polaRok2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaRok2"+TAB+polaRok2.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok2.size()-1; i++)
-      output.println("prok2"+TAB+polaRok2.get(i).x+TAB+polaRok2.get(i).z);
-      
+      output.println("prok2"+TAB+TAB+polaRok2.get(i).x+TAB+polaRok2.get(i).z);
+    }
+    
+    if(polaRok3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaRok3"+TAB+polaRok3.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok3.size()-1; i++)
-      output.println("prok3"+TAB+polaRok3.get(i).x+TAB+polaRok3.get(i).z);   
+      output.println("prok3"+TAB+TAB+polaRok3.get(i).x+TAB+polaRok3.get(i).z);   
+    }
     
+    if(polaRok4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaRok4"+TAB+polaRok4.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok4.size()-1; i++)
-      output.println("prok4"+TAB+polaRok4.get(i).x+TAB+polaRok4.get(i).z);  
+      output.println("prok4"+TAB+TAB+polaRok4.get(i).x+TAB+polaRok4.get(i).z);  
+    }
     
+    if(polaRok5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaRok5"+TAB+polaRok5.size());
     //output.println(nodes.size());
     for (int i=0; i<=polaRok5.size()-1; i++)
-      output.println("prok5"+TAB+polaRok5.get(i).x+TAB+polaRok5.get(i).z);   
-      
+      output.println("prok5"+TAB+TAB+polaRok5.get(i).x+TAB+polaRok5.get(i).z);   
+    }
+    
+    if(polaAtasan1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasan1"+TAB+polaAtasan1.size());
     for (int i=0; i<=polaAtasan1.size()-1; i++)
       output.println("patasan1"+TAB+polaAtasan1.get(i).x+TAB+polaAtasan1.get(i).z);
-      
+    }
+    
+    if(polaAtasan2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasan2"+TAB+polaAtasan2.size());
     for (int i=0; i<=polaAtasan2.size()-1; i++)
       output.println("patasan2"+TAB+polaAtasan2.get(i).x+TAB+polaAtasan2.get(i).z);
-     
+    }
+    if(polaAtasan3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasan3"+TAB+polaAtasan3.size());
     for (int i=0; i<=polaAtasan3.size()-1; i++)
       output.println("patasan3"+TAB+polaAtasan3.get(i).x+TAB+polaAtasan3.get(i).z);  
+    }
     
+    if(polaAtasan4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasan4"+TAB+polaAtasan4.size());
     for (int i=0; i<=polaAtasan4.size()-1; i++)
       output.println("patasan4"+TAB+polaAtasan4.get(i).x+TAB+polaAtasan4.get(i).z);
-     
+    }
+    
+    if(polaAtasan5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasan5"+TAB+polaAtasan5.size());
     for (int i=0; i<=polaAtasan5.size()-1; i++)
-      output.println("patasan5"+TAB+polaAtasan5.get(i).x+TAB+polaAtasan5.get(i).z);   
+      output.println("patasan5"+TAB+polaAtasan5.get(i).x+TAB+polaAtasan5.get(i).z); 
+    }
+    
+    if(polaAtasan6.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasan6"+TAB+polaAtasan6.size());
     for (int i=0; i<=polaAtasan6.size()-1; i++)
-      output.println("patasan6"+TAB+polaAtasan6.get(i).x+TAB+polaAtasan6.get(i).z);   
+      output.println("patasan6"+TAB+polaAtasan6.get(i).x+TAB+polaAtasan6.get(i).z);
+    }
+    
+    if(polaAtasan7.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasan7"+TAB+polaAtasan7.size());
     for (int i=0; i<=polaAtasan7.size()-1; i++)
       output.println("patasan7"+TAB+polaAtasan7.get(i).x+TAB+polaAtasan7.get(i).z); 
+    }
+    
+    if(polaAtasan8.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasan8"+TAB+polaAtasan8.size());
     for (int i=0; i<=polaAtasan8.size()-1; i++)
       output.println("patasan8"+TAB+polaAtasan8.get(i).x+TAB+polaAtasan8.get(i).z);   
-      
-      
+    } 
+     
+    if(polaLeher1.size()==0){
+      println("kosong");
+    }
+    else{  
     output.println("polaLeher1"+TAB+polaLeher1.size());
     for (int i=0; i<=polaLeher1.size()-1; i++)
-      output.println("pleher1"+TAB+polaLeher1.get(i).x+TAB+polaLeher1.get(i).z);   
-      
+      output.println("pleher1"+TAB+TAB+polaLeher1.get(i).x+TAB+polaLeher1.get(i).z);   
+    }
+    
+    if(polaLeher2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeher2"+TAB+polaLeher2.size());
     for (int i=0; i<=polaLeher2.size()-1; i++)
-      output.println("pleher2"+TAB+polaLeher2.get(i).x+TAB+polaLeher2.get(i).z);
-      
+      output.println("pleher2"+TAB+TAB+polaLeher2.get(i).x+TAB+polaLeher2.get(i).z);
+    }
+    
+    if(polaLeher3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeher3"+TAB+polaLeher3.size());
     for (int i=0; i<=polaLeher3.size()-1; i++)
-      output.println("pleher3"+TAB+polaLeher3.get(i).x+TAB+polaLeher3.get(i).z);  
+      output.println("pleher3"+TAB+TAB+polaLeher3.get(i).x+TAB+polaLeher3.get(i).z);  
+    }
     
+    if(polaLeher4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeher4"+TAB+polaLeher4.size());
     for (int i=0; i<=polaLeher4.size()-1; i++)
-      output.println("pleher4"+TAB+polaLeher4.get(i).x+TAB+polaLeher4.get(i).z); 
-     
+      output.println("pleher4"+TAB+TAB+polaLeher4.get(i).x+TAB+polaLeher4.get(i).z); 
+    }
+    
+    if(polaLeher5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeher5"+TAB+polaLeher5.size());
     for (int i=0; i<=polaLeher5.size()-1; i++)
-      output.println("pleher5"+TAB+polaLeher5.get(i).x+TAB+polaLeher5.get(i).z);
-     
+      output.println("pleher5"+TAB+TAB+polaLeher5.get(i).x+TAB+polaLeher5.get(i).z);
+    }
+    
+    if(polaLengan1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLengan1"+TAB+polaLengan1.size());
     for (int i=0; i<=polaLengan1.size()-1; i++)
       output.println("plengan1"+TAB+polaLengan1.get(i).x+TAB+polaLengan1.get(i).z);
-      
+    }
+    
+    if(polaLengan2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLengan2"+TAB+polaLengan2.size());
     for (int i=0; i<=polaLengan2.size()-1; i++)
       output.println("plengan2"+TAB+polaLengan2.get(i).x+TAB+polaLengan2.get(i).z);    
-      
+    }
+    
+    if(polaLengan3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLengan3"+TAB+polaLengan3.size());
     for (int i=0; i<=polaLengan3.size()-1; i++)
       output.println("plengan3"+TAB+polaLengan3.get(i).x+TAB+polaLengan3.get(i).z);
+    }
     
+    if(polaLengan4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLengan4"+TAB+polaLengan4.size());
     for (int i=0; i<=polaLengan4.size()-1; i++)
       output.println("plengan4"+TAB+polaLengan4.get(i).x+TAB+polaLengan4.get(i).z);
+    }
     
+    if(polaLengan5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLengan5"+TAB+polaLengan5.size());
     for (int i=0; i<=polaLengan5.size()-1; i++)
       output.println("plengan5"+TAB+polaLengan5.get(i).x+TAB+polaLengan5.get(i).z);
+    }
     
+    if(polaGaun1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaGaun1"+TAB+polaGaun1.size());
     for (int i=0; i<=polaGaun1.size()-1; i++)
-      output.println("pgaun1"+TAB+polaGaun1.get(i).x+TAB+polaGaun1.get(i).z); 
-      
+      output.println("pgaun1"+TAB+TAB+polaGaun1.get(i).x+TAB+polaGaun1.get(i).z); 
+    }
+    if(polaGaun2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaGaun2"+TAB+polaGaun2.size());
     for (int i=0; i<=polaGaun2.size()-1; i++)
-      output.println("pgaun2"+TAB+polaGaun2.get(i).x+TAB+polaGaun2.get(i).z);  
-      
+      output.println("pgaun2"+TAB+TAB+polaGaun2.get(i).x+TAB+polaGaun2.get(i).z);  
+    }
+    
+    if(polaGaun3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaGaun3"+TAB+polaGaun3.size());
     for (int i=0; i<=polaGaun3.size()-1; i++)
-      output.println("pgaun3"+TAB+polaGaun3.get(i).x+TAB+polaGaun3.get(i).z);  
-   
+      output.println("pgaun3"+TAB+TAB+polaGaun3.get(i).x+TAB+polaGaun3.get(i).z);  
+    }
+    if(polaGaun4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaGaun4"+TAB+polaGaun4.size());
     for (int i=0; i<=polaGaun4.size()-1; i++)
-      output.println("pgaun4"+TAB+polaGaun4.get(i).x+TAB+polaGaun4.get(i).z);  
+      output.println("pgaun4"+TAB+TAB+polaGaun4.get(i).x+TAB+polaGaun4.get(i).z);  
+    }
     
+    if(polaGaun5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaGaun5"+TAB+polaGaun5.size());
     for (int i=0; i<=polaGaun5.size()-1; i++)
-      output.println("pgaun5"+TAB+polaGaun5.get(i).x+TAB+polaGaun5.get(i).z); 
+      output.println("pgaun5"+TAB+TAB+polaGaun5.get(i).x+TAB+polaGaun5.get(i).z); 
+    }
+    
+    if(polaGaun6.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaGaun6"+TAB+polaGaun6.size());
     for (int i=0; i<=polaGaun6.size()-1; i++)
-      output.println("pgaun6"+TAB+polaGaun6.get(i).x+TAB+polaGaun6.get(i).z); 
+      output.println("pgaun6"+TAB+TAB+polaGaun6.get(i).x+TAB+polaGaun6.get(i).z); 
+    }
     
+    if(polaGaun7.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaGaun7"+TAB+polaGaun7.size());
     for (int i=0; i<=polaGaun7.size()-1; i++)
-      output.println("pgaun7"+TAB+polaGaun7.get(i).x+TAB+polaGaun7.get(i).z); 
+      output.println("pgaun7"+TAB+TAB+polaGaun7.get(i).x+TAB+polaGaun7.get(i).z); 
+    }
+    
+    if(polaGaun8.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaGaun8"+TAB+polaGaun8.size());
     for (int i=0; i<=polaGaun8.size()-1; i++)
-      output.println("pgaun8"+TAB+polaGaun8.get(i).x+TAB+polaGaun8.get(i).z);  
-     
+      output.println("pgaun8"+TAB+TAB+polaGaun8.get(i).x+TAB+polaGaun8.get(i).z);  
+    }
+    
+    if(polaCelana1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelana1"+TAB+polaCelana1.size());
     for (int i=0; i<=polaCelana1.size()-1; i++)
       output.println("pcelana1"+TAB+polaCelana1.get(i).x+TAB+polaCelana1.get(i).z);   
+    }
     
+    if(polaCelana2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelana2"+TAB+polaCelana2.size());
     for (int i=0; i<=polaCelana2.size()-1; i++)
       output.println("pcelana2"+TAB+polaCelana2.get(i).x+TAB+polaCelana2.get(i).z);
-      
+    }
+    
+    if(polaCelana3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelana3"+TAB+polaCelana3.size());
     for (int i=0; i<=polaCelana3.size()-1; i++)
       output.println("pcelana3"+TAB+polaCelana3.get(i).x+TAB+polaCelana3.get(i).z);
+    }
     
+    if(polaCelana4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelana4"+TAB+polaCelana4.size());
     for (int i=0; i<=polaCelana4.size()-1; i++)
       output.println("pcelana4"+TAB+polaCelana4.get(i).x+TAB+polaCelana4.get(i).z);
+    }
     
+    if(polaCelana5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelana5"+TAB+polaCelana5.size());
     for (int i=0; i<=polaCelana5.size()-1; i++)
       output.println("pcelana5"+TAB+polaCelana5.get(i).x+TAB+polaCelana5.get(i).z);
+    }
     
+    if(polaCelana6.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelana6"+TAB+polaCelana6.size());
     for (int i=0; i<=polaCelana6.size()-1; i++)
       output.println("pcelana6"+TAB+polaCelana6.get(i).x+TAB+polaCelana6.get(i).z);  
+    }
     
+    if(polaCelana7.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelana7"+TAB+polaCelana7.size());
     for (int i=0; i<=polaCelana7.size()-1; i++)
-      output.println("pcelana7"+TAB+polaCelana7.get(i).x+TAB+polaCelana7.get(i).z);  
+      output.println("pcelana7"+TAB+polaCelana7.get(i).x+TAB+polaCelana7.get(i).z); 
+    }
+    
+    if(polaCelana8.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelana8"+TAB+polaCelana8.size());
     for (int i=0; i<=polaCelana8.size()-1; i++)
       output.println("pcelana8"+TAB+polaCelana8.get(i).x+TAB+polaCelana8.get(i).z);
+    }
     
+    if(polaAtasanlk1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasanlk1"+TAB+polaAtasanlk1.size());
     for (int i=0; i<=polaAtasanlk1.size()-1; i++)
       output.println("patasanlk1"+TAB+polaAtasanlk1.get(i).x+TAB+polaAtasanlk1.get(i).z); 
+    }
     
+    if(polaAtasanlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasanlk2"+TAB+polaAtasanlk2.size());
     for (int i=0; i<=polaAtasanlk2.size()-1; i++)
       output.println("patasanlk2"+TAB+polaAtasanlk2.get(i).x+TAB+polaAtasanlk2.get(i).z);  
-      
+    }
+    
+    if(polaAtasanlk3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasanlk3"+TAB+polaAtasanlk3.size());
     for (int i=0; i<=polaAtasanlk3.size()-1; i++)
       output.println("patasanlk3"+TAB+polaAtasanlk3.get(i).x+TAB+polaAtasanlk3.get(i).z);    
+    }
     
+    if(polaAtasanlk4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasanlk4"+TAB+polaAtasanlk4.size());
     for (int i=0; i<=polaAtasanlk4.size()-1; i++)
       output.println("patasanlk4"+TAB+polaAtasanlk4.get(i).x+TAB+polaAtasanlk4.get(i).z); 
+    }
     
+    if(polaAtasanlk5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasanlk5"+TAB+polaAtasanlk5.size());
     for (int i=0; i<=polaAtasanlk5.size()-1; i++)
       output.println("patasanlk5"+TAB+polaAtasanlk5.get(i).x+TAB+polaAtasanlk5.get(i).z); 
+    }
+    
+    if(polaAtasanlk6.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasanlk6"+TAB+polaAtasanlk6.size());
     for (int i=0; i<=polaAtasanlk6.size()-1; i++)
       output.println("patasanlk6"+TAB+polaAtasanlk6.get(i).x+TAB+polaAtasanlk6.get(i).z); 
+    }
+    
+    if(polaAtasanlk7.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasanlk7"+TAB+polaAtasanlk7.size());
     for (int i=0; i<=polaAtasanlk7.size()-1; i++)
       output.println("patasanlk7"+TAB+polaAtasanlk7.get(i).x+TAB+polaAtasanlk7.get(i).z);   
+    }
+    
+    if(polaAtasanlk8.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaAtasanlk8"+TAB+polaAtasanlk8.size());
     for (int i=0; i<=polaAtasanlk8.size()-1; i++)
       output.println("patasanlk8"+TAB+polaAtasanlk8.get(i).x+TAB+polaAtasanlk8.get(i).z);   
+    }
     
+    if(polaLeherlk1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeherlk1"+TAB+polaLeherlk1.size());
     for (int i=0; i<=polaLeherlk1.size()-1; i++)
       output.println("pleherlk1"+TAB+polaLeherlk1.get(i).x+TAB+polaLeherlk1.get(i).z);  
-      
+    }
+    
+    if(polaLeherlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeherlk2"+TAB+polaLeherlk2.size());
     for (int i=0; i<=polaLeherlk2.size()-1; i++)
       output.println("pleherlk2"+TAB+polaLeherlk2.get(i).x+TAB+polaLeherlk2.get(i).z);  
-      
+    }
+    
+    if(polaLeherlk3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeherlk3"+TAB+polaLeherlk3.size());
     for (int i=0; i<=polaLeherlk3.size()-1; i++)
       output.println("pleherlk3"+TAB+polaLeherlk3.get(i).x+TAB+polaLeherlk3.get(i).z);  
+    }
     
+    if(polaLeherlk4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeherlk4"+TAB+polaLeherlk4.size());
     for (int i=0; i<=polaLeherlk4.size()-1; i++)
       output.println("pleherlk4"+TAB+polaLeherlk4.get(i).x+TAB+polaLeherlk4.get(i).z);  
-   
+    }
+    
+    if(polaLeherlk5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLeherlk5"+TAB+polaLeherlk5.size());
     for (int i=0; i<=polaLeherlk5.size()-1; i++)
       output.println("pleherlk5"+TAB+polaLeherlk5.get(i).x+TAB+polaLeherlk5.get(i).z);  
-     
+    }
+    
+    if(polaLenganlk1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLenganlk1"+TAB+polaLenganlk1.size());
     for (int i=0; i<=polaLenganlk1.size()-1; i++)
       output.println("plenganlk1"+TAB+polaLenganlk1.get(i).x+TAB+polaLenganlk1.get(i).z);  
-      
+    }
+    
+    if(polaLenganlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLenganlk2"+TAB+polaLenganlk2.size());
     for (int i=0; i<=polaLenganlk2.size()-1; i++)
       output.println("plenganlk2"+TAB+polaLenganlk2.get(i).x+TAB+polaLenganlk2.get(i).z); 
+    }
     
+    if(polaLenganlk3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLenganlk3"+TAB+polaLenganlk3.size());
     for (int i=0; i<=polaLenganlk3.size()-1; i++)
       output.println("plenganlk3"+TAB+polaLenganlk3.get(i).x+TAB+polaLenganlk3.get(i).z);  
+    }
     
+    if(polaLenganlk4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLenganlk4"+TAB+polaLenganlk4.size());
     for (int i=0; i<=polaLenganlk4.size()-1; i++)
       output.println("plenganlk4"+TAB+polaLenganlk4.get(i).x+TAB+polaLenganlk4.get(i).z);  
-      
+    }
+    
+    if(polaLenganlk5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaLenganlk5"+TAB+polaLenganlk5.size());
     for (int i=0; i<=polaLenganlk5.size()-1; i++)
       output.println("plenganlk5"+TAB+polaLenganlk5.get(i).x+TAB+polaLenganlk5.get(i).z);    
-      
+    }
+    
+    if(polaCelanalk1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelanalk1"+TAB+polaCelanalk1.size());
     for (int i=0; i<=polaCelanalk1.size()-1; i++)
       output.println("pcelanalk1"+TAB+polaCelanalk1.get(i).x+TAB+polaCelanalk1.get(i).z);
-      
+    }
+    
+    if(polaCelanalk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelanalk2"+TAB+polaCelanalk2.size());
     for (int i=0; i<=polaCelanalk2.size()-1; i++)
       output.println("pcelanalk2"+TAB+polaCelanalk2.get(i).x+TAB+polaCelanalk2.get(i).z);
+    }
     
+    if(polaCelanalk3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelanalk3"+TAB+polaCelanalk3.size());
     for (int i=0; i<=polaCelanalk3.size()-1; i++)
       output.println("pcelanalk3"+TAB+polaCelanalk3.get(i).x+TAB+polaCelanalk3.get(i).z);
+    }
+    
+    if(polaCelanalk4.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelanalk4"+TAB+polaCelanalk4.size());
     for (int i=0; i<=polaCelanalk4.size()-1; i++)
       output.println("pcelanalk4"+TAB+polaCelanalk4.get(i).x+TAB+polaCelanalk4.get(i).z);
+    }
+    
+    if(polaCelanalk5.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelanalk5"+TAB+polaCelanalk5.size());
     for (int i=0; i<=polaCelanalk5.size()-1; i++)
       output.println("pcelanalk5"+TAB+polaCelanalk5.get(i).x+TAB+polaCelanalk5.get(i).z);  
+    }
+     
+     if(polaCelanalk6.size()==0){
+      println("kosong");
+    }
+    else{
      output.println("polaCelanalk6"+TAB+polaCelanalk6.size());
     for (int i=0; i<=polaCelanalk6.size()-1; i++)
       output.println("pcelanalk6"+TAB+polaCelanalk6.get(i).x+TAB+polaCelanalk6.get(i).z);   
+    }
+    
+    if(polaCelanalk7.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelanalk7"+TAB+polaCelanalk7.size());
     for (int i=0; i<=polaCelanalk7.size()-1; i++)
       output.println("pcelanalk7"+TAB+polaCelanalk7.get(i).x+TAB+polaCelanalk7.get(i).z);  
+    }
+    
+    if(polaCelanalk8.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("polaCelanalk8"+TAB+polaCelanalk8.size());
     for (int i=0; i<=polaCelanalk8.size()-1; i++)
       output.println("pcelanalk8"+TAB+polaCelanalk8.get(i).x+TAB+polaCelanalk8.get(i).z);   
+    }
     //output.println("floors"+TAB+floors.size());
     //for (int i=0; i<=floors.size()-1; i++)
-      //output.println("f"+TAB+floors.get(i).y1_pos+TAB+floors.get(i).h+TAB+floors.get(i).scaleFloor+TAB+floors.get(i).urlTexture);
+    //  output.println("f"+TAB+floors.get(i).y1_pos+TAB+floors.get(i).h+TAB+floors.get(i).scaleFloor+TAB+floors.get(i).urlTexture);
     
     //rok  
-    output.println("rok1"+TAB+rok1.size());
+    if(rok1.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("rok1"+TAB+TAB+rok1.size());
     for (int i=0; i<=rok1.size()-1; i++)
-      output.println("vrok1"+TAB+rok1.get(i).x1+TAB+rok1.get(i).z1+TAB+rok1.get(i).x2+TAB+rok1.get(i).y2); 
-     
-    output.println("rok2"+TAB+rok2.size());
+      output.println("vrok1"+TAB+TAB+rok1.get(i).x1+TAB+rok1.get(i).z1+TAB+rok1.get(i).x2+TAB+rok1.get(i).y2); 
+    }
+    
+    if(rok2.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("rok2"+TAB+TAB+rok2.size());
     for (int i=0; i<=rok2.size()-1; i++)
-      output.println("vrok2"+TAB+rok2.get(i).x1+TAB+rok2.get(i).z1+TAB+rok2.get(i).x2+TAB+rok2.get(i).y2);  
+      output.println("vrok2"+TAB+TAB+rok2.get(i).x1+TAB+rok2.get(i).z1+TAB+rok2.get(i).x2+TAB+rok2.get(i).y2);  
+    } 
      
+    if(rok3.size()==0){
+      println("kosong");
+    }
+    else{ 
     output.println("rok3"+TAB+rok3.size());
     for (int i=0; i<=rok3.size()-1; i++)
-      output.println("vrok3"+TAB+rok3.get(i).x1+TAB+rok3.get(i).z1+TAB+rok3.get(i).x2+TAB+rok3.get(i).y2);
-      
+      output.println("vrok3"+TAB+TAB+rok3.get(i).x1+TAB+rok3.get(i).z1+TAB+rok3.get(i).x2+TAB+rok3.get(i).y2);
+    }
+    
+    if(garisRok.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisRok"+TAB+garisRok.size());
     for (int i=0; i<=garisRok.size()-1; i++)
       output.println("vgarisrok"+TAB+garisRok.get(i).x+TAB+garisRok.get(i).z);  
-      
+    }
+    
+    if(garisRok2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisRok2"+TAB+garisRok2.size());
     for (int i=0; i<=garisRok2.size()-1; i++)
-      output.println("vgarisrok2"+TAB+garisRok2.get(i).x+TAB+garisRok2.get(i).z);  
+      output.println("vgarisrok2"+TAB+TAB+garisRok2.get(i).x+TAB+garisRok2.get(i).z);  
+    }
+    
+    if(atasan1.size()==0){
+      println("kosong");
+    }
+    else{
     //atasan  
     output.println("atasan1"+TAB+atasan1.size());
     for (int i=0; i<=atasan1.size()-1; i++)
       output.println("vatasan1"+TAB+atasan1.get(i).x1+TAB+atasan1.get(i).z1+TAB+atasan1.get(i).x2+TAB+atasan1.get(i).y2);
+    }
     
+    if(atasan2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("atasan2"+TAB+atasan2.size());
     for (int i=0; i<=atasan2.size()-1; i++)
       output.println("vatasan2"+TAB+atasan2.get(i).x1+TAB+atasan2.get(i).z1+TAB+atasan2.get(i).x2+TAB+atasan2.get(i).y2);
-      
+    } 
+    
+    if(atasan3.size()==0){
+      println("kosong");
+    }
+    else{  
     output.println("atasan3"+TAB+atasan3.size());
     for (int i=0; i<=atasan3.size()-1; i++)
       output.println("vatasan3"+TAB+atasan3.get(i).x1+TAB+atasan3.get(i).z1+TAB+atasan3.get(i).x2+TAB+atasan3.get(i).y2);  
-      
+    }
+    
+    if(garisAtasan.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisAtasan"+TAB+garisAtasan.size());
     for (int i=0; i<=garisAtasan.size()-1; i++)
       output.println("vgarisatasan"+TAB+garisAtasan.get(i).x+TAB+garisAtasan.get(i).z);
-      
+    }
+    
+    if(garisAtasan2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisAtasan2"+TAB+garisAtasan2.size());
     for (int i=0; i<=garisAtasan2.size()-1; i++)
       output.println("vgarisatasan2"+TAB+garisAtasan2.get(i).x+TAB+garisAtasan2.get(i).z);  
+    }
+     
      //leher 
-    output.println("leher1"+TAB+leher1.size());
+   if(leher1.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("leher1"+TAB+TAB+leher1.size());
     for (int i=0; i<=leher1.size()-1; i++)
-      output.println("vleher1"+TAB+leher1.get(i).x1+TAB+leher1.get(i).z1+TAB+leher1.get(i).x2+TAB+leher1.get(i).y2);
+      output.println("vleher1"+TAB+TAB+leher1.get(i).x1+TAB+leher1.get(i).z1+TAB+leher1.get(i).x2+TAB+leher1.get(i).y2);
+    }
     
-    output.println("leher2"+TAB+leher2.size());
+    if(leher2.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("leher2"+TAB+TAB+leher2.size());
     for (int i=0; i<=leher2.size()-1; i++)
-      output.println("vleher2"+TAB+leher2.get(i).x1+TAB+leher2.get(i).z1+TAB+leher2.get(i).x2+TAB+leher2.get(i).y2);
-      
-    output.println("leher3"+TAB+leher3.size());
+      output.println("vleher2"+TAB+TAB+leher2.get(i).x1+TAB+leher2.get(i).z1+TAB+leher2.get(i).x2+TAB+leher2.get(i).y2);
+    }
+    
+    if(leher3.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("leher3"+TAB+TAB+leher3.size());
     for (int i=0; i<=leher3.size()-1; i++)
-      output.println("vleher3"+TAB+leher3.get(i).x1+TAB+leher3.get(i).z1+TAB+leher3.get(i).x2+TAB+leher3.get(i).y2);  
-      
+      output.println("vleher3"+TAB+TAB+leher3.get(i).x1+TAB+leher3.get(i).z1+TAB+leher3.get(i).x2+TAB+leher3.get(i).y2);  
+    }
+    
+    if(garisLeher.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisLeher"+TAB+garisLeher.size());
     for (int i=0; i<=garisLeher.size()-1; i++)
       output.println("vgarisleher"+TAB+garisLeher.get(i).x+TAB+garisLeher.get(i).z);
-      
+    }
+    
+    if(garisLeher2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisLeher2"+TAB+garisLeher2.size());
     for (int i=0; i<=garisLeher2.size()-1; i++)
       output.println("vgarisleher2"+TAB+garisLeher2.get(i).x+TAB+garisLeher2.get(i).z);   
-      
+    }
     //lengan
+    
+    if(lengan1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("lengan1"+TAB+lengan1.size());
     for (int i=0; i<=lengan1.size()-1; i++)
       output.println("vlengan1"+TAB+lengan1.get(i).x1+TAB+lengan1.get(i).z1+TAB+lengan1.get(i).x2+TAB+lengan1.get(i).y2);
+    }
     
+    if(lengan2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("lengan2"+TAB+lengan2.size());
     for (int i=0; i<=lengan2.size()-1; i++)
       output.println("vlengan2"+TAB+lengan2.get(i).x1+TAB+lengan2.get(i).z1+TAB+lengan2.get(i).x2+TAB+lengan2.get(i).y2);
-      
+    }
+    
+    if(lengan3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("lengan3"+TAB+lengan3.size());
     for (int i=0; i<=lengan3.size()-1; i++)
       output.println("vlengan3"+TAB+lengan3.get(i).x1+TAB+lengan3.get(i).z1+TAB+lengan3.get(i).x2+TAB+lengan3.get(i).y2);  
-      
+    }
+    
+    if(garisLengan.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisLengan"+TAB+garisLengan.size());
     for (int i=0; i<=garisLengan.size()-1; i++)
       output.println("vgarislengan"+TAB+garisLengan.get(i).x+TAB+garisLengan.get(i).z);
-      
+    }
+    
+    if(garisLengan2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisLengan2"+TAB+garisLengan2.size());
     for (int i=0; i<=garisLengan2.size()-1; i++)
       output.println("vgarislengan2"+TAB+garisLengan2.get(i).x+TAB+garisLengan2.get(i).z); 
-  
-    //gaun
-    output.println("gaun1"+TAB+gaun1.size());
-    for (int i=0; i<=gaun1.size()-1; i++)
-      output.println("vgaun1"+TAB+gaun1.get(i).x1+TAB+gaun1.get(i).z1+TAB+gaun1.get(i).x2+TAB+gaun1.get(i).y2);
+    }
     
-    output.println("gaun2"+TAB+gaun2.size());
+    //gaun
+    if(gaun1.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("gaun1"+TAB+TAB+gaun1.size());
+    for (int i=0; i<=gaun1.size()-1; i++)
+      output.println("vgaun1"+TAB+TAB+gaun1.get(i).x1+TAB+gaun1.get(i).z1+TAB+gaun1.get(i).x2+TAB+gaun1.get(i).y2);
+    }
+    
+    if(gaun2.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("gaun2"+TAB+TAB+gaun2.size());
     for (int i=0; i<=gaun2.size()-1; i++)
-      output.println("vgaun2"+TAB+gaun2.get(i).x1+TAB+gaun2.get(i).z1+TAB+gaun2.get(i).x2+TAB+gaun2.get(i).y2);
-      
-    output.println("gaun3"+TAB+gaun3.size());
+      output.println("vgaun2"+TAB+TAB+gaun2.get(i).x1+TAB+gaun2.get(i).z1+TAB+gaun2.get(i).x2+TAB+gaun2.get(i).y2);
+    }
+    
+    if(gaun3.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("gaun3"+TAB+TAB+gaun3.size());
     for (int i=0; i<=gaun3.size()-1; i++)
-      output.println("vgaun3"+TAB+gaun3.get(i).x1+TAB+gaun3.get(i).z1+TAB+gaun3.get(i).x2+TAB+gaun3.get(i).y2);  
-      
-    output.println("garisGaun"+TAB+garisGaun.size());
+      output.println("vgaun3"+TAB+TAB+gaun3.get(i).x1+TAB+gaun3.get(i).z1+TAB+gaun3.get(i).x2+TAB+gaun3.get(i).y2);  
+    }
+    
+    if(garisGaun.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("garisGaun"+TAB+TAB+garisGaun.size());
     for (int i=0; i<=garisGaun.size()-1; i++)
-      output.println("vgarisgaun"+TAB+garisGaun.get(i).x+TAB+garisGaun.get(i).z);
-      
-    output.println("garisGaun2"+TAB+garisGaun2.size());
+      output.println("vgarisgaun"+TAB+TAB+garisGaun.get(i).x+TAB+garisGaun.get(i).z);
+    }
+    
+    if(garisGaun2.size()==0){
+      println("kosong");
+    }
+    else{
+    output.println("garisGaun2"+TAB+TAB+garisGaun2.size());
     for (int i=0; i<=garisGaun2.size()-1; i++)
-      output.println("vgarisgaun"+TAB+garisGaun2.get(i).x+TAB+garisGaun2.get(i).z); 
-  
+      output.println("vgarisgaun"+TAB+TAB+garisGaun2.get(i).x+TAB+garisGaun2.get(i).z); 
+    }
+    
     //celana
+    if(celana1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("celana1"+TAB+celana1.size());
     for (int i=0; i<=celana1.size()-1; i++)
-      output.println("vcelana1"+TAB+celana1.get(i).x1+TAB+celana1.get(i).z1+TAB+celana1.get(i).x2+TAB+celana1.get(i).y2);
+      output.println("vcelana1"+TAB+TAB+celana1.get(i).x1+TAB+celana1.get(i).z1+TAB+celana1.get(i).x2+TAB+celana1.get(i).y2);
+    }
     
+    if(celana2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("celana2"+TAB+celana2.size());
     for (int i=0; i<=celana2.size()-1; i++)
       output.println("vcelana2"+TAB+celana2.get(i).x1+TAB+celana2.get(i).z1+TAB+celana2.get(i).x2+TAB+celana2.get(i).y2);
-      
+    }
+    
+    if(celana3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("celana3"+TAB+celana3.size());
     for (int i=0; i<=celana3.size()-1; i++)
       output.println("vcelana3"+TAB+celana3.get(i).x1+TAB+celana3.get(i).z1+TAB+celana3.get(i).x2+TAB+celana3.get(i).y2);  
-      
+    }
+    
+    if(garisCelana.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisCelana"+TAB+garisCelana.size());
     for (int i=0; i<=garisCelana.size()-1; i++)
       output.println("vgariscelana"+TAB+garisCelana.get(i).x+TAB+garisCelana.get(i).z);
-      
+    }
+    
+    if(garisCelana2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisCelana2"+TAB+garisCelana2.size());
     for (int i=0; i<=garisCelana2.size()-1; i++)
       output.println("vgariscelana2"+TAB+garisCelana2.get(i).x+TAB+garisCelana2.get(i).z); 
-     
+    }
     //atasanlk
+    
+    if(atasanlk1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("atasanlk1"+TAB+atasanlk1.size());
     for (int i=0; i<=atasanlk1.size()-1; i++)
       output.println("vatasanlk1"+TAB+atasanlk1.get(i).x1+TAB+atasanlk1.get(i).z1+TAB+atasanlk1.get(i).x2+TAB+atasanlk1.get(i).y2);
+    }
     
+    if(atasanlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("atasanlk2"+TAB+atasanlk2.size());
     for (int i=0; i<=atasanlk2.size()-1; i++)
       output.println("vatasanlk2"+TAB+atasanlk2.get(i).x1+TAB+atasanlk2.get(i).z1+TAB+atasanlk2.get(i).x2+TAB+atasanlk2.get(i).y2);
-      
+    }
+    
+    if(atasanlk3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("atasanlk3"+TAB+atasanlk3.size());
     for (int i=0; i<=atasanlk3.size()-1; i++)
       output.println("vatasanlk3"+TAB+atasanlk3.get(i).x1+TAB+atasanlk3.get(i).z1+TAB+atasanlk3.get(i).x2+TAB+atasanlk3.get(i).y2);  
-      
+    }
+    
+    if(garisAtasanlk.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisAtasanlk"+TAB+garisAtasanlk.size());
     for (int i=0; i<=garisAtasanlk.size()-1; i++)
       output.println("vgarisatasanlk"+TAB+garisAtasanlk.get(i).x+TAB+garisAtasanlk.get(i).z);
-      
+    }
+    
+    if(garisAtasanlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisAtasanlk2"+TAB+garisAtasanlk2.size());
     for (int i=0; i<=garisAtasanlk2.size()-1; i++)
       output.println("vgarisatasanlk2"+TAB+garisAtasanlk2.get(i).x+TAB+garisAtasanlk2.get(i).z);
-    
+    }
     //leherlk
+    
+    if(leherlk1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("leherlk1"+TAB+leherlk1.size());
     for (int i=0; i<=leherlk1.size()-1; i++)
       output.println("vleherlk1"+TAB+leherlk1.get(i).x1+TAB+leherlk1.get(i).z1+TAB+leherlk1.get(i).x2+TAB+leherlk1.get(i).y2);
+    }
     
+    if(leherlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("leherlk2"+TAB+leherlk2.size());
     for (int i=0; i<=leherlk2.size()-1; i++)
       output.println("vleherlk2"+TAB+leherlk2.get(i).x1+TAB+leherlk2.get(i).z1+TAB+leherlk2.get(i).x2+TAB+leherlk2.get(i).y2);
-      
+    }
+    
+    if(leherlk3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("leherlk3"+TAB+leherlk3.size());
     for (int i=0; i<=leherlk3.size()-1; i++)
       output.println("vleherlk3"+TAB+leherlk3.get(i).x1+TAB+leherlk3.get(i).z1+TAB+leherlk3.get(i).x2+TAB+leherlk3.get(i).y2);  
-      
+    }
+    
+    if(garisLeherlk.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisLeherlk"+TAB+garisLeherlk.size());
     for (int i=0; i<=garisLeherlk.size()-1; i++)
       output.println("vgarisleherlk"+TAB+garisLeherlk.get(i).x+TAB+garisLeherlk.get(i).z);
-      
+    }
+    
+    if(garisLeherlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisLeherlk2"+TAB+garisLeherlk2.size());
     for (int i=0; i<=garisLeherlk2.size()-1; i++)
       output.println("vgarisleherlk2"+TAB+garisLeherlk2.get(i).x+TAB+garisLeherlk2.get(i).z);  
-      
+    }
     //lenganlk
+    
+    if(lenganlk1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("lenganlk1"+TAB+lenganlk1.size());
     for (int i=0; i<=lenganlk1.size()-1; i++)
       output.println("vlenganlk1"+TAB+lenganlk1.get(i).x1+TAB+lenganlk1.get(i).z1+TAB+lenganlk1.get(i).x2+TAB+lenganlk1.get(i).y2);
+    }
     
+    if(lenganlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("lenganlk2"+TAB+lenganlk2.size());
     for (int i=0; i<=lenganlk2.size()-1; i++)
       output.println("vlenganlk2"+TAB+lenganlk2.get(i).x1+TAB+lenganlk2.get(i).z1+TAB+lenganlk2.get(i).x2+TAB+lenganlk2.get(i).y2);
-      
+    }
+    
+    if(lenganlk3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("lenganlk3"+TAB+lenganlk3.size());
     for (int i=0; i<=lenganlk3.size()-1; i++)
       output.println("vlenganlk3"+TAB+lenganlk3.get(i).x1+TAB+lenganlk3.get(i).z1+TAB+lenganlk3.get(i).x2+TAB+lenganlk3.get(i).y2);  
-      
+    }
+    
+    if(garisLenganlk.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisLenganlk"+TAB+garisLenganlk.size());
     for (int i=0; i<=garisLenganlk.size()-1; i++)
       output.println("vgarislenganlk"+TAB+garisLenganlk.get(i).x+TAB+garisLenganlk.get(i).z);
-      
+    }
+    
+    if(garisLenganlk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisLenganlk2"+TAB+garisLenganlk2.size());
     for (int i=0; i<=garisLenganlk2.size()-1; i++)
       output.println("vgarislenganlk2"+TAB+garisLenganlk2.get(i).x+TAB+garisLenganlk2.get(i).z); 
-      
+    }
     //celanalk
+    if(celanalk1.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("celanalk1"+TAB+celanalk1.size());
     for (int i=0; i<=celanalk1.size()-1; i++)
       output.println("vcelanalk1"+TAB+celanalk1.get(i).x1+TAB+celanalk1.get(i).z1+TAB+celanalk1.get(i).x2+TAB+celanalk1.get(i).y2);
+    }
     
+    if(celanalk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("celanalk2"+TAB+celanalk2.size());
     for (int i=0; i<=celanalk2.size()-1; i++)
       output.println("vcelanalk2"+TAB+celanalk2.get(i).x1+TAB+celanalk2.get(i).z1+TAB+celanalk2.get(i).x2+TAB+celanalk2.get(i).y2);
-      
+    }
+    if(celanalk3.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("celanalk3"+TAB+celanalk3.size());
     for (int i=0; i<=celanalk3.size()-1; i++)
       output.println("vcelanalk3"+TAB+celanalk3.get(i).x1+TAB+celanalk3.get(i).z1+TAB+celanalk3.get(i).x1+TAB+celanalk3.get(i).y2);  
-      
+    }
+    
+    if(garisCelanalk.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisCelanalk"+TAB+garisCelanalk.size());
     for (int i=0; i<=garisCelanalk.size()-1; i++)
       output.println("vgariscelanalk"+TAB+garisCelanalk.get(i).x+TAB+garisCelanalk.get(i).z);
-      
+    }
+    
+    if(garisCelanalk2.size()==0){
+      println("kosong");
+    }
+    else{
     output.println("garisCelanalk2"+TAB+garisCelanalk2.size());
     for (int i=0; i<=garisCelanalk2.size()-1; i++)
       output.println("vgariscelanalk2"+TAB+garisCelanalk2.get(i).x+TAB+garisCelanalk2.get(i).z); 
-      
+    }
+    
     output.flush();
     output.close();
   }
@@ -8566,257 +9372,352 @@ public void parseFile(File selection) {
     while ((line = reader.readLine()) != null) {
       String[] pieces = split(line, TAB);
       if (pieces[0].equals("prok1"))
-          polaRok1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));//, PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])
+          polaRok1.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("prok2"))
-          polaRok2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaRok2.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("prok3"))
-          polaRok3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaRok3.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("prok4"))
-          polaRok4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaRok4.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+          
       if (pieces[0].equals("prok5"))
-          polaRok5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
-        
+          polaRok5.add(new Node(float(pieces[1]), float(pieces[2]) ));    
+      
       if (pieces[0].equals("patasan1"))
-          polaAtasan1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaAtasan1.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("patasan2"))
-          polaAtasan2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaAtasan2.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("patasan3"))
-          polaAtasan3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaAtasan3.add(new Node(float(pieces[1]), float(pieces[2]) ));
+          
       if (pieces[0].equals("patasan4"))
-          polaAtasan4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaAtasan4.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+          
       if (pieces[0].equals("patasan5"))
-          polaAtasan5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaAtasan5.add(new Node(float(pieces[1]), float(pieces[2]) ));
+          
       if (pieces[0].equals("patasan6"))
-          polaAtasan6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaAtasan6.add(new Node(float(pieces[1]), float(pieces[2]) ));      
+      
       if (pieces[0].equals("patasan7"))
-          polaAtasan7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+          polaAtasan7.add(new Node(float(pieces[1]), float(pieces[2]) ));    
+          
       if (pieces[0].equals("patasan8"))
-          polaAtasan8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-        
+          polaAtasan8.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("pleher1"))
-          polaLeher1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaLeher1.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("pleher2"))
-          polaLeher2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+          polaLeher2.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("pleher3"))
-          polaLeher3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaLeher3.add(new Node(float(pieces[1]), float(pieces[2])));
+      
       if (pieces[0].equals("pleher4"))
-          polaLeher4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaLeher4.add(new Node(float(pieces[1]), float(pieces[2]) ));
+          
       if (pieces[0].equals("pleher5"))
-          polaLeher5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaLeher5.add(new Node(float(pieces[1]), float(pieces[2]) ));
       
       if (pieces[0].equals("plengan1"))
-          polaLengan1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaLengan1.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+          
       if (pieces[0].equals("plengan2"))
-          polaLengan2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaLengan2.add(new Node(float(pieces[1]), float(pieces[2]) ));
+     
       if (pieces[0].equals("plengan3"))
-          polaLengan3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaLengan3.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("plengan4"))
-          polaLengan4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaLengan4.add(new Node(float(pieces[1]), float(pieces[2]) ));
+          
       if (pieces[0].equals("plengan5"))
-          polaLengan5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaLengan5.add(new Node(float(pieces[1]), float(pieces[2]) ));
       
       if (pieces[0].equals("pgaun1"))
-          polaGaun1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
-      if (pieces[0].equals("pgaun2"))
-          polaGaun2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("pgaun3"))
-          polaGaun3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("pgaun4"))
-          polaGaun4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
-      if (pieces[0].equals("pgaun5"))
-          polaGaun5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("pgaun6"))
-          polaGaun6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("pgaun7"))
-          polaGaun7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
-      if (pieces[0].equals("pgaun8"))
-          polaGaun8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaGaun1.add(new Node(float(pieces[1]), float(pieces[2]) ));
           
+      if (pieces[0].equals("pgaun2"))
+          polaGaun2.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+          
+      if (pieces[0].equals("pgaun3"))
+          polaGaun3.add(new Node(float(pieces[1]), float(pieces[2]) ));
+          
+      if (pieces[0].equals("pgaun4"))
+          polaGaun4.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
+      if (pieces[0].equals("pgaun5"))
+          polaGaun5.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
+      if (pieces[0].equals("pgaun6"))
+          polaGaun6.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
+      if (pieces[0].equals("pgaun7"))
+          polaGaun7.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
+      if (pieces[0].equals("pgaun8"))
+          polaGaun8.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("pcelana1"))
-          polaCelana1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaCelana1.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("pcelana2"))
-          polaCelana2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaCelana2.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("pcelana3"))
-          polaCelana3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaCelana3.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("pcelana4"))
-          polaCelana4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaCelana4.add(new Node(float(pieces[1]), float(pieces[2]) ));   
+      
       if (pieces[0].equals("pcelana5"))
-          polaCelana5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaCelana5.add(new Node(float(pieces[1]), float(pieces[2]) ));   
+     
       if (pieces[0].equals("pcelana6"))
-          polaCelana6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaCelana6.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("pcelana7"))
-          polaCelana7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaCelana7.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("pcelana8"))
-          polaCelana8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaCelana8.add(new Node(float(pieces[1]), float(pieces[2]) ));
           
       if (pieces[0].equals("patasanlk1"))
-          polaAtasanlk1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaAtasanlk1.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("patasanlk2"))
-          polaAtasanlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaAtasanlk2.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("patasanlk3"))
-          polaAtasanlk3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaAtasanlk3.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("patasanlk4"))
-          polaAtasanlk4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaAtasanlk4.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("patasanlk5"))
-          polaAtasanlk5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaAtasanlk5.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("patasanlk6"))
-          polaAtasanlk6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+          polaAtasanlk6.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("patasanlk7"))
-          polaAtasanlk7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaAtasanlk7.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("patasanlk8"))
-          polaAtasanlk8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaAtasanlk8.add(new Node(float(pieces[1]), float(pieces[2]) ));
      
       if (pieces[0].equals("pleherlk1"))
-          polaLeherlk1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaLeherlk1.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("pleherlk2"))
-          polaLeherlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaLeherlk2.add(new Node(float(pieces[1]), float(pieces[2]) ));   
+      
       if (pieces[0].equals("pleherlk3"))
-          polaLeherlk3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          polaLeherlk3.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("pleherlk4"))
-          polaLeherlk4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaLeherlk4.add(new Node(float(pieces[1]), float(pieces[2]) ));   
+          
       if (pieces[0].equals("pleherlk5"))
-          polaLeherlk5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          polaLeherlk5.add(new Node(float(pieces[1]), float(pieces[2]) ));  
         
       if (pieces[0].equals("plenganlk1"))
-          polaLenganlk1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));     
+          polaLenganlk1.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("plenganlk2"))
-          polaLenganlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));     
+          polaLenganlk2.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("plenganlk3"))
-          polaLenganlk3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));     
+          polaLenganlk3.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("plenganlk4"))
-          polaLenganlk4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));     
+          polaLenganlk4.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("plenganlk5"))
-          polaLenganlk5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaLenganlk5.add(new Node(float(pieces[1]), float(pieces[2]) ));   
         
       if (pieces[0].equals("pcelanalk1"))
-          polaCelanalk1.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+          polaCelanalk1.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("pcelanalk2"))
-          polaCelanalk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaCelanalk2.add(new Node(float(pieces[1]), float(pieces[2])));
+      
       if (pieces[0].equals("pcelanalk3"))
-          polaCelanalk3.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+          polaCelanalk3.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("pcelanalk4"))
-          polaCelanalk4.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaCelanalk4.add(new Node(float(pieces[1]), float(pieces[2]) ));   
+      
       if (pieces[0].equals("pcelanalk5"))
-          polaCelanalk5.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaCelanalk5.add(new Node(float(pieces[1]), float(pieces[2]) ));
+      
       if (pieces[0].equals("pcelanalk6"))
-          polaCelanalk6.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+          polaCelanalk6.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("pcelanalk7"))
-          polaCelanalk7.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          polaCelanalk7.add(new Node(float(pieces[1]), float(pieces[2]) ));
+     
       if (pieces[0].equals("pcelanalk8"))
-          polaCelanalk8.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));
+          polaCelanalk8.add(new Node(float(pieces[1]), float(pieces[2]) ));
       
       if (pieces[0].equals("vrok1"))
-          rok1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]))); 
+          rok1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4]))); 
+      
       if (pieces[0].equals("vrok2"))
-          rok2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));
+          rok2.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));
+      
       if (pieces[0].equals("vrok3"))
-          rok3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]))); 
+          rok3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4]))); 
+      
       if (pieces[0].equals("vgarisrok"))
-          garisRok.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          garisRok.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("vgarisrok2"))
-          garisRok2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
+          garisRok2.add(new Node(float(pieces[1]), float(pieces[2]) ));   
      
       if (pieces[0].equals("vatasan1"))
-          atasan1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));  
+          atasan1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4])));
+      
       if (pieces[0].equals("vatasan2"))
-          atasan2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]))); 
+          atasan2.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4]))); 
+      
       if (pieces[0].equals("vatasan3"))
-          atasan3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));    
+          atasan3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));    
+      
       if (pieces[0].equals("vgarisatasan"))
-          garisAtasan.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          garisAtasan.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("vgarisatasan2"))
-          garisAtasan2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          garisAtasan2.add(new Node(float(pieces[1]), float(pieces[2]) ));  
      
       if (pieces[0].equals("vleher1"))
-          leher1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));  
+          leher1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4]))); 
+      
       if (pieces[0].equals("vleher2"))
-          leher2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]))); 
+          leher2.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4]))); 
+     
       if (pieces[0].equals("vleher3"))
-          leher3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));          
+          leher3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4])));      
+      
       if (pieces[0].equals("vgarisleher"))
-          garisLeher.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));         
+          garisLeher.add(new Node(float(pieces[1]), float(pieces[2]) ));         
+      
       if (pieces[0].equals("vgarisleher2"))
-          garisLeher2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));   
-        
+          garisLeher2.add(new Node(float(pieces[1]), float(pieces[2]) ));   
+      
       if (pieces[0].equals("vlengan1"))
-          lengan1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
+          lengan1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));
+      
       if (pieces[0].equals("vlengan2"))
-          lengan2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));         
+          lengan2.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));    
+      
       if (pieces[0].equals("vlengan3"))
-          lengan3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));       
+          lengan3.add(new Node1(float(pieces[1]),float(pieces[2]), float(pieces[3]), float(pieces[4] ))); 
+      
       if (pieces[0].equals("vgarislengan"))
-          garisLengan.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));         
+          garisLengan.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("vgarislengan2"))
-          garisLengan2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          garisLengan2.add(new Node(float(pieces[1]), float(pieces[2]) )); 
         
       if (pieces[0].equals("vgaun1"))
-          gaun1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
+          gaun1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));
+      
       if (pieces[0].equals("vgaun2"))
-          gaun2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) , PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));         
+          gaun2.add(new Node1(float(pieces[1]), float(pieces[2]) , float(pieces[3]), float(pieces[4])));
+      
       if (pieces[0].equals("vgaun3"))
-          gaun3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
+          gaun3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));    
+      
       if (pieces[0].equals("vgarisgaun"))
-          garisGaun.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));         
+          garisGaun.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("vgarisgaun2"))
-          garisGaun2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));    
+          garisGaun2.add(new Node(float(pieces[1]), float(pieces[2]) ));  
         
       if (pieces[0].equals("vcelana1"))
-          celana1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4]) ));          
+          celana1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4]) )); 
+      
       if (pieces[0].equals("vcelana2"))
-          celana2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) , PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));         
+          celana2.add(new Node1(float(pieces[1]), float(pieces[2]) , float(pieces[3]), float(pieces[4])));    
+      
       if (pieces[0].equals("vcelana3"))
-          celana3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
+          celana3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));   
+      
       if (pieces[0].equals("vgariscelana"))
-          garisCelana.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          garisCelana.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("vgariscelana"))
-          garisCelana2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2])));            
+          garisCelana2.add(new Node(float(pieces[1]), float(pieces[2])));   
   
       if (pieces[0].equals("vatasanlk1"))
-          atasanlk1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));          
+          atasanlk1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4])));     
+      
       if (pieces[0].equals("vatasanlk2"))
-          atasanlk2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));         
+          atasanlk2.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4]))); 
+      
       if (pieces[0].equals("vatasanlk3"))
-          atasanlk3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));          
+          atasanlk3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4])));  
+      
       if (pieces[0].equals("vgarisatasanlk"))
-          garisAtasanlk.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2])));         
+          garisAtasanlk.add(new Node(float(pieces[1]), float(pieces[2])));    
+      
       if (pieces[0].equals("vgarisatasanlk2"))
-          garisAtasanlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2])));    
+          garisAtasanlk2.add(new Node(float(pieces[1]), float(pieces[2])));    
         
       if (pieces[0].equals("vleherlk1"))
-          leherlk1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));          
+          leherlk1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4])));   
+      
       if (pieces[0].equals("vleherlk2"))
-          leherlk2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4])));         
+          leherlk2.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4])));   
+      
       if (pieces[0].equals("vleherlk3"))
-          leherlk3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
+          leherlk3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));  
+      
       if (pieces[0].equals("vgarisleherlk"))
-          garisLeherlk.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          garisLeherlk.add(new Node(float(pieces[1]), float(pieces[2]) )); 
+      
       if (pieces[0].equals("vgarisleherlk2"))
-          garisLeherlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          garisLeherlk2.add(new Node(float(pieces[1]), float(pieces[2]) )); 
       
       if (pieces[0].equals("vlenganlk1"))
-          lenganlk1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));  
+          lenganlk1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));  
+      
       if (pieces[0].equals("vlenganlk2"))
-          lenganlk2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));   
+          lenganlk2.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));
+      
       if (pieces[0].equals("vlenganlk3"))
-          lenganlk3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
+          lenganlk3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] ))); 
+      
       if (pieces[0].equals("vgarislenganlk"))
-          garisLenganlk.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));         
+          garisLenganlk.add(new Node(float(pieces[1]), float(pieces[2]) ));   
+      
       if (pieces[0].equals("vgarislenganlk2"))
-          garisLenganlk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) )); 
+          garisLenganlk2.add(new Node(float(pieces[1]), float(pieces[2]) )); 
         
       if (pieces[0].equals("vcelanalk1"))
-          celanalk1.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));  
+          celanalk1.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] ))); 
+      
       if (pieces[0].equals("vcelanalk2"))
-          celanalk2.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));        
+          celanalk2.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));    
+      
       if (pieces[0].equals("vcelanalk3"))
-          celanalk3.add(new Node1(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), PApplet.parseFloat(pieces[4] )));          
+          celanalk3.add(new Node1(float(pieces[1]), float(pieces[2]), float(pieces[3]), float(pieces[4] )));      
+      
       if (pieces[0].equals("vgariscelanalk"))
-          garisCelanalk.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          garisCelanalk.add(new Node(float(pieces[1]), float(pieces[2]) ));  
+      
       if (pieces[0].equals("vgariscelanalk2"))
-          garisCelanalk2.add(new Node(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]) ));  
+          garisCelanalk2.add(new Node(float(pieces[1]), float(pieces[2]) ));  
           
       //if (pieces[0].equals("f"))
-      //  floors.add(new Floor(PApplet.parseFloat(pieces[1]), PApplet.parseFloat(pieces[2]), PApplet.parseFloat(pieces[3]), pieces[4]));
+      //  floors.add(new Floor(float(pieces[1]), float(pieces[2]), float(pieces[3]), pieces[4]));
     }
     reader.close();
   }
