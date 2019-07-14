@@ -1,4 +1,4 @@
-//Last Update 23 juni 2019
+//Last Update 14 juli 2019
 
 ClassOneDropDownMenu[] menuList = new ClassOneDropDownMenu[5];
 PGraphics[] pg = new PGraphics[24];
@@ -23,13 +23,11 @@ String urlTexture;
 PImage[] img2d = new PImage[21], imgtex1 = new PImage[56], imgtex2 = new PImage[56],  
          imgRok = new PImage[25], imgAtasan = new PImage[10],imgLeher = new PImage[19], imgLengan = new PImage[19], 
          imgGaun = new PImage[13], imgCelana = new PImage[7], //wanita
-         imgAtasanLk = new PImage[7], imgLeherLk = new PImage[19], imgLenganLk = new PImage[13],imgCelanaLk = new PImage[7],
-         imgWanita = new PImage[3], imgPria = new PImage[3]; //lakilaki
-         
+         imgAtasanLk = new PImage[7], imgLeherLk = new PImage[19], imgLenganLk = new PImage[13],imgCelanaLk = new PImage[7];        
 PImage imageTexture;
 boolean pgTutor = true, pgAction = true, pgTex1 = false, pgTex2 = false, pgUkuranW = false, pgUkuranP= false, 
         pgRok = false, pgAtasan = false, pgLeher = false,pgLengan = false, pgGaun = false, pgCelana = false, 
-        pgAtasanLk = false,pgLeherLk = false, pgLenganLk, pgCelanaLk = false, pgUkuranS = false, pgUkuranM = false, pgUkuranL = false;
+        pgAtasanLk = false,pgLeherLk = false, pgLenganLk, pgCelanaLk = false;
 boolean grid2D = true, controlDown = false,threeDimension = false, shiftDown = false, newProject = true;//threeDimension = false
 boolean citraKain = false;
 boolean rok = false, atasan = false, leher= false, lengan = false, gaun = false, celana = false, 
@@ -58,8 +56,8 @@ void setup() {
   pg[19] = createGraphics(width/3, height-250, P3D); // template lengan wanita
   pg[20] = createGraphics(width/3, height-250, P3D); // template leher laki-laki
   pg[21] = createGraphics(width/3, height-250, P3D); //template lengan laki-laki
-  pg[22] = createGraphics(width/3, height-250, P3D);
-  pg[23] = createGraphics(width/3, height-250, P3D);
+  pg[22] = createGraphics(width/3, height-250, P3D);//template ukuran cewe
+  pg[23] = createGraphics(width/3, height-250, P3D);//template ukuran pria
   
   nodes = new ArrayList<Node>();
   rok1 = new ArrayList<Node1>();
@@ -157,7 +155,6 @@ void setup() {
   lengan1 = new ArrayList<Node1>();
   lengan2 = new ArrayList<Node1>();
   lengan3 = new ArrayList<Node1>();
-  //lengan4 = new ArrayList<Node1>();
   garisLengan = new ArrayList<Node>();
   garisLengan2 = new ArrayList<Node>();
   polaLengan1 = new ArrayList<Node>();
@@ -180,7 +177,6 @@ void setup() {
   lenganlk1 = new ArrayList<Node1>();
   lenganlk2 = new ArrayList<Node1>();
   lenganlk3 = new ArrayList<Node1>();
-  //lenganlk4 = new ArrayList<Node1>();
   garisLenganlk = new ArrayList<Node>();
   garisLenganlk2 = new ArrayList<Node>();
   polaLenganlk1 = new ArrayList<Node>();
@@ -229,12 +225,6 @@ void setup() {
   for (int i=1; i<imgLenganLk.length; i++) {
     imgLenganLk[i] = loadImage("Busana_LenganLk/LenganLk_"+i+".jpg");
   }
-  for (int i=1; i<imgWanita.length; i++) {
-    imgWanita[i] = loadImage("Ukuran_Wanita/Wanita_"+i+".jpg");
-  }
-  for (int i=1; i<imgPria.length; i++) {
-    imgPria[i] = loadImage("Ukuran_Pria/Pria_"+i+".jpg");
-  }
 }
 
 public void draw() {
@@ -263,30 +253,25 @@ public void draw() {
 public void base() {  
   pg[3].beginDraw();
   pg[3].fill(35);
-  //if(pgRok) {
   if (rok) {
-
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = rok1.size()-1; i >= 0; i--)
-      pg[3].vertex(rok1.get(i).x1, rok1.get(i).z1-pg[1].height,rok1.get(i).x2, rok1.get(i).y2-pg[1].height);// rok1.get(i).x1, rok1.get(i).y1);
+      pg[3].vertex(rok1.get(i).x1, rok1.get(i).z1-pg[1].height,rok1.get(i).x2, rok1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
-    
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = rok2.size()-1; i >= 0; i--)
-      pg[3].vertex(rok2.get(i).x1, rok2.get(i).z1-pg[1].height, rok2.get(i).x2, rok2.get(i).y2-pg[1].height);//,rok2.get(i).x1, rok2.get(i).y1);
+      pg[3].vertex(rok2.get(i).x1, rok2.get(i).z1-pg[1].height, rok2.get(i).x2, rok2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
-
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = rok3.size()-1; i >= 0; i--)
-      pg[3].vertex(rok3.get(i).x1, rok3.get(i).z1-pg[1].height, rok3.get(i).x2, rok3.get(i).y2-pg[1].height);//rok3.get(i).x1, rok3.get(i).y1
+      pg[3].vertex(rok3.get(i).x1, rok3.get(i).z1-pg[1].height, rok3.get(i).x2, rok3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
-
     pg[3].beginShape(LINES);
     for (int i = garisRok.size()-1; i >= 0; i--)
       pg[3].vertex(garisRok.get(i).x, garisRok.get(i).z-pg[1].height);
@@ -296,25 +281,24 @@ public void base() {
       pg[3].vertex(garisRok2.get(i).x, garisRok2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-  //else if(pgAtasan) {
   if (atasan) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = atasan1.size()-1; i >= 0; i--)
-      pg[3].vertex(atasan1.get(i).x1, atasan1.get(i).z1-pg[1].height, atasan1.get(i).x2, atasan1.get(i).y2-pg[1].height);//atasan1.get(i).x1, atasan1.get(i).y1
+      pg[3].vertex(atasan1.get(i).x1, atasan1.get(i).z1-pg[1].height, atasan1.get(i).x2, atasan1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = atasan2.size()-1; i >= 0; i--)
-      pg[3].vertex(atasan2.get(i).x1, atasan2.get(i).z1-pg[1].height,atasan2.get(i).x2, atasan2.get(i).y2-pg[1].height);//,atasan2.get(i).x1, atasan2.get(i).y1
+      pg[3].vertex(atasan2.get(i).x1, atasan2.get(i).z1-pg[1].height,atasan2.get(i).x2, atasan2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = atasan3.size()-1; i >= 0; i--)
-      pg[3].vertex(atasan3.get(i).x1, atasan3.get(i).z1-pg[1].height, atasan3.get(i).x2, atasan3.get(i).y2-pg[1].height);//, atasan3.get(i).x1, atasan3.get(i).y1
+      pg[3].vertex(atasan3.get(i).x1, atasan3.get(i).z1-pg[1].height, atasan3.get(i).x2, atasan3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(LINES);
     for (int i = garisAtasan.size()-1; i >= 0; i--)
@@ -325,31 +309,24 @@ public void base() {
       pg[3].vertex(garisAtasan2.get(i).x, garisAtasan2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-  //if(pgLengan)
   if (lengan) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = lengan1.size()-1; i >= 0; i--)
-      pg[3].vertex(lengan1.get(i).x1, lengan1.get(i).z1-pg[1].height,lengan1.get(i).x2, lengan1.get(i).y2-pg[1].height);//lengan1.get(i).x1, lengan1.get(i).y1
+      pg[3].vertex(lengan1.get(i).x1, lengan1.get(i).z1-pg[1].height,lengan1.get(i).x2, lengan1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = lengan2.size()-1; i >= 0; i--)
-      pg[3].vertex(lengan2.get(i).x1, lengan2.get(i).z1-pg[1].height,lengan2.get(i).x2, lengan2.get(i).y2-pg[1].height);//,lengan2.get(i).x1, lengan2.get(i).y1
+      pg[3].vertex(lengan2.get(i).x1, lengan2.get(i).z1-pg[1].height,lengan2.get(i).x2, lengan2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = lengan3.size()-1; i >= 0; i--)
-      pg[3].vertex(lengan3.get(i).x1, lengan3.get(i).z1-pg[1].height,lengan3.get(i).x2, lengan3.get(i).y2-pg[1].height);//, lengan3.get(i).x1, lengan3.get(i).y1
-    pg[3].endShape(CLOSE);
-    //pg[3].beginShape(POLYGON);
-    //if (citraKain)
-    //  pg[3].texture(imageTexture);
-    //for (int i = lengan4.size()-1; i >= 0; i--)
-    //  pg[3].vertex(lengan4.get(i).x1, lengan4.get(i).z1-pg[1].height, lengan4.get(i).x2, lengan4.get(i).y2-pg[1].height);//, lengan3.get(i).x1, lengan3.get(i).y1
+      pg[3].vertex(lengan3.get(i).x1, lengan3.get(i).z1-pg[1].height,lengan3.get(i).x2, lengan3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(LINES);
     for (int i = garisLengan.size()-1; i >= 0; i--)
@@ -360,32 +337,25 @@ public void base() {
       pg[3].vertex(garisLengan2.get(i).x, garisLengan2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-  //else if(pgLenganlk)
   if (lenganlk) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = lenganlk1.size()-1; i >= 0; i--)
-      pg[3].vertex(lenganlk1.get(i).x1, lenganlk1.get(i).z1-pg[1].height, lenganlk1.get(i).x2, lenganlk1.get(i).y2-pg[1].height);//lengan1.get(i).x1, lengan1.get(i).y1
+      pg[3].vertex(lenganlk1.get(i).x1, lenganlk1.get(i).z1-pg[1].height, lenganlk1.get(i).x2, lenganlk1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = lenganlk2.size()-1; i >= 0; i--)
-      pg[3].vertex(lenganlk2.get(i).x1, lenganlk2.get(i).z1-pg[1].height, lenganlk2.get(i).x2, lenganlk2.get(i).y2-pg[1].height);//,lengan2.get(i).x1, lengan2.get(i).y1
+      pg[3].vertex(lenganlk2.get(i).x1, lenganlk2.get(i).z1-pg[1].height, lenganlk2.get(i).x2, lenganlk2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = lenganlk3.size()-1; i >= 0; i--)
-      pg[3].vertex(lenganlk3.get(i).x1, lenganlk3.get(i).z1-pg[1].height, lenganlk3.get(i).x2, lenganlk3.get(i).y2-pg[1].height);//, lengan3.get(i).x1, lengan3.get(i).y1
+      pg[3].vertex(lenganlk3.get(i).x1, lenganlk3.get(i).z1-pg[1].height, lenganlk3.get(i).x2, lenganlk3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
-    //pg[3].beginShape(POLYGON);
-    //if (citraKain)
-    //  pg[3].texture(imageTexture);
-    //for (int i = lenganlk4.size()-1; i >= 0; i--)
-    //  pg[3].vertex(lenganlk4.get(i).x, lenganlk4.get(i).z-pg[1].height, lengan3.get(i).x1, lengan3.get(i).y1);//, lengan3.get(i).x1, lengan3.get(i).y1
-    //pg[3].endShape(CLOSE);
     pg[3].beginShape(LINES);
     for (int i = garisLenganlk.size()-1; i >= 0; i--)
       pg[3].vertex(garisLenganlk.get(i).x, garisLenganlk.get(i).z-pg[1].height);
@@ -395,26 +365,24 @@ public void base() {
       pg[3].vertex(garisLenganlk2.get(i).x, garisLenganlk2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-  
-  //else if(pgLeher)
   if (leher) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = leher1.size()-1; i >= 0; i--)
-      pg[3].vertex(leher1.get(i).x1, leher1.get(i).z1-pg[1].height,leher1.get(i).x2, leher1.get(i).y2-pg[1].height);//leher1.get(i).x1, leher1.get(i).y1
+      pg[3].vertex(leher1.get(i).x1, leher1.get(i).z1-pg[1].height,leher1.get(i).x2, leher1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = leher2.size()-1; i >= 0; i--)
-      pg[3].vertex(leher2.get(i).x1, leher2.get(i).z1-pg[1].height,leher2.get(i).x2, leher2.get(i).y2-pg[1].height);//,leher2.get(i).x1, leher2.get(i).y1
+      pg[3].vertex(leher2.get(i).x1, leher2.get(i).z1-pg[1].height,leher2.get(i).x2, leher2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = leher3.size()-1; i >= 0; i--)
-      pg[3].vertex(leher3.get(i).x1, leher3.get(i).z1-pg[1].height,leher3.get(i).x2, leher3.get(i).y2-pg[1].height);//, leher3.get(i).x1, leher3.get(i).y1
+      pg[3].vertex(leher3.get(i).x1, leher3.get(i).z1-pg[1].height,leher3.get(i).x2, leher3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(LINES);
     for (int i = garisLeher.size()-1; i >= 0; i--)
@@ -425,25 +393,24 @@ public void base() {
       pg[3].vertex(garisLeher2.get(i).x, garisLeher2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-  
   if (leherlk) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = leherlk1.size()-1; i >= 0; i--)
-      pg[3].vertex(leherlk1.get(i).x1, leherlk1.get(i).z1-pg[1].height, leherlk1.get(i).x2, leherlk1.get(i).y2-pg[1].height);//leher1.get(i).x1, leher1.get(i).y1
+      pg[3].vertex(leherlk1.get(i).x1, leherlk1.get(i).z1-pg[1].height, leherlk1.get(i).x2, leherlk1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = leherlk2.size()-1; i >= 0; i--)
-      pg[3].vertex(leherlk2.get(i).x1, leherlk2.get(i).z1-pg[1].height,leherlk2.get(i).x2, leherlk2.get(i).y2-pg[1].height);//,leher2.get(i).x1, leher2.get(i).y1
+      pg[3].vertex(leherlk2.get(i).x1, leherlk2.get(i).z1-pg[1].height,leherlk2.get(i).x2, leherlk2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = leherlk3.size()-1; i >= 0; i--)
-      pg[3].vertex(leherlk3.get(i).x1, leherlk3.get(i).z1-pg[1].height, leherlk3.get(i).x2, leherlk3.get(i).y2-pg[1].height);//, leher3.get(i).x1, leher3.get(i).y1
+      pg[3].vertex(leherlk3.get(i).x1, leherlk3.get(i).z1-pg[1].height, leherlk3.get(i).x2, leherlk3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(LINES);
     for (int i = garisLeherlk.size()-1; i >= 0; i--)
@@ -454,26 +421,24 @@ public void base() {
       pg[3].vertex(garisLeherlk2.get(i).x, garisLeherlk2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-
-  //else if(pgGaun) {
   if (gaun) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = gaun1.size()-1; i >= 0; i--)
-      pg[3].vertex(gaun1.get(i).x1, gaun1.get(i).z1-pg[1].height, gaun1.get(i).x2, gaun1.get(i).y2-pg[1].height); //,gaun1.get(i).x1, gaun1.get(i).y1
+      pg[3].vertex(gaun1.get(i).x1, gaun1.get(i).z1-pg[1].height, gaun1.get(i).x2, gaun1.get(i).y2-pg[1].height); 
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = gaun2.size()-1; i >= 0; i--)
-      pg[3].vertex(gaun2.get(i).x1, gaun2.get(i).z1-pg[1].height ,gaun2.get(i).x2, gaun2.get(i).y2-pg[1].height);//,gaun2.get(i).x1, gaun2.get(i).y1
+      pg[3].vertex(gaun2.get(i).x1, gaun2.get(i).z1-pg[1].height ,gaun2.get(i).x2, gaun2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = gaun3.size()-1; i >= 0; i--)
-      pg[3].vertex(gaun3.get(i).x1, gaun3.get(i).z1-pg[1].height, gaun3.get(i).x2, gaun3.get(i).y2-pg[1].height);//,gaun3.get(i).x1, gaun3.get(i).y1
+      pg[3].vertex(gaun3.get(i).x1, gaun3.get(i).z1-pg[1].height, gaun3.get(i).x2, gaun3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(LINES);
     for (int i = garisGaun.size()-1; i >= 0; i--)
@@ -484,26 +449,24 @@ public void base() {
       pg[3].vertex(garisGaun2.get(i).x, garisGaun2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-
-  //else if(pgCelana) {
   if (celana) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = celana1.size()-1; i >= 0; i--)
-      pg[3].vertex(celana1.get(i).x1, celana1.get(i).z1-pg[1].height, celana1.get(i).x2, celana1.get(i).y2-pg[1].height);//,celana1.get(i).x1, celana1.get(i).y1
+      pg[3].vertex(celana1.get(i).x1, celana1.get(i).z1-pg[1].height, celana1.get(i).x2, celana1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = celana2.size()-1; i >= 0; i--)
-      pg[3].vertex(celana2.get(i).x1, celana2.get(i).z1-pg[1].height ,celana2.get(i).x2, celana2.get(i).y2-pg[1].height);//,celana2.get(i).x1, celana2.get(i).y1
+      pg[3].vertex(celana2.get(i).x1, celana2.get(i).z1-pg[1].height ,celana2.get(i).x2, celana2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = celana3.size()-1; i >= 0; i--)
-      pg[3].vertex(celana3.get(i).x1, celana3.get(i).z1-pg[1].height ,celana3.get(i).x2, celana3.get(i).y2-pg[1].height);//,celana3.get(i).x1, celana3.get(i).y1
+      pg[3].vertex(celana3.get(i).x1, celana3.get(i).z1-pg[1].height ,celana3.get(i).x2, celana3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(LINES);
     for (int i = garisCelana.size()-1; i >= 0; i--)
@@ -514,26 +477,24 @@ public void base() {
       pg[3].vertex(garisCelana2.get(i).x, garisCelana2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-
-  //else if(pgAtasanlk) {
   if (atasanlk) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = atasanlk1.size()-1; i >= 0; i--)
-      pg[3].vertex(atasanlk1.get(i).x1, atasanlk1.get(i).z1-pg[1].height,atasanlk1.get(i).x2, atasanlk1.get(i).y2-pg[1].height);//,atasanlk1.get(i).x1, atasanlk1.get(i).y1
+      pg[3].vertex(atasanlk1.get(i).x1, atasanlk1.get(i).z1-pg[1].height,atasanlk1.get(i).x2, atasanlk1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = atasanlk2.size()-1; i >= 0; i--)
-      pg[3].vertex(atasanlk2.get(i).x1, atasanlk2.get(i).z1-pg[1].height,atasanlk2.get(i).x2, atasanlk2.get(i).y2-pg[1].height);//,atasanlk2.get(i).x1, atasanlk2.get(i).y1
+      pg[3].vertex(atasanlk2.get(i).x1, atasanlk2.get(i).z1-pg[1].height,atasanlk2.get(i).x2, atasanlk2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = atasanlk3.size()-1; i >= 0; i--)
-      pg[3].vertex(atasanlk3.get(i).x1, atasanlk3.get(i).z1-pg[1].height,atasanlk3.get(i).x2, atasanlk3.get(i).y2-pg[1].height);//,atasanlk3.get(i).x1, atasanlk3.get(i).y1
+      pg[3].vertex(atasanlk3.get(i).x1, atasanlk3.get(i).z1-pg[1].height,atasanlk3.get(i).x2, atasanlk3.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(LINES);
     for (int i = garisAtasanlk.size()-1; i >= 0; i--)
@@ -544,20 +505,18 @@ public void base() {
       pg[3].vertex(garisAtasanlk2.get(i).x, garisAtasanlk2.get(i).z-pg[1].height);
     pg[3].endShape();
   }
-
-  //else if(pgCelanalk) {
   if (celanalk) {
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = celanalk1.size()-1; i >= 0; i--)
-      pg[3].vertex(celanalk1.get(i).x1, celanalk1.get(i).z1-pg[1].height,celanalk1.get(i).x2, celanalk1.get(i).y2-pg[1].height);//,celanalk1.get(i).x1, celanalk1.get(i).y1
+      pg[3].vertex(celanalk1.get(i).x1, celanalk1.get(i).z1-pg[1].height,celanalk1.get(i).x2, celanalk1.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE); 
     pg[3].beginShape(POLYGON);
     if (citraKain)
       pg[3].texture(imageTexture);
     for (int i = celanalk2.size()-1; i >= 0; i--)
-      pg[3].vertex(celanalk2.get(i).x1, celanalk2.get(i).z1-pg[1].height,celanalk2.get(i).x2, celanalk2.get(i).y2-pg[1].height);//,celanalk2.get(i).x1, celanalk2.get(i).y1
+      pg[3].vertex(celanalk2.get(i).x1, celanalk2.get(i).z1-pg[1].height,celanalk2.get(i).x2, celanalk2.get(i).y2-pg[1].height);
     pg[3].endShape(CLOSE);
     pg[3].beginShape(POLYGON);
     if (citraKain)
@@ -579,7 +538,6 @@ public void base() {
 public void base1() {
   pg[2].beginDraw();
   pg[2].fill(35);
-  //if(pgRok) {
   if (rok) {
     pg[2].beginShape(POLYGON);
     for (int i = polaRok1.size()-1; i >= 0; i--)
@@ -602,7 +560,6 @@ public void base1() {
       pg[2].vertex(polaRok5.get(i).x, polaRok5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-  //else if(pgAtasan) {
   if (atasan) {
     pg[2].beginShape(POLYGON);
     for (int i = polaAtasan1.size()-1; i >= 0; i--)
@@ -624,7 +581,6 @@ public void base1() {
     for (int i = polaAtasan5.size()-1; i >= 0; i--)
       pg[2].vertex(polaAtasan5.get(i).x, polaAtasan5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
-    
     pg[2].beginShape(POLYGON);
     for (int i = polaAtasan6.size()-1; i >= 0; i--)
       pg[2].vertex(polaAtasan6.get(i).x, polaAtasan6.get(i).z-pg[1].height);
@@ -638,8 +594,6 @@ public void base1() {
       pg[2].vertex(polaAtasan8.get(i).x, polaAtasan8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-  
-  //else if(pgLeher)
   if (leher) {
     pg[2].beginShape(POLYGON);
     for (int i = polaLeher1.size()-1; i >= 0; i--)
@@ -662,7 +616,6 @@ public void base1() {
       pg[2].vertex(polaLeher5.get(i).x, polaLeher5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-  
   if (leherlk) {
     pg[2].beginShape(POLYGON);
     for (int i = polaLeherlk1.size()-1; i >= 0; i--)
@@ -685,7 +638,6 @@ public void base1() {
       pg[2].vertex(polaLeherlk5.get(i).x, polaLeherlk5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-  
   if (lengan) {
     pg[2].beginShape(POLYGON);
     for (int i = polaLengan1.size()-1; i >= 0; i--)
@@ -708,7 +660,6 @@ public void base1() {
       pg[2].vertex(polaLengan5.get(i).x, polaLengan5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-  
   if (lenganlk) {
     pg[2].beginShape(POLYGON);
     for (int i = polaLenganlk1.size()-1; i >= 0; i--)
@@ -731,9 +682,6 @@ public void base1() {
       pg[2].vertex(polaLenganlk5.get(i).x, polaLenganlk5.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-  
-  
-  //else if (pgGaun)
   if (gaun) {
     pg[2].beginShape(POLYGON);
     for (int i = polaGaun1.size()-1; i >= 0; i--)
@@ -772,7 +720,6 @@ public void base1() {
       pg[2].vertex(polaGaun8.get(i).x, polaGaun8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-  //else if (pgCelana)
   if (celana) {
     pg[2].beginShape(POLYGON);
     for (int i = polaCelana1.size()-1; i >= 0; i--)
@@ -807,8 +754,6 @@ public void base1() {
       pg[2].vertex(polaCelana8.get(i).x, polaCelana8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-
-  //else if(pgAtasanlk) {
   if (atasanlk) {
     pg[2].beginShape(POLYGON);
     for (int i = polaAtasanlk1.size()-1; i >= 0; i--)
@@ -843,8 +788,6 @@ public void base1() {
       pg[2].vertex(polaAtasanlk8.get(i).x, polaAtasanlk8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-
-  //else if (pgCelanalk)
   if (celanalk) {
     pg[2].beginShape(POLYGON);
     for (int i = polaCelanalk1.size()-1; i >= 0; i--)
@@ -879,16 +822,12 @@ public void base1() {
       pg[2].vertex(polaCelanalk8.get(i).x, polaCelanalk8.get(i).z-pg[1].height);
     pg[2].endShape(CLOSE);
   }
-
   pg[2].endDraw();
 }
-
 
 void newProject() {
   background(255);
   newProject = true;
- 
-  
   for (int i = rok1.size()-1; i >= 0; i--)
     rok1.remove(rok1.get(i));
   for (int i = rok2.size()-1; i >= 0; i--)
@@ -966,8 +905,6 @@ void newProject() {
     lengan2.remove(lengan2.get(i));  
   for (int i = lengan3.size()-1; i >= 0; i--)
     lengan3.remove(lengan3.get(i));
-  //for (int i = lengan4.size()-1; i >= 0; i--)
-  //  lengan4.remove(lengan4.get(i));  
   for (int i = garisLengan.size()-1; i >= 0; i--)
     garisLengan.remove(garisLengan.get(i));  
   for (int i = garisLengan2.size()-1; i >= 0; i--)
@@ -982,7 +919,6 @@ void newProject() {
     polaLengan4.remove(polaLengan4.get(i)); 
   for (int i = polaLengan5.size()-1; i >= 0; i--)
     polaLengan5.remove(polaLengan5.get(i)); 
-  
   //gaun
   for (int i = gaun1.size()-1; i >= 0; i--)
     gaun1.remove(gaun1.get(i)); 
@@ -1010,7 +946,6 @@ void newProject() {
     polaGaun7.remove(polaGaun7.get(i)); 
   for (int i = polaGaun8.size()-1; i >= 0; i--)
     polaGaun8.remove(polaGaun8.get(i));   
-    
   //celana
    for (int i = celana1.size()-1; i >= 0; i--)
     celana1.remove(celana1.get(i)); 
@@ -1038,7 +973,6 @@ void newProject() {
     polaCelana7.remove(polaCelana7.get(i)); 
   for (int i = polaCelana8.size()-1; i >= 0; i--)
     polaCelana8.remove(polaCelana8.get(i));  
-    
   //atasanlk  
   for (int i = atasanlk1.size()-1; i >= 0; i--)
     atasanlk1.remove(atasanlk1.get(i)); 
@@ -1066,7 +1000,6 @@ void newProject() {
     polaAtasanlk7.remove(polaAtasanlk7.get(i)); 
   for (int i = polaAtasanlk8.size()-1; i >= 0; i--)
     polaAtasanlk8.remove(polaAtasanlk8.get(i));   
-    
    //leherlk
   for (int i = leherlk1.size()-1; i >= 0; i--)
     leherlk1.remove(leherlk1.get(i)); 
@@ -1088,7 +1021,6 @@ void newProject() {
     polaLeherlk4.remove(polaLeherlk4.get(i)); 
   for (int i = polaLeherlk5.size()-1; i >= 0; i--)
     polaLeherlk5.remove(polaLeherlk5.get(i)); 
-  
   //lengan laki-laki
   for (int i = lenganlk1.size()-1; i >= 0; i--)
     lenganlk1.remove(lenganlk1.get(i)); 
@@ -1096,8 +1028,6 @@ void newProject() {
     lenganlk2.remove(lenganlk2.get(i));  
   for (int i = lenganlk3.size()-1; i >= 0; i--)
     lenganlk3.remove(lenganlk3.get(i));
-  //for (int i = lenganlk4.size()-1; i >= 0; i--)
-  //  lenganlk4.remove(lenganlk4.get(i));  
   for (int i = garisLenganlk.size()-1; i >= 0; i--)
     garisLenganlk.remove(garisLenganlk.get(i));  
   for (int i = garisLenganlk2.size()-1; i >= 0; i--)
@@ -1112,7 +1042,6 @@ void newProject() {
     polaLenganlk4.remove(polaLenganlk4.get(i)); 
   for (int i = polaLenganlk5.size()-1; i >= 0; i--)
     polaLenganlk5.remove(polaLenganlk5.get(i));   
-    
   //celanalk
    for (int i = celanalk1.size()-1; i >= 0; i--)
     celanalk1.remove(celanalk1.get(i)); 
@@ -1139,8 +1068,7 @@ void newProject() {
   for (int i = polaCelanalk7.size()-1; i >= 0; i--)
     polaCelanalk7.remove(polaCelanalk7.get(i)); 
   for (int i = polaCelanalk8.size()-1; i >= 0; i--)
-    polaCelanalk8.remove(polaCelanalk8.get(i));
-          
+    polaCelanalk8.remove(polaCelanalk8.get(i));          
 }
 
 public void selectAtasan() {
@@ -1173,7 +1101,6 @@ public void selectAtasan() {
       for (int i = polaAtasan8.size()-1; i >= 0; i--)
         polaAtasan8.remove(polaAtasan8.get(i));  
     }
-
     newProject = true;
     if (templateAtasan==1) { //POLA TANPA BUKAAN UKURAN S
       atasan1.add(new Node1(pg[3].width/2-25, 220,0,0));
@@ -1191,7 +1118,6 @@ public void selectAtasan() {
       atasan1.add(new Node1(pg[3].width/2-45, 300,0,50));
       atasan1.add(new Node1(pg[3].width/2-45, 285,50,50));
       atasan1.add(new Node1(pg[3].width/2-55, 240,50,50));
-
       //(Pola Depan)
       polaAtasan1.add(new Node(pg[2].width/20+10*2, 50+(float) 3.5*2)); //J
       polaAtasan1.add(new Node(pg[2].width/20+21*2, 50+(float) 0*2)); //F
@@ -1211,7 +1137,6 @@ public void selectAtasan() {
       polaAtasan1.add(new Node(pg[2].width/20+7*2, 50+(float)20.5*2)); //2
       polaAtasan1.add(new Node(pg[2].width/20+(float)9.5*2, 50+(float)18.5*2)); //1
       polaAtasan1.add(new Node(pg[2].width/20+(float)11.5*2, 50+(float)14.5*2)); //I
-
       //(Pola Belakang)
       polaAtasan2.add(new Node(pg[2].width/20+10*2+200, 50+(float) 3.5*2)); //J
       polaAtasan2.add(new Node(pg[2].width/20+21*2+200, 50+(float) 0*2)); //F
@@ -1231,7 +1156,6 @@ public void selectAtasan() {
       polaAtasan2.add(new Node(pg[2].width/20+7*2+200, 50+(float)20.5*2)); //2
       polaAtasan2.add(new Node(pg[2].width/20+(float)9.5*2+200, 50+(float)18.5*2)); //1
       polaAtasan2.add(new Node(pg[2].width/20+(float)11.5*2+200, 50+(float)14.5*2)); //I
-     
     }
     if (templateAtasan==2) { //POLA BUKAAN DEPAN UKURAN S
       atasan1.add(new Node1(pg[3].width/2-25, 220,0,0));
@@ -1249,7 +1173,6 @@ public void selectAtasan() {
       atasan1.add(new Node1(pg[3].width/2-45, 300,0,0));
       atasan1.add(new Node1(pg[3].width/2-45, 285,100,0));
       atasan1.add(new Node1(pg[3].width/2-55, 240,100,100));
-      
       garisAtasan.add(new Node(pg[3].width/2, 240));
       garisAtasan.add(new Node(pg[3].width/2, 420));
 
@@ -1299,7 +1222,6 @@ public void selectAtasan() {
       polaAtasan3.add(new Node(pg[2].width/20+7*3+200, 50+(float)20.5*3)); //2
       polaAtasan3.add(new Node(pg[2].width/20+(float)9.5*3+200, 50+(float)18.5*3)); //1
       polaAtasan3.add(new Node(pg[2].width/20+(float)11.5*3+200, 50+(float)14.5*3)); //I
-     
     }
     if (templateAtasan==3) { //POLA BUKAAN BELAKANG UKURAN S
       atasan1.add(new Node1(pg[3].width/2-25, 220,0,0));
@@ -1363,8 +1285,7 @@ public void selectAtasan() {
       polaAtasan3.add(new Node(pg[2].width/20+47*3+50+200, 50+(float)20.5*3)); //2
       polaAtasan3.add(new Node(pg[2].width/20+(float)49.5*3+50+200, 50+(float)22.5*3)); //E
       polaAtasan3.add(new Node(pg[2].width/20+(float)49.5*3+50+200, 50+(float)56.5*3)); //N
-      polaAtasan3.add(new Node(pg[2].width/20+(float)22*3+50+200, 50+(float)56.5*3)); //B
-     
+      polaAtasan3.add(new Node(pg[2].width/20+(float)22*3+50+200, 50+(float)56.5*3)); //B     
     }
     if (templateAtasan==4) { // POLA TANPA BUKAAN UKURAN M
       atasan1.add(new Node1(pg[3].width/2-25, 220,0,0));
@@ -1439,7 +1360,6 @@ public void selectAtasan() {
       atasan1.add(new Node1(pg[3].width/2-45, 300,0,100));
       atasan1.add(new Node1(pg[3].width/2-45, 285,0,100));
       atasan1.add(new Node1(pg[3].width/2-55, 240,0,100));
-      
       garisAtasan.add(new Node(pg[3].width/2, 240));
       garisAtasan.add(new Node(pg[3].width/2, 420));
       
@@ -1627,7 +1547,6 @@ public void selectAtasan() {
       atasan1.add(new Node1(pg[3].width/2-45, 300,0,100));
       atasan1.add(new Node1(pg[3].width/2-45, 285,0,100));
       atasan1.add(new Node1(pg[3].width/2-55, 240,0,100));
-      
       garisAtasan.add(new Node(pg[3].width/2, 240));
       garisAtasan.add(new Node(pg[3].width/2, 420));
       
@@ -1744,7 +1663,7 @@ public void selectAtasan() {
     }
     newProject = false; 
     base();
-    //base1();
+    base1();
   }
 }
 
@@ -2462,7 +2381,7 @@ public void selectRok() {
     }
     newProject = false; 
     base();
-    //base1();
+    base1();
   }
 }
 
@@ -2513,20 +2432,6 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-5, 550,100,100));
       celana2.add(new Node1(pg[3].width/2-60, 550,0,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,0,0));
-      
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2+40,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
-      
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2-40,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -2628,20 +2533,6 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-10, 700,0,100));
       celana2.add(new Node1(pg[3].width/2-60, 700,100,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
-      
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2+40,400,100,100));
-      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
-      
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2-40,400,100,100));
-      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -2752,20 +2643,6 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-60, 550,100,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
       
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2+40,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
-      
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2-40,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
-      
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
       garisCelana.add(new Node(pg[3].width/2+4,370));
@@ -2865,20 +2742,6 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2-10, 700,0,100));
       celana2.add(new Node1(pg[3].width/2-60, 700,100,100));
       celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
-      
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2+40,400,100,100));
-      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
-      
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2-40,400,100,100));
-      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -2986,21 +2849,6 @@ public void selectCelana() {
       celana2.add(new Node1(pg[3].width/2, 450,0,0));
       celana2.add(new Node1(pg[3].width/2-5, 550,0,100));
       celana2.add(new Node1(pg[3].width/2-60, 550,100,100));
-      celana2.add(new Node1(pg[3].width/2-50, 400,100,0));
-      
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2+50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2+40,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2+30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2+25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2+40,370,0,100));
-      
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,0));
-      //celana3.add(new Node1(pg[3].width/2-50,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2-40,400,100,0));
-      //celana3.add(new Node1(pg[3].width/2-30,390,100,100));
-      //celana3.add(new Node1(pg[3].width/2-25,370,0,100));
-      //celana3.add(new Node1(pg[3].width/2-40,370,0,100));
       
       garisCelana.add(new Node(pg[3].width/2-4,370));
       garisCelana.add(new Node(pg[3].width/2-4,420));
@@ -3196,8 +3044,8 @@ public void selectCelana() {
     }
     newProject = false; 
     base();
+    base1();
   }
-
 }
 
 public void selectGaun() {
@@ -3230,7 +3078,6 @@ public void selectGaun() {
       for (int i = polaGaun8.size()-1; i >= 0; i--)
         polaGaun8.remove(polaGaun8.get(i));  
     }
-
     newProject = true;
     if (templateGaun==1) { //gaun bukaan depan pendek
       gaun1.add(new Node1(pg[3].width/2-25, 220,0,0));
@@ -3315,7 +3162,6 @@ public void selectGaun() {
       gaun1.add(new Node1(pg[3].width/2-45, 300,0,100));
       gaun1.add(new Node1(pg[3].width/2-45, 285,0,100));
       gaun1.add(new Node1(pg[3].width/2-55, 240,0,100));
-    
     }
     if (templateGaun==5) { //gaun bukaan depan pendek m
       gaun1.add(new Node1(pg[3].width/2-25, 220,0,0));
@@ -3378,8 +3224,7 @@ public void selectGaun() {
       gaun1.add(new Node1(pg[3].width/2-55, 320,100,100));
       gaun1.add(new Node1(pg[3].width/2-45, 300,0,100));
       gaun1.add(new Node1(pg[3].width/2-45, 285,0,100));
-      gaun1.add(new Node1(pg[3].width/2-55, 240,0,100));
-      
+      gaun1.add(new Node1(pg[3].width/2-55, 240,0,100));      
     }
     if(templateGaun==8){//gaun bukaan belakang panjang m
       gaun1.add(new Node1(pg[3].width/2-25, 220,0,0));
@@ -3398,8 +3243,7 @@ public void selectGaun() {
       gaun1.add(new Node1(pg[3].width/2-55, 320,100,100));
       gaun1.add(new Node1(pg[3].width/2-45, 300,0,100));
       gaun1.add(new Node1(pg[3].width/2-45, 285,0,100));
-      gaun1.add(new Node1(pg[3].width/2-55, 240,0,100));
-    
+      gaun1.add(new Node1(pg[3].width/2-55, 240,0,100));   
     }
     if (templateGaun==9) { //gaun bukaan depan pendek l
       gaun1.add(new Node1(pg[3].width/2-25, 220,0,0));
@@ -3487,6 +3331,7 @@ public void selectGaun() {
     }
     newProject = false; 
     base();
+    base1();
   }
 }
 
@@ -3536,7 +3381,7 @@ void selectAtasanlk() {
       atasanlk1.add(new Node1(pg[3].width/2+55, 420,100,0));
       atasanlk1.add(new Node1(pg[3].width/2-55, 420,100,100));
       atasanlk1.add(new Node1(pg[3].width/2-55, 320,0,100));
-      atasanlk1.add(new Node1(pg[3].width/2-45, 300,0,0));
+      atasanlk1.add(new Node1(pg[3].width/2-45, 300,50,100));
       atasanlk1.add(new Node1(pg[3].width/2-45, 285,100,0));
       atasanlk1.add(new Node1(pg[3].width/2-55, 240,100,100));
 
@@ -3898,7 +3743,7 @@ void selectAtasanlk() {
     }
     newProject = false; 
     base();
-    //base1();
+    base1();
   }
 }
 
@@ -3932,7 +3777,6 @@ void selectCelanalk() {
       for (int i = polaCelanalk8.size()-1; i >= 0; i--)
         polaCelanalk8.remove(polaCelanalk8.get(i));
     }
-
     newProject = true;
     if (templateCelanalk==1) {//celana pendek s
       celanalk1.add(new Node1(pg[3].width/2-40, 360, 0,100));//0,100
@@ -4649,6 +4493,7 @@ void selectCelanalk() {
     }
     newProject = false; 
     base();
+    base1();
   }
 }
 
@@ -4974,6 +4819,7 @@ void selectLeher() {
     
     newProject = false; 
     base();
+    base1();
   }
 }
 
@@ -5413,6 +5259,7 @@ void selectLengan() {
     }
     newProject = false; 
     base();
+    base1();
   }
 }
 
@@ -5976,6 +5823,7 @@ void selectLeherLk() {
     
     newProject = false; 
     base();
+    base1();
   }
 }
 
@@ -6555,6 +6403,7 @@ void selectLenganLk() {
     }
     newProject = false; 
     base();
+    base1();
   }
 }
 
