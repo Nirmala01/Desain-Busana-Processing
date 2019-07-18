@@ -10,9 +10,9 @@ class Node {
     //y1 = tempY2;
   }
   void display(){
-    fill(0);
-    scale(10);
-    point(x,z);
+    pg[2].fill(0);
+    pg[2].scale(10);
+    pg[2].point(x,z);
     //point(x1,y1);
   }
 }
