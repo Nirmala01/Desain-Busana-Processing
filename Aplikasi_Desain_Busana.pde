@@ -8065,20 +8065,20 @@ void selectLeherLk() {
       leherlk2.add(new Node1(pg[3].width/2+25, 220,0,0));
       leherlk2.add(new Node1(pg[3].width/2, 215,0,0));
       
-      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *2.5, 250+ 4.5  *5)); //C
-      polaLeherlk1.add(new Node(pg[2].width/20+ 23.5 *2.5, 250+ 5    *5)); //A
-      polaLeherlk1.add(new Node(pg[2].width/20+ 42   *2.5, 250+ 4.5  *5)); //C
-      polaLeherlk1.add(new Node(pg[2].width/20+ 47   *2.5, 250+ 3.5  *5)); //G
-      polaLeherlk1.add(new Node(pg[2].width/20+ 42   *2.5, 250+ 9    *5)); //E
-      polaLeherlk1.add(new Node(pg[2].width/20+ 43   *2.5, 250+ 10   *5)); //I
-      polaLeherlk1.add(new Node(pg[2].width/20+ 44.5 *2.5, 250+ 10   *5)); //H
-      polaLeherlk1.add(new Node(pg[2].width/20+ 38.5 *2.5, 250+ 10.5 *5)); //L
-      polaLeherlk1.add(new Node(pg[2].width/20+ 23.5 *2.5, 250+ 10.5 *5)); //J
-      polaLeherlk1.add(new Node(pg[2].width/20+ 8.5  *2.5, 250+ 10.5 *5)); //L
-      polaLeherlk1.add(new Node(pg[2].width/20+ 2.5  *2.5, 250+ 10   *5)); //H
-      polaLeherlk1.add(new Node(pg[2].width/20+ 4    *2.5, 250+ 10   *5)); //I
-      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *2.5, 250+ 9    *5)); //E
-      polaLeherlk1.add(new Node(pg[2].width/20+ 0    *2.5, 250+ 3.5  *5)); //G
+      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *2.5, 250+ 4.5  *2.5)); //C
+      polaLeherlk1.add(new Node(pg[2].width/20+ 23.5 *2.5, 250+ 5    *2.5)); //A
+      polaLeherlk1.add(new Node(pg[2].width/20+ 42   *2.5, 250+ 4.5  *2.5)); //C
+      polaLeherlk1.add(new Node(pg[2].width/20+ 47   *2.5, 250+ 3.5  *2.5)); //G
+      polaLeherlk1.add(new Node(pg[2].width/20+ 42   *2.5, 250+ 9    *2.5)); //E
+      polaLeherlk1.add(new Node(pg[2].width/20+ 43   *2.5, 250+ 10   *2.5)); //I
+      polaLeherlk1.add(new Node(pg[2].width/20+ 44.5 *2.5, 250+ 10   *2.5)); //H
+      polaLeherlk1.add(new Node(pg[2].width/20+ 38.5 *2.5, 250+ 10.5 *2.5)); //L
+      polaLeherlk1.add(new Node(pg[2].width/20+ 23.5 *2.5, 250+ 10.5 *2.5)); //J
+      polaLeherlk1.add(new Node(pg[2].width/20+ 8.5  *2.5, 250+ 10.5 *2.5)); //L
+      polaLeherlk1.add(new Node(pg[2].width/20+ 2.5  *2.5, 250+ 10   *2.5)); //H
+      polaLeherlk1.add(new Node(pg[2].width/20+ 4    *2.5, 250+ 10   *2.5)); //I
+      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *2.5, 250+ 9    *2.5)); //E
+      polaLeherlk1.add(new Node(pg[2].width/20+ 0    *2.5, 250+ 3.5  *2.5)); //G
     }
     
     if(templateLeherlk==7){// kerah kemeja m
@@ -8244,20 +8244,20 @@ void selectLeherLk() {
       leherlk2.add(new Node1(pg[3].width/2+25, 220,0,0));
       leherlk2.add(new Node1(pg[3].width/2, 215,0,0));
       
-      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *2.5, 250+ 4.5  *5)); //C
-      polaLeherlk1.add(new Node(pg[2].width/20+ 24.5 *2.5, 250+ 5    *5)); //A
-      polaLeherlk1.add(new Node(pg[2].width/20+ 44   *2.5, 250+ 4.5  *5)); //C
-      polaLeherlk1.add(new Node(pg[2].width/20+ 49   *2.5, 250+ 3.5  *5)); //G
-      polaLeherlk1.add(new Node(pg[2].width/20+ 44   *2.5, 250+ 9    *5)); //E
-      polaLeherlk1.add(new Node(pg[2].width/20+ 45   *2.5, 250+ 10   *5)); //I
-      polaLeherlk1.add(new Node(pg[2].width/20+ 46.5 *2.5, 250+ 10   *5)); //H
-      polaLeherlk1.add(new Node(pg[2].width/20+ 40   *2.5, 250+ 10.5 *5)); //L  
-      polaLeherlk1.add(new Node(pg[2].width/20+ 24.5 *2.5, 250+ 10.5 *5)); //J
-      polaLeherlk1.add(new Node(pg[2].width/20+ 9    *2.5, 250+ 10.5 *5)); //L
-      polaLeherlk1.add(new Node(pg[2].width/20+ 2.5  *2.5, 250+ 10   *5)); //H
-      polaLeherlk1.add(new Node(pg[2].width/20+ 4    *2.5, 250+ 10   *5)); //I
-      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *2.5, 250+ 9    *5)); //E
-      polaLeherlk1.add(new Node(pg[2].width/20+ 0    *2.5, 250+ 3.5  *5)); //G
+      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *2.5, 250+ 4.5  *2.5)); //C
+      polaLeherlk1.add(new Node(pg[2].width/20+ 24.5 *2.5, 250+ 5    *2.5)); //A
+      polaLeherlk1.add(new Node(pg[2].width/20+ 44   *2.5, 250+ 4.5  *2.5)); //C
+      polaLeherlk1.add(new Node(pg[2].width/20+ 49   *2.5, 250+ 3.5  *2.5)); //G
+      polaLeherlk1.add(new Node(pg[2].width/20+ 44   *2.5, 250+ 9    *2.5)); //E
+      polaLeherlk1.add(new Node(pg[2].width/20+ 45   *2.5, 250+ 10   *2.5)); //I
+      polaLeherlk1.add(new Node(pg[2].width/20+ 46.5 *2.5, 250+ 10   *2.5)); //H
+      polaLeherlk1.add(new Node(pg[2].width/20+ 40   *2.5, 250+ 10.5 *2.5)); //L  
+      polaLeherlk1.add(new Node(pg[2].width/20+ 24.5 *2.5, 250+ 10.5 *2.5)); //J
+      polaLeherlk1.add(new Node(pg[2].width/20+ 9    *2.5, 250+ 10.5 *2.5)); //L
+      polaLeherlk1.add(new Node(pg[2].width/20+ 2.5  *2.5, 250+ 10   *2.5)); //H
+      polaLeherlk1.add(new Node(pg[2].width/20+ 4    *2.5, 250+ 10   *2.5)); //I
+      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *2.5, 250+ 9    *2.5)); //E
+      polaLeherlk1.add(new Node(pg[2].width/20+ 0    *2.5, 250+ 3.5  *2.5)); //G
     }
     
     if(templateLeherlk==13){// kerah kemeja l
@@ -8422,20 +8422,20 @@ void selectLeherLk() {
       leherlk2.add(new Node1(pg[3].width/2+25, 220,0,0));
       leherlk2.add(new Node1(pg[3].width/2, 215,0,0));
       
-      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *5, 250+ 4.5  *5)); //C
-      polaLeherlk1.add(new Node(pg[2].width/20+ 25.5 *5, 250+ 5    *5)); //A
-      polaLeherlk1.add(new Node(pg[2].width/20+ 46   *5, 250+ 4.5  *5)); //C
-      polaLeherlk1.add(new Node(pg[2].width/20+ 51   *5, 250+ 3.5  *5)); //G
-      polaLeherlk1.add(new Node(pg[2].width/20+ 46   *5, 250+ 9    *5)); //E
-      polaLeherlk1.add(new Node(pg[2].width/20+ 47   *5, 250+ 10   *5)); //I
-      polaLeherlk1.add(new Node(pg[2].width/20+ 48.5 *5, 250+ 10   *5)); //H
-      polaLeherlk1.add(new Node(pg[2].width/20+ 41.5 *5, 250+ 10.5 *5)); //L  
-      polaLeherlk1.add(new Node(pg[2].width/20+ 25.5 *5, 250+ 10.5 *5)); //J
-      polaLeherlk1.add(new Node(pg[2].width/20+ 9.5  *5, 250+ 10.5 *5)); //L
-      polaLeherlk1.add(new Node(pg[2].width/20+ 2.5  *5, 250+ 10   *5)); //H
-      polaLeherlk1.add(new Node(pg[2].width/20+ 4    *5, 250+ 10   *5)); //I
-      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *5, 250+ 9    *5)); //E
-      polaLeherlk1.add(new Node(pg[2].width/20+ 0    *5, 250+ 3.5  *5)); //G
+      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *5, 250+ 4.5  *2.5)); //C
+      polaLeherlk1.add(new Node(pg[2].width/20+ 25.5 *5, 250+ 5    *2.5)); //A
+      polaLeherlk1.add(new Node(pg[2].width/20+ 46   *5, 250+ 4.5  *2.5)); //C
+      polaLeherlk1.add(new Node(pg[2].width/20+ 51   *5, 250+ 3.5  *2.5)); //G
+      polaLeherlk1.add(new Node(pg[2].width/20+ 46   *5, 250+ 9    *2.5)); //E
+      polaLeherlk1.add(new Node(pg[2].width/20+ 47   *5, 250+ 10   *2.5)); //I
+      polaLeherlk1.add(new Node(pg[2].width/20+ 48.5 *5, 250+ 10   *2.5)); //H
+      polaLeherlk1.add(new Node(pg[2].width/20+ 41.5 *5, 250+ 10.5 *2.5)); //L  
+      polaLeherlk1.add(new Node(pg[2].width/20+ 25.5 *5, 250+ 10.5 *2.5)); //J
+      polaLeherlk1.add(new Node(pg[2].width/20+ 9.5  *5, 250+ 10.5 *2.5)); //L
+      polaLeherlk1.add(new Node(pg[2].width/20+ 2.5  *5, 250+ 10   *2.5)); //H
+      polaLeherlk1.add(new Node(pg[2].width/20+ 4    *5, 250+ 10   *2.5)); //I
+      polaLeherlk1.add(new Node(pg[2].width/20+ 5    *5, 250+ 9    *2.5)); //E
+      polaLeherlk1.add(new Node(pg[2].width/20+ 0    *5, 250+ 3.5  *2.5)); //G
     }
     
     newProject = false; 
@@ -9432,7 +9432,7 @@ public void drawPgAction(){
   }
   else if(leherlk1.size()==10 && leherlk2.size()==6 && polaLeherlk1.size()==10 && templateLeherlk!=2 && templateLeherlk!=4 
   && templateLeherlk!=8 && templateLeherlk!=10 && templateLeherlk==16){
-  pg[10].text("- Pola Kerah Shiller M",15,75);
+  pg[10].text("- Pola Kerah Shiller L",15,75);
   }
   else if(leherlk1.size()==15 && leherlk2.size()==6 && polaLeherlk1.size()==14 && templateLeherlk!=5 && templateLeherlk!=11 && templateLeherlk==17){
   pg[10].text("- Pola Kerah Kemeja Boord Terusan L",15,75);
@@ -11201,7 +11201,7 @@ public void fileSelectedForSave(File selection) {
       output.println("pcelanalk1"+TAB+TAB); 
     }
       else if(templateCelanalk==2){
-      output.println("pccelanalk2"+TAB+TAB); 
+      output.println("pcelanalk2"+TAB+TAB); 
     }
       else if(templateCelanalk==3){
       output.println("pcelanalk3"+TAB+TAB); 
