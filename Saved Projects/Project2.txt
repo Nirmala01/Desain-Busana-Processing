@@ -1,0 +1,123 @@
+polaAtasan1	11
+patasan1	52.0	60.5
+patasan1	88.0	50.0
+patasan1	92.5	62.0
+patasan1	101.5	74.0
+patasan1	122.5	74.0
+patasan1	122.5	249.5
+patasan1	37.0	249.5
+patasan1	37.0	128.0
+patasan1	46.0	122.0
+patasan1	50.5	116.0
+patasan1	58.0	93.5
+polaAtasan2	11
+patasan2	142.5	74.0
+patasan2	163.5	74.0
+patasan2	172.5	62.0
+patasan2	177.0	50.0
+patasan2	213.0	60.5
+patasan2	207.0	104.0
+patasan2	214.5	116.0
+patasan2	219.0	122.0
+patasan2	228.0	128.0
+patasan2	228.0	249.5
+patasan2	142.5	249.5
+polaAtasan3	18
+patasan3	252.0	60.5
+patasan3	288.0	50.0
+patasan3	292.5	53.0
+patasan3	301.5	57.5
+patasan3	313.5	57.5
+patasan3	322.5	53.0
+patasan3	327.0	50.0
+patasan3	363.0	60.5
+patasan3	357.0	104.0
+patasan3	364.5	116.0
+patasan3	369.0	122.0
+patasan3	378.0	128.0
+patasan3	378.0	249.5
+patasan3	237.0	249.5
+patasan3	237.0	128.0
+patasan3	246.0	122.0
+patasan3	250.5	116.0
+patasan3	258.0	93.5
+rok1		4
+vrok1		187.0	360.0	0.0	100.0
+vrok1		267.0	360.0	100.0	0.0
+vrok1		267.0	370.0	100.0	100.0
+vrok1		187.0	370.0	0.0	0.0
+rok2		18
+vrok2		187.0	370.0	0.0	0.0
+vrok2		267.0	370.0	0.0	0.0
+vrok2		277.0	400.0	100.0	0.0
+vrok2		297.0	600.0	100.0	0.0
+vrok2		287.0	600.0	100.0	0.0
+vrok2		277.0	590.0	100.0	100.0
+vrok2		267.0	600.0	100.0	100.0
+vrok2		257.0	600.0	100.0	100.0
+vrok2		247.0	590.0	0.0	100.0
+vrok2		237.0	600.0	0.0	100.0
+vrok2		217.0	600.0	0.0	100.0
+vrok2		207.0	590.0	0.0	100.0
+vrok2		197.0	600.0	100.0	100.0
+vrok2		187.0	600.0	100.0	100.0
+vrok2		177.0	590.0	100.0	100.0
+vrok2		167.0	600.0	100.0	0.0
+vrok2		157.0	600.0	100.0	0.0
+vrok2		177.0	400.0	100.0	0.0
+garisRok	8
+vgarisrok	207.0	370.0
+vgarisrok	177.0	590.0
+vgarisrok	217.0	370.0
+vgarisrok	207.0	590.0
+vgarisrok	237.0	370.0
+vgarisrok	247.0	590.0
+vgarisrok	247.0	370.0
+vgarisrok	277.0	590.0
+atasan1	15
+vatasan1	202.0	220.0	0.0	0.0
+vatasan1	207.0	230.0	0.0	0.0
+vatasan1	227.0	240.0	0.0	0.0
+vatasan1	247.0	230.0	0.0	0.0
+vatasan1	252.0	220.0	0.0	0.0
+vatasan1	282.0	240.0	100.0	0.0
+vatasan1	272.0	285.0	100.0	0.0
+vatasan1	272.0	300.0	100.0	0.0
+vatasan1	282.0	320.0	100.0	100.0
+vatasan1	287.0	420.0	100.0	100.0
+vatasan1	167.0	420.0	100.0	100.0
+vatasan1	172.0	320.0	100.0	100.0
+vatasan1	182.0	300.0	0.0	100.0
+vatasan1	182.0	285.0	0.0	100.0
+vatasan1	172.0	240.0	0.0	100.0
+garisAtasan	2
+vgarisatasan	227.0	240.0
+vgarisatasan	227.0	420.0
+leher1		8
+vleher1		267.0	230.0	0.0	0.0
+vleher1		237.0	260.0	0.0	0.0
+vleher1		227.0	240.0	0.0	0.0
+vleher1		217.0	260.0	0.0	0.0
+vleher1		187.0	230.0	0.0	0.0
+vleher1		202.0	220.0	0.0	0.0
+vleher1		227.0	215.0	0.0	0.0
+vleher1		252.0	220.0	0.0	0.0
+lengan1	5
+vlengan1	182.0	285.0	0.0	0.0
+vlengan1	182.0	300.0	100.0	0.0
+vlengan1	172.0	320.0	100.0	100.0
+vlengan1	147.0	300.0	0.0	100.0
+vlengan1	172.0	240.0	0.0	0.0
+lengan2	6
+vlengan2	282.0	240.0	0.0	0.0
+vlengan2	272.0	285.0	100.0	0.0
+vlengan2	272.0	300.0	100.0	100.0
+vlengan2	282.0	320.0	100.0	100.0
+vlengan2	307.0	300.0	0.0	100.0
+vlengan2	282.0	240.0	0.0	0.0
+garisLengan	2
+vgarislengan	280.0	315.0
+vgarislengan	305.0	295.0
+garisLengan2	2
+vgarislengan2	174.0	315.0
+vgarislengan2	149.0	295.0

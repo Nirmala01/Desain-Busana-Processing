@@ -1,0 +1,95 @@
+polaAtasan1	11
+patasan1	52.0	60.5
+patasan1	85.0	50.0
+patasan1	89.5	60.5
+patasan1	98.5	71.0
+patasan1	118.0	71.0
+patasan1	118.0	219.5
+patasan1	38.5	219.5
+patasan1	38.5	117.5
+patasan1	43.0	111.5
+patasan1	50.5	105.5
+patasan1	56.5	93.5
+polaAtasan2	11
+patasan2	138.0	71.0
+patasan2	157.5	71.0
+patasan2	166.5	60.5
+patasan2	171.0	50.0
+patasan2	204.0	60.5
+patasan2	199.5	93.5
+patasan2	205.5	105.5
+patasan2	213.0	111.5
+patasan2	220.5	117.5
+patasan2	220.5	219.5
+patasan2	138.0	219.5
+polaAtasan3	18
+patasan3	252.0	60.5
+patasan3	285.0	50.0
+patasan3	289.5	53.0
+patasan3	298.5	56.0
+patasan3	307.5	56.0
+patasan3	316.5	53.0
+patasan3	321.0	50.0
+patasan3	354.0	60.5
+patasan3	349.5	93.5
+patasan3	355.5	105.5
+patasan3	363.0	111.5
+patasan3	370.5	117.5
+patasan3	370.5	219.5
+patasan3	238.5	219.5
+patasan3	238.5	117.5
+patasan3	243.0	111.5
+patasan3	250.5	105.5
+patasan3	256.5	93.5
+atasan1	15
+vatasan1	202.0	220.0	0.0	0.0
+vatasan1	207.0	230.0	100.0	0.0
+vatasan1	227.0	240.0	100.0	100.0
+vatasan1	247.0	230.0	0.0	100.0
+vatasan1	252.0	220.0	0.0	0.0
+vatasan1	282.0	240.0	100.0	0.0
+vatasan1	272.0	285.0	100.0	100.0
+vatasan1	272.0	300.0	0.0	100.0
+vatasan1	282.0	320.0	0.0	0.0
+vatasan1	287.0	420.0	100.0	0.0
+vatasan1	167.0	420.0	100.0	100.0
+vatasan1	172.0	320.0	0.0	100.0
+vatasan1	182.0	300.0	0.0	0.0
+vatasan1	182.0	285.0	100.0	0.0
+vatasan1	172.0	240.0	100.0	100.0
+garisAtasan	2
+vgarisatasan	227.0	240.0
+vgarisatasan	227.0	420.0
+leher1		8
+vleher1		267.0	230.0	0.0	0.0
+vleher1		237.0	260.0	0.0	0.0
+vleher1		227.0	240.0	0.0	0.0
+vleher1		217.0	260.0	0.0	0.0
+vleher1		187.0	230.0	0.0	0.0
+vleher1		202.0	220.0	0.0	0.0
+vleher1		227.0	215.0	0.0	0.0
+vleher1		252.0	220.0	0.0	0.0
+lengan1	11
+vlengan1	172.0	240.0	100.0	0.0
+vlengan1	182.0	285.0	100.0	100.0
+vlengan1	182.0	300.0	0.0	100.0
+vlengan1	172.0	320.0	0.0	0.0
+vlengan1	162.0	420.0	100.0	0.0
+vlengan1	138.0	420.0	100.0	100.0
+vlengan1	147.0	300.0	0.0	100.0
+vlengan1	144.0	290.0	0.0	100.0
+vlengan1	143.0	270.0	0.0	0.0
+vlengan1	157.0	250.0	0.0	0.0
+vlengan1	172.0	240.0	100.0	0.0
+lengan2	11
+vlengan2	282.0	240.0	100.0	0.0
+vlengan2	272.0	285.0	100.0	100.0
+vlengan2	272.0	300.0	0.0	100.0
+vlengan2	282.0	320.0	0.0	0.0
+vlengan2	292.0	420.0	100.0	0.0
+vlengan2	316.0	420.0	100.0	100.0
+vlengan2	307.0	300.0	0.0	100.0
+vlengan2	310.0	290.0	0.0	100.0
+vlengan2	311.0	270.0	0.0	0.0
+vlengan2	297.0	250.0	0.0	0.0
+vlengan2	282.0	240.0	100.0	0.0

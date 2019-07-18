@@ -1,0 +1,201 @@
+polaAtasanlk1	18
+patasanlk1	43.0	58.75
+patasanlk1	70.5	50.0
+patasanlk1	74.25	58.75
+patasanlk1	81.75	67.5
+patasanlk1	89.25	67.5
+patasanlk1	96.75	58.75
+patasanlk1	100.5	50.0
+patasanlk1	128.0	58.75
+patasanlk1	124.25	86.25
+patasanlk1	129.25	96.25
+patasanlk1	135.5	101.25
+patasanlk1	141.75	106.25
+patasanlk1	141.75	228.75
+patasanlk1	31.75	228.75
+patasanlk1	31.75	106.25
+patasanlk1	35.5	101.25
+patasanlk1	41.75	96.25
+patasanlk1	46.75	86.25
+polaAtasanlk2	18
+patasanlk2	293.0	58.75
+patasanlk2	320.5	50.0
+patasanlk2	324.25	52.5
+patasanlk2	331.75	55.0
+patasanlk2	339.25	55.0
+patasanlk2	346.75	52.5
+patasanlk2	350.5	50.0
+patasanlk2	378.0	58.75
+patasanlk2	374.25	86.25
+patasanlk2	379.25	96.25
+patasanlk2	385.5	101.25
+patasanlk2	391.75	106.25
+patasanlk2	391.75	228.75
+patasanlk2	281.75	228.75
+patasanlk2	281.75	106.25
+patasanlk2	285.5	101.25
+patasanlk2	291.75	96.25
+patasanlk2	296.75	86.25
+polaLenganlk1	11
+plenganlk1	49.25	320.0
+plenganlk1	155.5	346.25
+plenganlk1	155.5	393.75
+plenganlk1	49.25	420.0
+plenganlk1	41.75	402.5
+plenganlk1	30.5	390.0
+plenganlk1	20.5	377.5
+plenganlk1	18.0	370.0
+plenganlk1	20.5	357.5
+plenganlk1	30.5	345.0
+plenganlk1	41.75	332.5
+polaLenganlk2	11
+plenganlk2	336.75	320.0
+plenganlk2	230.5	346.25
+plenganlk2	230.5	393.75
+plenganlk2	336.75	420.0
+plenganlk2	344.25	402.5
+plenganlk2	355.5	390.0
+plenganlk2	365.5	377.5
+plenganlk2	368.0	370.0
+plenganlk2	365.5	357.5
+plenganlk2	355.5	345.0
+plenganlk2	344.25	332.5
+polaCelanalk1	16
+pcelanalk1	80.5	445.0
+pcelanalk1	80.5	497.5
+pcelanalk1	81.75	502.5
+pcelanalk1	93.0	515.0
+pcelanalk1	86.75	605.0
+pcelanalk1	24.25	605.0
+pcelanalk1	19.25	515.0
+pcelanalk1	20.5	497.5
+pcelanalk1	30.5	442.5
+pcelanalk1	43.0	442.5
+pcelanalk1	46.75	470.0
+pcelanalk1	50.5	442.5
+pcelanalk1	55.5	443.75
+pcelanalk1	60.5	445.0
+pcelanalk1	64.25	470.0
+pcelanalk1	68.0	445.0
+polaCelanalk2	5
+pcelanalk2	80.5	445.0
+pcelanalk2	89.25	445.0
+pcelanalk2	89.25	475.0
+pcelanalk2	86.75	490.0
+pcelanalk2	80.5	497.5
+polaCelanalk3	16
+pcelanalk3	155.5	445.0
+pcelanalk3	155.5	497.5
+pcelanalk3	154.25	502.5
+pcelanalk3	143.0	515.0
+pcelanalk3	149.25	605.0
+pcelanalk3	211.75	605.0
+pcelanalk3	216.75	515.0
+pcelanalk3	215.5	497.5
+pcelanalk3	205.5	442.5
+pcelanalk3	193.0	442.5
+pcelanalk3	189.25	470.0
+pcelanalk3	185.5	442.5
+pcelanalk3	180.5	443.75
+pcelanalk3	175.5	445.0
+pcelanalk3	171.75	470.0
+pcelanalk3	168.0	445.0
+polaCelanalk4	5
+pcelanalk4	155.5	445.0
+pcelanalk4	146.75	445.0
+pcelanalk4	146.75	475.0
+pcelanalk4	149.25	490.0
+pcelanalk4	155.5	497.5
+polaCelanalk5	11
+pcelanalk5	293.0	437.5
+pcelanalk5	304.25	490.0
+pcelanalk5	311.75	502.5
+pcelanalk5	323.0	515.0
+pcelanalk5	306.75	605.0
+pcelanalk5	235.5	605.0
+pcelanalk5	229.25	515.0
+pcelanalk5	229.25	442.5
+pcelanalk5	261.75	442.5
+pcelanalk5	265.5	470.0
+pcelanalk5	269.25	442.5
+polaCelanalk6	11
+pcelanalk6	383.0	437.5
+pcelanalk6	371.75	490.0
+pcelanalk6	364.25	502.5
+pcelanalk6	353.0	515.0
+pcelanalk6	369.25	605.0
+pcelanalk6	440.5	605.0
+pcelanalk6	446.75	515.0
+pcelanalk6	446.75	442.5
+pcelanalk6	414.25	442.5
+pcelanalk6	410.5	470.0
+pcelanalk6	406.75	442.5
+atasanlk1	15
+vatasanlk1	202.0	220.0	0.0	0.0
+vatasanlk1	207.0	230.0	100.0	0.0
+vatasanlk1	227.0	240.0	100.0	100.0
+vatasanlk1	247.0	230.0	0.0	100.0
+vatasanlk1	252.0	220.0	0.0	0.0
+vatasanlk1	282.0	240.0	100.0	0.0
+vatasanlk1	272.0	285.0	100.0	100.0
+vatasanlk1	272.0	300.0	0.0	100.0
+vatasanlk1	282.0	320.0	0.0	0.0
+vatasanlk1	282.0	420.0	100.0	0.0
+vatasanlk1	172.0	420.0	100.0	100.0
+vatasanlk1	172.0	320.0	0.0	100.0
+vatasanlk1	182.0	300.0	0.0	0.0
+vatasanlk1	182.0	285.0	100.0	0.0
+vatasanlk1	172.0	240.0	100.0	100.0
+lenganlk1	8
+vlenganlk1	172.0	240.0	100.0	0.0
+vlenganlk1	182.0	285.0	100.0	100.0
+vlenganlk1	182.0	300.0	0.0	100.0
+vlenganlk1	172.0	320.0	0.0	0.0
+vlenganlk1	162.0	420.0	100.0	0.0
+vlenganlk1	137.0	420.0	100.0	100.0
+vlenganlk1	147.0	300.0	0.0	100.0
+vlenganlk1	172.0	240.0	0.0	0.0
+lenganlk2	8
+vlenganlk2	282.0	240.0	100.0	0.0
+vlenganlk2	272.0	285.0	100.0	100.0
+vlenganlk2	272.0	300.0	0.0	100.0
+vlenganlk2	282.0	320.0	0.0	0.0
+vlenganlk2	292.0	420.0	100.0	0.0
+vlenganlk2	317.0	420.0	100.0	100.0
+vlenganlk2	307.0	300.0	0.0	100.0
+vlenganlk2	282.0	240.0	0.0	0.0
+celanalk1	4
+vcelanalk1	187.0	360.0	0.0	100.0
+vcelanalk1	267.0	360.0	100.0	0.0
+vcelanalk1	267.0	370.0	100.0	100.0
+vcelanalk1	187.0	370.0	0.0	0.0
+celanalk2	9
+vcelanalk2	187.0	370.0	0.0	0.0
+vcelanalk2	267.0	370.0	0.0	0.0
+vcelanalk2	277.0	400.0	100.0	0.0
+vcelanalk2	279.0	550.0	100.0	100.0
+vcelanalk2	232.0	550.0	0.0	100.0
+vcelanalk2	227.0	450.0	0.0	0.0
+vcelanalk2	222.0	550.0	0.0	100.0
+vcelanalk2	175.0	550.0	100.0	100.0
+vcelanalk2	177.0	400.0	100.0	0.0
+celanalk3	12
+vcelanalk3	267.0	370.0	267.0	0.0
+vcelanalk3	277.0	400.0	277.0	0.0
+vcelanalk3	267.0	400.0	267.0	0.0
+vcelanalk3	257.0	390.0	257.0	100.0
+vcelanalk3	252.0	370.0	252.0	100.0
+vcelanalk3	267.0	370.0	267.0	100.0
+vcelanalk3	187.0	370.0	187.0	0.0
+vcelanalk3	177.0	400.0	177.0	0.0
+vcelanalk3	187.0	400.0	187.0	0.0
+vcelanalk3	197.0	390.0	197.0	100.0
+vcelanalk3	202.0	370.0	202.0	100.0
+vcelanalk3	187.0	370.0	187.0	100.0
+garisCelanalk	6
+vgariscelanalk	223.0	370.0
+vgariscelanalk	223.0	420.0
+vgariscelanalk	231.0	370.0
+vgariscelanalk	231.0	420.0
+vgariscelanalk	223.0	420.0
+vgariscelanalk	231.0	420.0
